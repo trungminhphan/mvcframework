@@ -8,6 +8,8 @@ $GLOBALS['config'] = array(
   'path' => array(
     'app' =>'app/',
     'core' => 'core/',
+    'session' => 'app/session/',
+    'basePath' => 'E:/www/mvcframework/',
     'index' => 'index.php',
   ),
   'defaults' => array(
@@ -19,8 +21,8 @@ $GLOBALS['config'] = array(
     'host' => 'localhost',
     'username' => '',
     'password' => '',
-    'database' => '',
-    'port' => ''
+    'database' => 'mvcframework',
+    'port' => '27017'
   )
 );
 

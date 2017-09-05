@@ -2,13 +2,16 @@
 class model{
   public $model;
   function __construct(){
-    $this->model = new databases(
-      $GLOBALS['config']['databse']['host'],
-      $GLOBALS['config']['databse']['username'],
-      $GLOBALS['config']['databse']['password'],
-      $GLOBALS['config']['databse']['port'],
-      $GLOBALS['config']['databse']['database']
-    );
+    /*$this->model = new database(
+      $GLOBALS['config']['database']['host'],
+      $GLOBALS['config']['database']['username'],
+      $GLOBALS['config']['database']['password'],
+      $GLOBALS['config']['database']['port'],
+      $GLOBALS['config']['database']['database']
+    );*/
+    //$this->model = database::init();
   }
+
+
 }
 ?>

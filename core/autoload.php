@@ -27,11 +27,10 @@ spl_autoload_register(function($class){
     $instantiable = false;
     require_once("{$appPath}abstracts/{$class}.php");
   }
-
-  if($instantiable){
+  /*if($instantiable){
     foreach($GLOBALS['instances'] as $instance){
       $instance->$class = new $class();
     }
-  }
+  }*/
 });
 ?>

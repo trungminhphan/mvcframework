@@ -1,24 +1,29 @@
 <?php
 class database {
-  //const HOST = 'localhost';
-  //const PORT = 27017;
-  //const DBNAME = 'mvcframework';
-  //const USERNAME = 'root';
-  //const PASSWORD = 'root';
-  public $database;
+  const HOST = 'localhost';//$GLOBALS['config']['database']['host'];
+  const PORT = 27017;//$GLOBALS['config']['database']['port'];
+  const DBNAME = 'mvcframework';//$GLOBALS['config']['database']['database'];
+  const USERNAME = '';//$GLOBALS['config']['database']['username'];
+  const PASSWORD = '';//$GLOBALS['config']['database']['password'];
   private static $instance;
-  public $connection;
-    private function __construct($host, $username='', $password='', $port, $database){
-    if($username == '' && $password == ''){
-      $connectionString = sprintf('mongodb://%s:%d', $host, $port);
+  public $database; public $connection;
+
+  private function __construct(){
+    if(database::USERNAME == '' && database::PASSWORD == ''){
+      $connectionString = sprintf('mongodb://%s:%d', database::HOST, database::PORT);
     } else {
-      $connectionString = sprintf('mongodb://%s:%s@%s:%d',$username, $password, $host, $port);
+      $connectionString = sprintf('mongodb://%s:%s@%s:%d',DBConnect::USERNAME, DBConnect::PASSWORD, DBConnect::HOST, DBConnect::PORT);
     }
     try {
       $this->connection = new MongoClient($connectionString);
-      $this->database = $this->connection->selectDB($database);
+      $this->database = $this->connection->selectDB(database::DBNAME);
     } catch (MongoConnectionException $e) { throw $e; }
   }
+
+  public function __destruct(){
+    $this->connection->close();
+  }
+
   static public function init() {
     if (!isset(self::$instance)) {
       $class = __CLASS__;
