@@ -8,7 +8,7 @@ class database {
   private static $instance;
   public $database; public $connection;
 
-  private function __construct(){
+  function __construct(){
     if(database::USERNAME == '' && database::PASSWORD == ''){
       $connectionString = sprintf('mongodb://%s:%d', database::HOST, database::PORT);
     } else {

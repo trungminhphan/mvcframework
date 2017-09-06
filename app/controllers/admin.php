@@ -7,8 +7,8 @@ class admin extends controller{
 			if(url::post("username") && url::post("password")){
 				$admins = new admins();
 				if($user = $admins->auth(url::post('username'), url::post('password'))){
+					session::set('id', strval($user['_id']));
 					session::set('username', $user['username']);
-					session::set('id', $user['_id']);
 					session::set('fname', $user['fname']);
 					session::set('lname', $user['lname']);
 					load::view("admin/home");

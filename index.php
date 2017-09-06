@@ -5,11 +5,13 @@ $GLOBALS['config'] = array(
   'appName' => 'mvcframeworkid',
   'version' => '0.0.1',
   'domain' => 'mvcframework.com',
+  'cache_enabled' => true,
   'path' => array(
     'app' =>'app/',
+    'cache' => 'caches/',
     'core' => 'core/',
     'session' => 'app/session/',
-    'basePath' => 'E:/www/mvcframework/',
+    'basePath' => 'C:/wamp64/www/mvcframework/',
     'index' => 'index.php',
   ),
   'defaults' => array(
@@ -25,9 +27,8 @@ $GLOBALS['config'] = array(
     'port' => '27017'
   )
 );
-
+date_default_timezone_set('Asia/Ho_Chi_Minh');
 $GLOBALS['instances'] = array();
-
 require_once $GLOBALS['config']['path']['core']. 'autoload.php';
 new router();
 ?>

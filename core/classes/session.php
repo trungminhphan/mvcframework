@@ -25,6 +25,7 @@ class session{
           $set = false;
         }
       }
+      return $set;
     } else {
       $key = session::generateSessionKey($key);
       return isset($_SESSION[$key]);
