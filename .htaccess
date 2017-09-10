@@ -1,9 +1,5 @@
-RewriteEngine On
-#disable foe these file types
-RewriteCond %{REQUEST_URI} !\.css$
-RewriteCond %{REQUEST_URI} !\.png$
-RewriteCond %{REQUEST_URI} !\.jpg$
-RewriteCond %{REQUEST_URI} !\.js$
-RewriteCond %{REQUEST_URI} !\.zip$
-RewriteCond %{REQUEST_URI} !\.html
-RewriteRule . index.php
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	RewriteRule ^$ webroot/ [L]
+	RewriteRule (.*) webroot/$1 [L]
+</IfModule>
