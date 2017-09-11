@@ -1,4 +1,4 @@
-<?php 
+<?php
 class Controller{
 	protected $data;
 	protected $model;
