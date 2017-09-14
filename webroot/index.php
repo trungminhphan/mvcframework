@@ -5,12 +5,4 @@ define('VIEWS_PATH', ROOT.DS.'views');
 
 require_once(ROOT.DS.'lib'.DS.'init.php');
 App::run($_SERVER['REQUEST_URI']);
-
-$collection = App::$db->getCollection('admins');
-
-$result = $collection->find();
-
-foreach($result as $r){
-  var_dump($r);
-}
 ?>

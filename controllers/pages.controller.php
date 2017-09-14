@@ -7,16 +7,16 @@ class PagesController extends Controller{
   }
 
   public function index(){
-    $this->data['test_content'] = 'Here will be pages list';
+    $this->data['pages'] = $this->model->get_all_list();
   }
 
   public function view(){
     $params = App::getRouter()->getParams();
     if(isset($params[0])){
       $alias = strtolower($params[0]);
-      $this->data['content'] = "Here will be a page with '{$alias}' alias";
+      $this->data['page'] = "Here will be a page with '{$alias}' alias";
     } else {
-      $this->data['content'] = '123';
+      $this->data['page'] = '123';
     }
   }
 }
