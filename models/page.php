@@ -5,9 +5,9 @@ class Page extends Model{
 		parent::__construct('admins');
 	}
 
-  	public function get_all_list(){
-	   	return $this->collection->find();
-  	}
+	public function get_all_list(){
+   	return $this->collection->find();
+	}
 
 }
 ?>

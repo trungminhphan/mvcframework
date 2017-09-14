@@ -1,18 +1,16 @@
-<form>
+<form action="" method="post">
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <div class="form-group">
+    <label for="exampleInputPassword1">Your Name</label>
+    <input type="text" name="name" class="form-control" id=name placeholder="Your name">
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <label for="exampleInputEmail1">Your Email</label>
+    <input type="email" class="form-control" id="email" placeholder="Your Email" placeholder="Your email">
   </div>
-  <div class="form-check">
-    <label class="form-check-label">
-      <input type="checkbox" class="form-check-input">
-      Check me out
-    </label>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Messages</label>
+    <textarea  class="form-control" name="message" id="message" rows="5"></textarea>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
