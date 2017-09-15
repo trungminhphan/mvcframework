@@ -12,7 +12,7 @@ class DB{
     }
 
     try {
-      $this->connection = new MongoClient($this->connectionString);
+      $this->connection = new MongoDB\Client($this->connectionString);
       $this->database = $this->connection->selectDB($db_name);
     } catch (MongoConnectionException $e) { throw $e; }
   }
