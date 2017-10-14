@@ -1,14 +1,13 @@
 <?php
 
 namespace Core;
-
+use \App\Config;
 /**
  * Router
  *
  * PHP version 7.0
  */
-class Router
-{
+class Router{
 
     /**
      * Associative array of routes (the routing table)
@@ -21,6 +20,8 @@ class Router
      * @var array
      */
     protected $params = [];
+
+    protected $language = '';
 
     /**
      * Add a route to the routing table
@@ -99,10 +100,26 @@ class Router
      *
      * @return void
      */
-    public function dispatch($url)
-    {
-        $url = $this->removeQueryStringVariables($url);
+    public function dispatch($url){
+        $path = explode("/", $url);
 
+        if(in_array(strtolower(current($path)), Config::ARR_LANGUAGES)){
+            $this->language = current($path);
+            array_shift($path); $url = implode('/', $path);
+        } else {
+            $this->language = Config::DEFAULT_LANGUAGE;
+        }
+
+        // Set language to French
+        putenv('LC_ALL=vi_VN');
+        setlocale(LC_ALL, 'vi_VN');
+        // Specify the location of the translation tables
+        bindtextdomain('messages', '/locale');
+        bind_textdomain_codeset('messages', 'UTF-8');
+        // Choose domain
+        textdomain('messages');
+
+        $url = $this->removeQueryStringVariables($url);
         if ($this->match($url)) {
             $controller = $this->params['controller'];
             $controller = $this->convertToStudlyCaps($controller);

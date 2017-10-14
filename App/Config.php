@@ -44,6 +44,8 @@ class Config
      * @var boolean
      */
 
+    const ARR_LANGUAGES = array('vi', 'en');
+    const DEFAULT_LANGUAGE = 'vi';
 
     const SHOW_ERRORS = true;
 }

@@ -1,7 +1,6 @@
 <?php
 
 namespace Core;
-
 /**
  * View
  *
@@ -44,6 +43,7 @@ class View {
             $loader = new \Twig_Loader_Filesystem(dirname(__DIR__) . '/App/Views');
             $twig = new \Twig_Environment($loader);
         }
+        $twig->addExtension(new \Twig_Extensions_Extension_I18n());
 
         echo $twig->render($template, $args);
     }
