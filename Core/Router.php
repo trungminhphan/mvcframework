@@ -31,8 +31,7 @@ class Router{
      *
      * @return void
      */
-    public function add($route, $params = [])
-    {
+    public function add($route, $params = []) {
         // Convert the route to a regular expression: escape forward slashes
         $route = preg_replace('/\//', '\\/', $route);
         // Convert variables e.g. {controller}
@@ -41,7 +40,6 @@ class Router{
         $route = preg_replace('/\{([a-z]+):([^\}]+)\}/', '(?P<\1>\2)', $route);
         // Add start and end delimiters, and case insensitive flag
         $route = '/^' . $route . '$/i';
-
         $this->routes[$route] = $params;
     }
 
@@ -50,8 +48,7 @@ class Router{
      *
      * @return array
      */
-    public function getRoutes()
-    {
+    public function getRoutes(){
         return $this->routes;
     }
 
@@ -110,15 +107,6 @@ class Router{
             $this->language = Config::DEFAULT_LANGUAGE;
         }
 
-        // Set language to French
-        putenv('LC_ALL=vi_VN');
-        setlocale(LC_ALL, 'vi_VN');
-        // Specify the location of the translation tables
-        bindtextdomain('messages', '/locale');
-        bind_textdomain_codeset('messages', 'UTF-8');
-        // Choose domain
-        textdomain('messages');
-
         $url = $this->removeQueryStringVariables($url);
         if ($this->match($url)) {
             $controller = $this->params['controller'];
@@ -145,6 +133,10 @@ class Router{
         }
     }
 
+    public function getLang(){
+        return $this->language;
+    }
+
     /**
      * Convert the string with hyphens to StudlyCaps,
      * e.g. post-authors => PostAuthors
@@ -153,8 +145,7 @@ class Router{
      *
      * @return string
      */
-    protected function convertToStudlyCaps($string)
-    {
+    protected function convertToStudlyCaps($string) {
         return str_replace(' ', '', ucwords(str_replace('-', ' ', $string)));
     }
 

@@ -14,12 +14,16 @@ class ComposerStaticInit7c0baa335460178fecca298af007aa1c
     public static $prefixLengthsPsr4 = array (
         'T' => 
         array (
-            'Twig\\Extensions\\' => 16,
             'Twig\\' => 5,
         ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Component\\Yaml\\' => 23,
+            'Symfony\\Component\\Translation\\' => 30,
+            'Symfony\\Component\\Filesystem\\' => 29,
+            'Symfony\\Component\\Config\\' => 25,
+            'Symfony\\Bridge\\Twig\\' => 20,
         ),
         'M' => 
         array (
@@ -36,10 +40,6 @@ class ComposerStaticInit7c0baa335460178fecca298af007aa1c
     );
 
     public static $prefixDirsPsr4 = array (
-        'Twig\\Extensions\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/twig/extensions/src',
-        ),
         'Twig\\' => 
         array (
             0 => __DIR__ . '/..' . '/twig/twig/src',
@@ -47,6 +47,26 @@ class ComposerStaticInit7c0baa335460178fecca298af007aa1c
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
+        'Symfony\\Component\\Yaml\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/yaml',
+        ),
+        'Symfony\\Component\\Translation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/translation',
+        ),
+        'Symfony\\Component\\Filesystem\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/filesystem',
+        ),
+        'Symfony\\Component\\Config\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/config',
+        ),
+        'Symfony\\Bridge\\Twig\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/twig-bridge',
         ),
         'MongoDB\\' => 
         array (
@@ -65,10 +85,6 @@ class ComposerStaticInit7c0baa335460178fecca298af007aa1c
     public static $prefixesPsr0 = array (
         'T' => 
         array (
-            'Twig_Extensions_' => 
-            array (
-                0 => __DIR__ . '/..' . '/twig/extensions/lib',
-            ),
             'Twig_' => 
             array (
                 0 => __DIR__ . '/..' . '/twig/twig/lib',
