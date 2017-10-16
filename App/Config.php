@@ -42,7 +42,10 @@ class Config{
      */
 
     const ARR_LANGUAGES = array('vi', 'en');
+
     const DEFAULT_LANGUAGE = 'vi';
+
+    const ARR_ROLES = array('Admin', 'Manager', 'Updater', 'Seller', 'Delivery');
 
     const SHOW_ERRORS = true;
 }

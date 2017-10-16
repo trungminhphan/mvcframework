@@ -35,14 +35,15 @@ class View {
      * @return void
      */
     public static function renderTemplate($template, $args = []){
-        $router = new Router();
+        $router = new Router(); $sessions = new Sessions();
         $locale = $router->getLang($_SERVER['REQUEST_URI']);
         static $twig = null;
         if ($twig === null) {
             $loader = new \Twig_Loader_Filesystem(dirname(__DIR__) . '/App/Views');
-            //$twig = new \Twig_Environment($loader, array('cache' => dirname(__DIR__) .'/tmp/Cache', 'auto_reload' => true));
-            $twig = new \Twig_Environment($loader, array('cache' => false));
+            $twig = new \Twig_Environment($loader, array('cache' => dirname(__DIR__) .'/tmp/Cache', 'auto_reload' => true));
+            //$twig = new \Twig_Environment($loader, array('cache' => false));
         }
+        $twig->addGlobal("session", $_SESSION);
         $translator = new \Symfony\Component\Translation\Translator($locale, new \Symfony\Component\Translation\MessageSelector());
         $translator->setFallbackLocales(['en']);
         $translator->addLoader('yaml', new \Symfony\Component\Translation\Loader\YamlFileLoader());

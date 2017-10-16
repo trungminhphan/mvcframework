@@ -17,7 +17,8 @@ class UserController extends \Core\Controller {
      * @return void
      */
     public function indexAction() {
-    	$users = User::getAll();
-    	View::renderTemplate('Home/users.html.twig', ['users' => $users]);
+    	$users = new User();
+        $list = $users->getAll();
+    	View::renderTemplate('Backend/users.html.twig', ['users' => $list]);
     }
 }

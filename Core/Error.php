@@ -7,8 +7,7 @@ namespace Core;
  *
  * PHP version 7.0
  */
-class Error
-{
+class Error {
 
     /**
      * Error handler. Convert all errors to Exceptions by throwing an ErrorException.
@@ -34,8 +33,7 @@ class Error
      *
      * @return void
      */
-    public static function exceptionHandler($exception)
-    {
+    public static function exceptionHandler($exception) {
         // Code is 404 (not found) or 500 (general error)
         $code = $exception->getCode();
         if ($code != 404) {

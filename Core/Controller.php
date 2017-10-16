@@ -7,8 +7,7 @@ namespace Core;
  *
  * PHP version 7.0
  */
-abstract class Controller
-{
+abstract class Controller {
 
     /**
      * Parameters from the matched route
@@ -23,8 +22,7 @@ abstract class Controller
      *
      * @return void
      */
-    public function __construct($route_params)
-    {
+    public function __construct($route_params) {
         $this->route_params = $route_params;
     }
 
@@ -39,8 +37,7 @@ abstract class Controller
      *
      * @return void
      */
-    public function __call($name, $args)
-    {
+    public function __call($name, $args){
         $method = $name . 'Action';
 
         if (method_exists($this, $method)) {
@@ -58,8 +55,7 @@ abstract class Controller
      *
      * @return void
      */
-    protected function before()
-    {
+    protected function before(){
     }
 
     /**
@@ -67,7 +63,6 @@ abstract class Controller
      *
      * @return void
      */
-    protected function after()
-    {
+    protected function after(){
     }
 }

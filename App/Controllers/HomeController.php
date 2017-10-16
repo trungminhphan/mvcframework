@@ -9,15 +9,17 @@ use \Core\View;
  *
  * PHP version 7.0
  */
-class HomeController extends \Core\Controller
-{
-
+class HomeController extends \Core\Controller {
     /**
      * Show the index page
      *
      * @return void
      */
     public function indexAction(){
-        View::renderTemplate('Home/index.html.twig');
+        View::renderTemplate('Frontend/index.html.twig');
+    }
+
+    public function adminAction(){
+        View::renderTemplate('Backend/index.html.twig');
     }
 }
