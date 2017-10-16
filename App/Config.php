@@ -1,14 +1,11 @@
 <?php
-
 namespace App;
-
 /**
  * Application configuration
  *
  * PHP version 7.0
  */
-class Config
-{
+class Config{
 
     /**
      * Database host

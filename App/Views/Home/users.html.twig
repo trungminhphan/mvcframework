@@ -8,5 +8,7 @@
     {% for user in users %}
         <li>{{user._id}} -- {{user.username}} -- {{user.password}}</li>
     {% endfor %}
-    
+    {% trans %}
+        Giới thiệu
+    {% endtrans %}
 {% endblock %}

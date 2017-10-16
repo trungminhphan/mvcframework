@@ -1,5 +1,4 @@
 <?php
-
 namespace Core;
 /**
  * View
@@ -7,7 +6,6 @@ namespace Core;
  * PHP version 7.0
  */
 class View {
-
     /**
      * Render a view file
      *
@@ -16,8 +14,7 @@ class View {
      *
      * @return void
      */
-    public static function render($view, $args = [])
-    {
+    public static function render($view, $args = []){
         extract($args, EXTR_SKIP);
 
         $file = dirname(__DIR__) . "/App/Views/$view";  // relative to Core directory
@@ -38,7 +35,8 @@ class View {
      * @return void
      */
     public static function renderTemplate($template, $args = []){
-        $locale = 'vi';
+        $router = new Router();
+        $locale = $router->getLang($_SERVER['REQUEST_URI']);
         static $twig = null;
         if ($twig === null) {
             $loader = new \Twig_Loader_Filesystem(dirname(__DIR__) . '/App/Views');
@@ -51,7 +49,6 @@ class View {
         $translator->addResource('yaml', dirname(__DIR__) . '/Locale/en.yml', 'en');
         $translator->addResource('yaml',  dirname(__DIR__) .'/Locale/vi.yml', 'vi');
         $twig->addExtension(new \Symfony\Bridge\Twig\Extension\TranslationExtension($translator));
-
         echo $twig->render($template, $args);
     }
 }

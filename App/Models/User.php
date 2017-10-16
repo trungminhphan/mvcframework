@@ -9,7 +9,6 @@ namespace App\Models;
  */
 class User extends \Core\Model {
     protected $_collect;
-
     /**
      * Get all the users as an associative array
      *

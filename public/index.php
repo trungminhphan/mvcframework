@@ -27,4 +27,3 @@ $router = new Core\Router();
 $router->add('', ['controller' => 'HomeController', 'action' => 'index']);
 $router->add('users', ['controller' => 'UserController', 'action' => 'index']);
 $router->dispatch($_SERVER['QUERY_STRING']);
-

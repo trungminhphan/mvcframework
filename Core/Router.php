@@ -48,7 +48,7 @@ class Router{
      *
      * @return array
      */
-    public function getRoutes(){
+    static function getRoutes(){
         return $this->routes;
     }
 
@@ -60,8 +60,7 @@ class Router{
      *
      * @return boolean  true if a match found, false otherwise
      */
-    public function match($url)
-    {
+    public function match($url){
         foreach ($this->routes as $route => $params) {
             if (preg_match($route, $url, $matches)) {
                 // Get named capture group values
@@ -115,7 +114,6 @@ class Router{
 
             if (class_exists($controller)) {
                 $controller_object = new $controller($this->params);
-
                 $action = $this->params['action'];
                 $action = $this->convertToCamelCase($action);
 
@@ -133,8 +131,15 @@ class Router{
         }
     }
 
-    public function getLang(){
-        return $this->language;
+    public function getLang($url){
+        $path = explode("/", $url);
+        if(in_array(strtolower(current($path)), Config::ARR_LANGUAGES)){
+            return current($path);
+        } else if(isset($path[1]) && in_array(strtolower($path[1]), Config::ARR_LANGUAGES)){
+            return $path[1];
+        } else {
+            return Config::DEFAULT_LANGUAGE;
+        }
     }
 
     /**
