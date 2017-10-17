@@ -35,7 +35,7 @@ class View {
      * @return void
      */
     public static function renderTemplate($template, $args = []){
-        $router = new Router(); $sessions = new Sessions();
+        $router = new Router();
         $locale = $router->getLang($_SERVER['REQUEST_URI']);
         static $twig = null;
         if ($twig === null) {

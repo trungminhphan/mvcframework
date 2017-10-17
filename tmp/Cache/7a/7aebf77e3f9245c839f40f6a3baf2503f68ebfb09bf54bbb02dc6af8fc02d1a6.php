@@ -1,14 +1,14 @@
 <?php
 
-/* Backend/index.html.twig */
-class __TwigTemplate_dcc366936829f7c1c4b176c1aaef15e6e2b7c765e276d0b132d4349a8d53cc70 extends Twig_Template
+/* Backend/ProductGroup/list.html.twig */
+class __TwigTemplate_9c8aab7496077ba97338ea9f316093b64ddba34e16d07bb5da46ce3e4065d9e7 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
         parent::__construct($env);
 
         // line 1
-        $this->parent = $this->loadTemplate("Backend/layout.html.twig", "Backend/index.html.twig", 1);
+        $this->parent = $this->loadTemplate("Backend/layout.html.twig", "Backend/ProductGroup/list.html.twig", 1);
         $this->blocks = array(
             'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
@@ -38,7 +38,7 @@ class __TwigTemplate_dcc366936829f7c1c4b176c1aaef15e6e2b7c765e276d0b132d4349a8d5
         // line 6
         echo "    <div class=\"row page-titles\">
         <div class=\"col-md-12 align-self-center\">
-            <h3 class=\"text-themecolor\">Trang chủ</h3>
+            <h3 class=\"text-themecolor\">Danh mục nhóm sản phẩm</h3>
         </div>
         <div>
             <a href=\"#top\" class=\"right-side-toggle waves-effect top waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10\"><i class=\"ti-arrow-circle-up text-white\"></i></a>
@@ -49,10 +49,7 @@ class __TwigTemplate_dcc366936829f7c1c4b176c1aaef15e6e2b7c765e276d0b132d4349a8d5
             <div class=\"col-12\">
                 <div class=\"card\">
                     <div class=\"card-body\">
-                     ";
-        // line 19
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["session"] ?? null), "username", array()), "html", null, true);
-        echo "
+                     Phan Minh Trung
                     </div>
                 </div>
             </div>
@@ -80,7 +77,7 @@ class __TwigTemplate_dcc366936829f7c1c4b176c1aaef15e6e2b7c765e276d0b132d4349a8d5
 
     public function getTemplateName()
     {
-        return "Backend/index.html.twig";
+        return "Backend/ProductGroup/list.html.twig";
     }
 
     public function isTraitable()
@@ -90,11 +87,11 @@ class __TwigTemplate_dcc366936829f7c1c4b176c1aaef15e6e2b7c765e276d0b132d4349a8d5
 
     public function getDebugInfo()
     {
-        return array (  68 => 28,  65 => 27,  54 => 19,  39 => 6,  36 => 5,  30 => 3,  11 => 1,);
+        return array (  65 => 28,  62 => 27,  39 => 6,  36 => 5,  30 => 3,  11 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "Backend/index.html.twig", "C:\\wamp64\\www\\mvcframework\\App\\Views\\Backend\\index.html.twig");
+        return new Twig_Source("", "Backend/ProductGroup/list.html.twig", "C:\\wamp64\\www\\mvcframework\\App\\Views\\Backend\\ProductGroup\\list.html.twig");
     }
 }

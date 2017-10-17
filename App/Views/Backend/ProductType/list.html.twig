@@ -1,0 +1,68 @@
+{% extends "Backend/layout.html.twig" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+    <div class="row page-titles">
+        <div class="col-md-12 align-self-center">
+            <h3 class="text-themecolor"><a href="/them-danh-muc-loai-san-pham" class="btn btn-info"><i class="mdi mdi-folder-plus"></i></a> Danh mục loại sản phẩm</h3>
+        </div>
+        <div>
+            <a href="#top" class="right-side-toggle waves-effect top waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-arrow-circle-up text-white"></i></a>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="accordion2" role="tablist" class="minimal-faq" aria-multiselectable="true">
+                        {% if list %}
+                            {% for item in list %}
+                            <div class="card m-b-0">
+                                <div class="card-header" role="tab" id="{{item._id}}">
+                                    <h3 class="mb-0">
+                                    <a data-toggle="collapse" data-parent="#accordion2" href="#collapseOne11" aria-expanded="true" aria-controls="collapseOne11">
+                                      <a href="/sua-danh-muc-loai-san-pham&id={{item._id}}"><i class="mdi mdi-pencil-circle"></i></a>
+                                      <a href="/xoa-danh-muc-loai-san-pham&id={{item._id}}" onclick="return confirm('Chắc chắn xóa?');"><i class="mdi mdi-delete-circle"></i></a>
+                                      {{item.ten}}
+                                    </a>
+                                  </h3>
+                                </div>
+                                <div id="collapseOne11" class="collapse show" role="tabpanel" aria-labelledby="{{item._id}}">
+                                    <div class="card-body">
+                                    {% if item.childs %}
+                                        {% for child in item.childs %}
+                                            <span class="btn btn-info m-t-10">
+                                                <a href="/sua-danh-muc-loai-san-pham&id={{child.id}}" class="text-white"><i class="mdi mdi-pencil-circle"></i></a>
+                                                <a href="/xoa-danh-muc-loai-san-pham&id={{child.id}}" class="text-white" onclick="return confirm('Chắc chắn xóa?');"><i class="mdi mdi-delete-circle"></i></a>
+                                                {{child.ten}}
+                                            </span>
+                                        {% endfor %}
+                                    {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js%}
+    <script type="text/javascript">
+         $(document).ready(function() {
+            $('.top').click(function(){
+              $('html, body').animate({
+                scrollTop: $( $.attr(this, 'href') ).offset().top
+              }, 500);
+              return false;
+            });
+        });
+    </script>
+{% endblock %}
+

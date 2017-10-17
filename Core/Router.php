@@ -8,7 +8,6 @@ use \App\Config;
  * PHP version 7.0
  */
 class Router{
-
     /**
      * Associative array of routes (the routing table)
      * @var array
@@ -83,8 +82,7 @@ class Router{
      *
      * @return array
      */
-    public function getParams()
-    {
+    public function getParams(){
         return $this->params;
     }
 
@@ -162,8 +160,7 @@ class Router{
      *
      * @return string
      */
-    protected function convertToCamelCase($string)
-    {
+    protected function convertToCamelCase($string){
         return lcfirst($this->convertToStudlyCaps($string));
     }
 
@@ -190,11 +187,9 @@ class Router{
      *
      * @return string The URL with the query string variables removed
      */
-    protected function removeQueryStringVariables($url)
-    {
+    protected function removeQueryStringVariables($url){
         if ($url != '') {
             $parts = explode('&', $url, 2);
-
             if (strpos($parts[0], '=') === false) {
                 $url = $parts[0];
             } else {
@@ -211,8 +206,7 @@ class Router{
      *
      * @return string The request URL
      */
-    protected function getNamespace()
-    {
+    protected function getNamespace(){
         $namespace = 'App\Controllers\\';
 
         if (array_key_exists('namespace', $this->params)) {
@@ -220,5 +214,9 @@ class Router{
         }
 
         return $namespace;
+    }
+
+    public function redirect($url){
+        header('Location: ' . $url);
     }
 }
