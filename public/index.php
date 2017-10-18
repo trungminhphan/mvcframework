@@ -45,6 +45,7 @@ $router->add('danh-muc-nhom-san-pham', ['controller' => 'ProductGroupController'
 
 #GET - POST
 $router->add('image/uploads', ['controller' => 'ImagesController', 'action' => 'uploads']);
+$router->add('image/delete', ['controller' => 'ImagesController', 'action' => 'delete']);
 
 //Frontend
 $router->add('', ['controller' => 'HomeController', 'action' => 'index']);

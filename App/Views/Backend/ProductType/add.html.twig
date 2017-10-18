@@ -19,7 +19,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="/loai-san-pham/create" method="POST" id="themsanphamform">
+                        <form action="/loai-san-pham/create" method="POST" id="themsanphamform" enctype="multipart/form-data">
                             <div class="form-body">
                                 <h3 class="card-title">Thông tin loại sản phẩm</h3>
                                 <hr>
@@ -69,15 +69,12 @@
                                         <div class="form-group row">
                                             <label class="control-label col-md-3 text-right p-t-10">Hình ảnh</label>
                                             <div class="col-md-2">
-                                                <a href="#" class="btn btn-info dinhkem_hinhanh" onclick="return false;"><i class="mdi mdi-folder-multiple-image"></i> Chọn hình ảnh</a>
-                                                <input type="file" name="dinhkem[]" class="dinhkem" multiple accept="image/*" style="display:none;"/></span>
+                                                <input type="file" name="dinhkem[]" class="dinhkem btn btn-info" multiple accept="image/*" placeholder="Chọn hình ảnh" />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div id="list_hinhanh" class="form-group row el-element-overlay">
-
-
                                 </div>
                             </div>
                             <div class="form-actions">
