@@ -42,10 +42,14 @@ class Config{
      */
 
     const ARR_LANGUAGES = array('vi', 'en');
-
     const DEFAULT_LANGUAGE = 'vi';
-
     const ARR_ROLES = array('Admin', 'Manager', 'Updater', 'Seller', 'Delivery');
-
     const SHOW_ERRORS = true;
+
+    const IMAGES_DIR = '/uploads/images/';
+    const FILES_DIR = '/uploads/files/';
+    const FILE_EXT = array('pdf', 'zip', 'rar', 'doc', 'docx', 'xls', 'png', 'gif', 'jpg', 'jpeg', 'bmp', 'rtf');
+    const IMAGES_EXT = array('png', 'gif', 'jpg', 'jpeg', 'bmp');
+    const VALID_EXT = array("jpg", "png", "gif", "zip", "bmp", "doc", "docx", "pdf", "xls", "xlsx", "ppt", "pptx", 'zip', 'rar');
+    const MAX_FILE_SIZE = 50*1024*1024*1024; //50MB
 }

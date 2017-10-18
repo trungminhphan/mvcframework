@@ -38,7 +38,7 @@ class __TwigTemplate_d0ef0c90053009e56daf4c5dac04e867853615519666034e5c386e9cd72
         // line 6
         echo "    <div class=\"row page-titles\">
         <div class=\"col-md-12 align-self-center\">
-            <h3 class=\"text-themecolor\"><a href=\"/them-danh-muc-loai-san-pham\" class=\"btn btn-info\"><i class=\"mdi mdi-folder-plus\"></i></a> Danh mục loại sản phẩm</h3>
+            <h3 class=\"text-themecolor\"><a href=\"/loai-san-pham/add\" class=\"btn btn-info\"><i class=\"mdi mdi-folder-plus\"></i></a> Danh mục loại sản phẩm</h3>
         </div>
         <div>
             <a href=\"#top\" class=\"right-side-toggle waves-effect top waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10\"><i class=\"ti-arrow-circle-up text-white\"></i></a>
@@ -60,33 +60,40 @@ class __TwigTemplate_d0ef0c90053009e56daf4c5dac04e867853615519666034e5c386e9cd72
             foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
                 // line 22
                 echo "                            <div class=\"card m-b-0\">
-                                <div class=\"card-header\" role=\"tab\" id=\"";
+                                <div class=\"card-header\" role=\"tab\" id=\"heading_";
                 // line 23
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()), "html", null, true);
                 echo "\">
-                                    <h3 class=\"mb-0\">
-                                    <a data-toggle=\"collapse\" data-parent=\"#accordion2\" href=\"#collapseOne11\" aria-expanded=\"true\" aria-controls=\"collapseOne11\">
-                                      <a href=\"/sua-danh-muc-loai-san-pham&id=";
-                // line 26
+                                    <h5 class=\"mb-0\">
+                                    <a href=\"/loai-san-pham/edit&id=";
+                // line 25
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()), "html", null, true);
                 echo "\"><i class=\"mdi mdi-pencil-circle\"></i></a>
-                                      <a href=\"/xoa-danh-muc-loai-san-pham&id=";
-                // line 27
+                                        <a href=\"/loai-san-pham/delete&id=";
+                // line 26
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()), "html", null, true);
                 echo "\" onclick=\"return confirm('Chắc chắn xóa?');\"><i class=\"mdi mdi-delete-circle\"></i></a>
+                                    <a data-toggle=\"collapse\" data-parent=\"#accordion2\" href=\"#collapse_";
+                // line 27
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()), "html", null, true);
+                echo "\" aria-expanded=\"true\" aria-controls=\"collapse_";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()), "html", null, true);
+                echo "\">
                                       ";
                 // line 28
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "ten", array()), "html", null, true);
                 echo "
                                     </a>
-                                  </h3>
+                                  </h5>
                                 </div>
-                                <div id=\"collapseOne11\" class=\"collapse show\" role=\"tabpanel\" aria-labelledby=\"";
+                                <div id=\"collapse_";
                 // line 32
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()), "html", null, true);
+                echo "\" class=\"collapse show\" role=\"tabpanel\" aria-labelledby=\"heading_";
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()), "html", null, true);
                 echo "\">
                                     <div class=\"card-body\">
-                                    ";
+                                        ";
                 // line 34
                 if (twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "childs", array())) {
                     // line 35
@@ -96,11 +103,11 @@ class __TwigTemplate_d0ef0c90053009e56daf4c5dac04e867853615519666034e5c386e9cd72
                     foreach ($context['_seq'] as $context["_key"] => $context["child"]) {
                         // line 36
                         echo "                                            <span class=\"btn btn-info m-t-10\">
-                                                <a href=\"/sua-danh-muc-loai-san-pham&id=";
+                                                <a href=\"/loai-san-pham/edit&id=";
                         // line 37
                         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["child"], "id", array()), "html", null, true);
                         echo "\" class=\"text-white\"><i class=\"mdi mdi-pencil-circle\"></i></a>
-                                                <a href=\"/xoa-danh-muc-loai-san-pham&id=";
+                                                <a href=\"/loai-san-pham/delete&id=";
                         // line 38
                         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["child"], "id", array()), "html", null, true);
                         echo "\" class=\"text-white\" onclick=\"return confirm('Chắc chắn xóa?');\"><i class=\"mdi mdi-delete-circle\"></i></a>
@@ -168,7 +175,7 @@ class __TwigTemplate_d0ef0c90053009e56daf4c5dac04e867853615519666034e5c386e9cd72
 
     public function getDebugInfo()
     {
-        return array (  146 => 57,  143 => 56,  133 => 48,  130 => 47,  121 => 43,  118 => 42,  109 => 39,  105 => 38,  101 => 37,  98 => 36,  93 => 35,  91 => 34,  86 => 32,  79 => 28,  75 => 27,  71 => 26,  65 => 23,  62 => 22,  57 => 21,  55 => 20,  39 => 6,  36 => 5,  30 => 3,  11 => 1,);
+        return array (  153 => 57,  150 => 56,  140 => 48,  137 => 47,  128 => 43,  125 => 42,  116 => 39,  112 => 38,  108 => 37,  105 => 36,  100 => 35,  98 => 34,  91 => 32,  84 => 28,  78 => 27,  74 => 26,  70 => 25,  65 => 23,  62 => 22,  57 => 21,  55 => 20,  39 => 6,  36 => 5,  30 => 3,  11 => 1,);
     }
 
     public function getSourceContext()
