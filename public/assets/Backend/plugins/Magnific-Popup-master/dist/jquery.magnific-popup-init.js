@@ -1,6 +1,5 @@
 
 $(document).ready(function() {
-
 	$('.image-popup-vertical-fit').magnificPopup({
 		type: 'image',
 		closeOnContentClick: true,
@@ -8,7 +7,6 @@ $(document).ready(function() {
 		image: {
 			verticalFit: true
 		}
-		
 	});
 
 	$('.image-popup-fit-width').magnificPopup({
@@ -74,7 +72,7 @@ $(document).ready(function() {
 				return element.find('img');
 			}
 		}
-		
+
 	});
 
 	$('#image-popups').magnificPopup({
@@ -83,7 +81,7 @@ $(document).ready(function() {
 		  removalDelay: 500, //delay removal by X to allow out-animation
 		  callbacks: {
 		    beforeOpen: function() {
-		      // just a hack that adds mfp-anim class to markup 
+		      // just a hack that adds mfp-anim class to markup
 		       this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
 		       this.st.mainClass = this.st.el.attr('data-effect');
 		    }
@@ -129,5 +127,5 @@ $(document).ready(function() {
 	$('.simple-ajax-popup').magnificPopup({
 		type: 'ajax'
 	});
-	
+
 });

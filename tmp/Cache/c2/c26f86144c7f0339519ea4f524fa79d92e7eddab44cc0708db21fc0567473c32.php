@@ -27,25 +27,25 @@ class __TwigTemplate_b5f8def95ae8a534a0b94df7041614174bc1559a1e9f3ac1b15fbd437df
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
-    // line 3
+    // line 2
     public function block_title($context, array $blocks = array())
     {
-        echo "Home";
+        echo "Thêm loại sản phẩm";
     }
 
-    // line 4
+    // line 3
     public function block_css($context, array $blocks = array())
     {
-        // line 5
+        // line 4
         echo "    <link href=\"/assets/Backend/plugins/select2/dist/css/select2.min.css\" rel=\"stylesheet\" type=\"text/css\" />
     <link href=\"/assets/Backend/plugins/Magnific-Popup-master/dist/magnific-popup.css\" rel=\"stylesheet\">
 ";
     }
 
-    // line 8
+    // line 7
     public function block_body($context, array $blocks = array())
     {
-        // line 9
+        // line 8
         echo "    <div class=\"row page-titles\">
         <div class=\"col-md-12 align-self-center\">
             <h3 class=\"text-themecolor\"><a href=\"/loai-san-pham\" class=\"btn btn-info\"><i class=\"mdi mdi-reply-all\"></i></a> Thêm danh mục loại sản phẩm</h3>
@@ -59,7 +59,7 @@ class __TwigTemplate_b5f8def95ae8a534a0b94df7041614174bc1559a1e9f3ac1b15fbd437df
             <div class=\"col-12\">
                 <div class=\"card\">
                     <div class=\"card-body\">
-                        <form action=\"/loai-san-pham/create\" method=\"POST\" id=\"themsanphamform\">
+                        <form action=\"/loai-san-pham/create\" method=\"POST\" id=\"themsanphamform\" enctype=\"multipart/form-data\">
                             <div class=\"form-body\">
                                 <h3 class=\"card-title\">Thông tin loại sản phẩm</h3>
                                 <hr>
@@ -95,14 +95,14 @@ class __TwigTemplate_b5f8def95ae8a534a0b94df7041614174bc1559a1e9f3ac1b15fbd437df
                                                 <select class=\"select2 m-b-10 select2-multiple\" name=\"id_parent[]\" style=\"width: 100%\" multiple=\"multiple\" data-placeholder=\"Chọn thuộc tính nhóm\">
                                                     <option value=\"\">Chọn nhóm</option>}
                                                     ";
-        // line 57
+        // line 56
         if (($context["list"] ?? null)) {
-            // line 58
+            // line 57
             echo "                                                        ";
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(($context["list"] ?? null));
             foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-                // line 59
+                // line 58
                 echo "                                                            <option value=\"";
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()), "html", null, true);
                 echo "\">";
@@ -113,10 +113,10 @@ class __TwigTemplate_b5f8def95ae8a534a0b94df7041614174bc1559a1e9f3ac1b15fbd437df
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 61
+            // line 60
             echo "                                                    ";
         }
-        // line 62
+        // line 61
         echo "                                                </select>
                                             </div>
                                         </div>
@@ -127,20 +127,16 @@ class __TwigTemplate_b5f8def95ae8a534a0b94df7041614174bc1559a1e9f3ac1b15fbd437df
                                         <div class=\"form-group row\">
                                             <label class=\"control-label col-md-3 text-right p-t-10\">Hình ảnh</label>
                                             <div class=\"col-md-2\">
-                                                <a href=\"#\" class=\"btn btn-info dinhkem_hinhanh\" onclick=\"return false;\"><i class=\"mdi mdi-folder-multiple-image\"></i> Chọn hình ảnh</a>
-                                                <input type=\"file\" name=\"dinhkem[]\" class=\"dinhkem\" multiple accept=\"image/*\" style=\"display:none;\"/></span>
+                                                <input type=\"file\" name=\"dinhkem[]\" class=\"dinhkem btn btn-info\" multiple accept=\"image/*\" placeholder=\"Chọn hình ảnh\" />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div id=\"list_hinhanh\" class=\"form-group row el-element-overlay\">
-
-
-                                </div>
+                                <div id=\"list_hinhanh\" class=\"form-group row el-element-overlay\"></div>
                             </div>
                             <div class=\"form-actions\">
                                 <button type=\"submit\" class=\"btn btn-info\"> <i class=\"fa fa-check\"></i> Cập nhật</button>
-                                <a href=\"/danh-muc-loai-san-pham\" class=\"btn btn-inverse\"><i class=\"mdi mdi-reply-all\"></i> Trở về</a>
+                                <a href=\"/loai-san-pham\" class=\"btn btn-inverse\"><i class=\"mdi mdi-reply-all\"></i> Trở về</a>
                             </div>
                         </form>
                     </div>
@@ -151,25 +147,22 @@ class __TwigTemplate_b5f8def95ae8a534a0b94df7041614174bc1559a1e9f3ac1b15fbd437df
 ";
     }
 
-    // line 95
+    // line 90
     public function block_js($context, array $blocks = array())
     {
-        // line 96
+        // line 91
         echo "    <script src=\"/assets/Backend/plugins/select2/dist/js/select2.full.min.js\" type=\"text/javascript\"></script>
     <script src=\"/assets/Backend/plugins/Magnific-Popup-master/dist/jquery.magnific-popup.min.js\"></script>
-    <script src=\"/assets/Backend/plugins/Magnific-Popup-master/dist/jquery.magnific-popup-init.js\"></script>
+    <!--<script src=\"/assets/Backend/plugins/Magnific-Popup-master/dist/jquery.magnific-popup-init.js\"></script>-->
     <script src=\"/assets/Backend/js/themsanpham.js\" type=\"text/javascript\"></script>
     <script type=\"text/javascript\">
          \$(document).ready(function() {
-            \$(\".select2\").select2();upload_hinhanh();
+            \$(\".select2\").select2();upload_hinhanh();delete_hinhanh();popup_images();
             \$('.top').click(function(){
               \$('html, body').animate({
                 scrollTop: \$( \$.attr(this, 'href') ).offset().top
               }, 500);
               return false;
-            });
-            \$(\".dinhkem_hinhanh\").click(function(){
-                \$(\".dinhkem\").click();
             });
         });
     </script>
@@ -188,7 +181,7 @@ class __TwigTemplate_b5f8def95ae8a534a0b94df7041614174bc1559a1e9f3ac1b15fbd437df
 
     public function getDebugInfo()
     {
-        return array (  158 => 96,  155 => 95,  120 => 62,  117 => 61,  106 => 59,  101 => 58,  99 => 57,  49 => 9,  46 => 8,  40 => 5,  37 => 4,  31 => 3,  11 => 1,);
+        return array (  154 => 91,  151 => 90,  120 => 61,  117 => 60,  106 => 58,  101 => 57,  99 => 56,  49 => 8,  46 => 7,  40 => 4,  37 => 3,  31 => 2,  11 => 1,);
     }
 
     public function getSourceContext()

@@ -35,9 +35,9 @@ $router->add('admin/logout',['controller' => 'UserController', 'action' => 'logo
 $router->add('users', ['controller' => 'UserController', 'action' => 'index']);
 $router->add('loai-san-pham', ['controller' => 'ProductTypeController', 'action' => 'index']);
 $router->add('loai-san-pham/add', ['controller' => 'ProductTypeController', 'action' => 'add']);
+$router->add('loai-san-pham/create', ['controller' => 'ProductTypeController', 'action' => 'create']);
 $router->add('loai-san-pham/edit', ['controller' => 'ProductTypeController', 'action' => 'edit']);
 $router->add('loai-san-pham/update', ['controller' => 'ProductTypeController', 'action' => 'update']);
-$router->add('loai-san-pham/create', ['controller' => 'ProductTypeController', 'action' => 'create']);
 $router->add('loai-san-pham/delete', ['controller' => 'ProductTypeController', 'action' => 'delete']);
 
 $router->add('danh-muc-nha-san-xuat', ['controller' => 'ProducerController', 'action' => 'index']);

@@ -9,7 +9,7 @@ function upload_hinhanh(){
                     alert('Lỗi không thể Upload hình ảnh.');
                 } else {
                     $("#list_hinhanh").prepend(datas);
-                    delete_hinhanh();
+                    popup_images(); delete_hinhanh();
                 }
             },
             cache: false, contentType: false, processData: false
@@ -34,4 +34,15 @@ function delete_hinhanh(){
 	        alert('Không thể xoá.');
 	    });
 	});
+}
+
+function popup_images(){
+    $('.image-popup-vertical-fit').magnificPopup({
+        type: 'image',
+        closeOnContentClick: true,
+        mainClass: 'mfp-img-mobile',
+        image: {
+            verticalFit: true
+        }
+    });
 }

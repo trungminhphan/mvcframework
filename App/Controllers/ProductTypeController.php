@@ -47,7 +47,7 @@ class ProductTypeController extends \Core\Controller {
         $db = new ProductType();
         $router = new Router();
         if($db->insertQuery($_POST)){
-            $router->redirect('/danh-muc-loai-san-pham');
+            $router->redirect('/loai-san-pham');
         }
         //View::renderTemplate('Backend/ProductType/add.html.twig');
     }
@@ -67,7 +67,7 @@ class ProductTypeController extends \Core\Controller {
         $condition = array('_id' => new \MongoDB\BSON\ObjectId($id));
         $query = array('$set' => $_POST);
         if($db->editQuery($condition, $query)){
-            $router->redirect('/danh-muc-loai-san-pham');
+            $router->redirect('/loai-san-pham');
         }
     }
 
@@ -75,7 +75,7 @@ class ProductTypeController extends \Core\Controller {
         $id = isset($_GET['id']) ? $_GET['id'] : '';
         $db = new ProductType();$router = new Router();
         $db->id = $id;
-        if($db->delete()) $router->redirect('/danh-muc-loai-san-pham');
+        if($db->delete()) $router->redirect('/loai-san-pham');
     }
 
 }

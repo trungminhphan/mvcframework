@@ -40,10 +40,6 @@ class ImagesController extends \Core\Controller {
                                 if(!file_exists($thumb)){
                                     ImagesController::resizeAction($file, null, 300, 250, true, $thumb, false, false, 100);
                                 }
-                               /* echo ' <div class="col-md-3 items" style="margin-top:20px;">
-                                    <img src="'.$thumb.'" style="width:100%"/>
-                                    <a href="get.xoahinhanh.html?filename='.$alias_name.'" class="btn btn-sm btn-danger delete_file" onclick="return false;"><i class="fa fa-trash"></i></a>
-                                </div>';*/
                                 echo '<div class="col-lg-3 col-md-6 items">
                                     <input type="hidden" name="hinhanh_aliasname[]" value="'.$alias_name.'" readonly/>
                                     <input type="hidden" name="hinhanh_filename[]" value="'.$name.'" class="form-control"/>
@@ -53,7 +49,7 @@ class ImagesController extends \Core\Controller {
                                                 <div class="el-overlay">
                                                     <ul class="el-info">
                                                         <li><a class="btn default btn-outline image-popup-vertical-fit" href="'.Config::IMAGES_DIR.$alias_name.'"><i class="mdi mdi-camera"></i></a></li>
-                                                        <li><a class="btn default btn-outline delete_file" href="image/delete?file='.$alias_name.'" onclick="return false;"><i class="ti ti-trash"></i></a></li>
+                                                        <li><a class="btn default btn-outline delete_file" href="/image/delete?file='.$alias_name.'" onclick="return false;"><i class="ti ti-trash"></i></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -77,9 +73,12 @@ class ImagesController extends \Core\Controller {
 
     public function deleteAction(){
         $file = isset($_GET['file']) ? $_GET['file'] : '';
-        $filename = $_SERVER['DOCUMENT_ROOT']. Config::IMAGES_DIR . $file;
-        $filename_thumb = $_SERVER['DOCUMENT_ROOT']. Config::IMAGES_DIR .'/thumb_300x200' . $file;
-        @unlink($filename);@unlink($filename_thumb);
+        $filename = $_SERVER['DOCUMENT_ROOT'].Config::IMAGES_DIR . $file;
+        $filename_thumb = $_SERVER['DOCUMENT_ROOT'].Config::IMAGES_DIR.'thumb_300x200/'.$file;
+        if(@unlink($filename) && @unlink($filename_thumb)){
+            return true;
+        }
+        return false;
     }
 
     public static function resizeAction($file, $string = null,$width = 0,$height = 0,$proportional = false, $output = 'file', $delete_original = true, $use_linux_commands = false, $quality = 100, $grayscale = false){

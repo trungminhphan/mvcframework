@@ -1,6 +1,5 @@
 {% extends "Backend/layout.html.twig" %}
-
-{% block title %}Home{% endblock %}
+{% block title %}Thêm loại sản phẩm{% endblock %}
 {% block css%}
     <link href="/assets/Backend/plugins/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css" />
     <link href="/assets/Backend/plugins/Magnific-Popup-master/dist/magnific-popup.css" rel="stylesheet">
@@ -74,12 +73,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="list_hinhanh" class="form-group row el-element-overlay">
-                                </div>
+                                <div id="list_hinhanh" class="form-group row el-element-overlay"></div>
                             </div>
                             <div class="form-actions">
                                 <button type="submit" class="btn btn-info"> <i class="fa fa-check"></i> Cập nhật</button>
-                                <a href="/danh-muc-loai-san-pham" class="btn btn-inverse"><i class="mdi mdi-reply-all"></i> Trở về</a>
+                                <a href="/loai-san-pham" class="btn btn-inverse"><i class="mdi mdi-reply-all"></i> Trở về</a>
                             </div>
                         </form>
                     </div>
@@ -92,19 +90,16 @@
 {% block js%}
     <script src="/assets/Backend/plugins/select2/dist/js/select2.full.min.js" type="text/javascript"></script>
     <script src="/assets/Backend/plugins/Magnific-Popup-master/dist/jquery.magnific-popup.min.js"></script>
-    <script src="/assets/Backend/plugins/Magnific-Popup-master/dist/jquery.magnific-popup-init.js"></script>
+    <!--<script src="/assets/Backend/plugins/Magnific-Popup-master/dist/jquery.magnific-popup-init.js"></script>-->
     <script src="/assets/Backend/js/themsanpham.js" type="text/javascript"></script>
     <script type="text/javascript">
          $(document).ready(function() {
-            $(".select2").select2();upload_hinhanh();
+            $(".select2").select2();upload_hinhanh();delete_hinhanh();popup_images();
             $('.top').click(function(){
               $('html, body').animate({
                 scrollTop: $( $.attr(this, 'href') ).offset().top
               }, 500);
               return false;
-            });
-            $(".dinhkem_hinhanh").click(function(){
-                $(".dinhkem").click();
             });
         });
     </script>
