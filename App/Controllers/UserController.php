@@ -23,8 +23,8 @@ class UserController extends \Core\Controller {
      * @return void
      */
     public function indexAction() {
-    	$users = new User();
-        $list = $users->getAll();
+    	$db = new User();
+        $list = $db->getAll();
     	View::renderTemplate('Backend/Users/list.html.twig', ['users' => $list]);
     }
 
@@ -33,15 +33,59 @@ class UserController extends \Core\Controller {
     }
 
     public function createAction(){
-        $router = new Router();$users = new User();
+        $router = new Router();$db = new User();
         $username = isset($_POST['username']) ? $_POST['username'] : '';
-        $users->username = $username;
-        if($users->check_exists()){
+        $db->username = $username;
+        $_POST['createAt'] = ObjectController::setDate();
+        $_POST['updateAt'] = ObjectController::setDate();
+        if($db->check_exists()){
             View::renderTemplate('Backend/Users/add.html.twig', ['roles' => Config::ARR_ROLES, 'user' => $_POST, 'msg' => 'Tài khoản đã tồn tại']);
-        } else if($users->insertQuery($_POST)){
+        } else if($db->insertQuery($_POST)){
             $router->redirect('/tai-khoan');
         }
         //View::renderTemplate('Backend/Users/add.html.twig', ['roles' => Config::ARR_ROLES]);
+    }
+
+    public function editAction(){
+        $router = new Router();$db = new User();
+        $id = isset($_GET['id']) ? $_GET['id'] : '';
+        $db->id = $id; $user = $db->getOne();
+        View::renderTemplate('Backend/Users/edit.html.twig', ['roles' => Config::ARR_ROLES, 'user' => $user]);
+    }
+
+    public function updateAction(){
+        $router = new Router();$db = new User();
+        $id = isset($_POST['id']) ? $_POST['id'] : '';
+        $condition = array('_id' => ObjectController::ObjectId($id));
+
+        if(!isset($_POST['hinhanh_aliasname'])){
+            $_POST['hinhanh_aliasname'] = [];
+            $_POST['hinhanh_filename'] = [];
+        }
+        $_POST['updateAt'] = ObjectController::setDate();
+        $query = array('$set' => $_POST);
+        if($db->editQuery($condition, $query)){
+            $router->redirect('/tai-khoan');
+        } else {
+            View::renderTemplate('Backend/Users/edit.html.twig', ['roles' => Config::ARR_ROLES, 'user' => $_POST, 'msg' => 'Không thể cập nhật']);
+        }
+    }
+
+    public function deleteAction(){
+        $db = new User();$router = new Router();
+        $id = isset($_GET['id']) ? $_GET['id'] : '';
+        $db->id = $id; $user = $db->getOne();
+        if(isset($user['hinhanh_aliasname']) && $user['hinhanh_aliasname']){
+            foreach($user['hinhanh_aliasname'] as $hinhanh){
+                $filename = $_SERVER['DOCUMENT_ROOT'].Config::IMAGES_DIR . $hinhanh;
+                $filename_thumb = $_SERVER['DOCUMENT_ROOT'].Config::IMAGES_DIR.'thumb_300x200/'.$hinhanh;
+                @unlink($filename); @unlink($filename_thumb);
+            }
+        }
+
+        if($db->delete()){
+            $router->redirect('/tai-khoan');
+        }
     }
 
     public function getLoginAction(){
@@ -49,14 +93,14 @@ class UserController extends \Core\Controller {
     }
 
     public function authAction(){
-        $users = new User();
+        $db = new User();
         $username = isset($_POST['username']) ? $_POST['username'] : '';
         $password = isset($_POST['password']) ? $_POST['password'] : '';
         $query = array(
             'username' => $username,
             'password' => md5($password),
             'status' => 1);
-        $user = $users->getOneCondition($query);
+        $user = $db->getOneCondition($query);
         if (empty($user)){
             View::renderTemplate('Backend/login.html.twig', ['msg' => 'Đăng nhập thất bại', "username" => $username]);
         } else {
@@ -70,8 +114,8 @@ class UserController extends \Core\Controller {
     }
 
     public function logoutAction(){
-        $users = new User(); $router = new Router();
-        $users->logout();
+        $db = new User(); $router = new Router();
+        $db->logout();
         $router->redirect('/admin/login');
     }
 }

@@ -59,7 +59,7 @@ class __TwigTemplate_b5f8def95ae8a534a0b94df7041614174bc1559a1e9f3ac1b15fbd437df
             <div class=\"col-12\">
                 <div class=\"card\">
                     <div class=\"card-body\">
-                        <form action=\"/loai-san-pham/create\" method=\"POST\" id=\"themsanphamform\" enctype=\"multipart/form-data\">
+                        <form action=\"/loai-san-pham/create\" method=\"POST\" id=\"dinhkemform\" enctype=\"multipart/form-data\">
                             <div class=\"form-body\">
                                 <h3 class=\"card-title\">Thông tin loại sản phẩm</h3>
                                 <hr>
@@ -68,7 +68,7 @@ class __TwigTemplate_b5f8def95ae8a534a0b94df7041614174bc1559a1e9f3ac1b15fbd437df
                                         <div class=\"form-group row\">
                                             <label class=\"control-label col-md-3 text-right p-t-10\">Tên</label>
                                             <div class=\"col-md-9\">
-                                                <input type=\"text\" id=\"ten\" name=\"ten\" class=\"form-control\" placeholder=\"Tên loại sản phẩm\">
+                                                <input type=\"text\" id=\"ten\" name=\"ten\" class=\"form-control\" placeholder=\"Tên loại sản phẩm\" required>
                                             </div>
                                         </div>
                                     </div>
@@ -105,7 +105,11 @@ class __TwigTemplate_b5f8def95ae8a534a0b94df7041614174bc1559a1e9f3ac1b15fbd437df
                 // line 58
                 echo "                                                            <option value=\"";
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()), "html", null, true);
-                echo "\">";
+                echo "\" ";
+                if ((twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()) == ($context["id_parent"] ?? null))) {
+                    echo " selected ";
+                }
+                echo ">";
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "ten", array()), "html", null, true);
                 echo "</option>
                                                         ";
@@ -181,7 +185,7 @@ class __TwigTemplate_b5f8def95ae8a534a0b94df7041614174bc1559a1e9f3ac1b15fbd437df
 
     public function getDebugInfo()
     {
-        return array (  154 => 91,  151 => 90,  120 => 61,  117 => 60,  106 => 58,  101 => 57,  99 => 56,  49 => 8,  46 => 7,  40 => 4,  37 => 3,  31 => 2,  11 => 1,);
+        return array (  158 => 91,  155 => 90,  124 => 61,  121 => 60,  106 => 58,  101 => 57,  99 => 56,  49 => 8,  46 => 7,  40 => 4,  37 => 3,  31 => 2,  11 => 1,);
     }
 
     public function getSourceContext()

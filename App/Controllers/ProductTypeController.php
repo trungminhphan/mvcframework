@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use \Core\View;
 use \Core\Router;
+use \App\Config;
 use \App\Models\ProductType;
 use \App\Controllers\ObjectController;
 
@@ -42,9 +43,9 @@ class ProductTypeController extends \Core\Controller {
     }
 
     public function addAction(){
-        $db = new ProductType();
-        $list = $db->getAllRoot();
-        View::renderTemplate('Backend/ProductType/add.html.twig', ['list' => $list]);
+        $db = new ProductType();$list = $db->getAllRoot();
+        $id_parent = isset($_GET['id_parent']) ? $_GET['id_parent'] : '';
+        View::renderTemplate('Backend/ProductType/add.html.twig', ['list' => $list, 'id_parent' => $id_parent]);
     }
 
     public function createAction(){
@@ -85,7 +86,14 @@ class ProductTypeController extends \Core\Controller {
     public function deleteAction(){
         $id = isset($_GET['id']) ? $_GET['id'] : '';
         $db = new ProductType();$router = new Router();
-        $db->id = $id;
+        $db->id = $id;$product = $db->getOne();
+        if(isset($product['hinhanh_aliasname']) && $product['hinhanh_aliasname']){
+            foreach($product['hinhanh_aliasname'] as $hinhanh){
+                $filename = $_SERVER['DOCUMENT_ROOT'].Config::IMAGES_DIR . $hinhanh;
+                $filename_thumb = $_SERVER['DOCUMENT_ROOT'].Config::IMAGES_DIR.'thumb_300x200/'.$hinhanh;
+                @unlink($filename); @unlink($filename_thumb);
+            }
+        }
         if($db->delete()) $router->redirect('/loai-san-pham');
     }
 

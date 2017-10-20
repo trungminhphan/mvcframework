@@ -59,7 +59,7 @@ class __TwigTemplate_fcc296c1b43b1fbc1a8bea83bc0968b1db4586c07931fa0173d1ad599cb
             <div class=\"col-12\">
                 <div class=\"card\">
                     <div class=\"card-body\">
-                        <form action=\"/loai-san-pham/update\" method=\"POST\" id=\"themsanphamform\" enctype=\"multipart/form-data\">
+                        <form action=\"/loai-san-pham/update\" method=\"POST\" id=\"dinhkemform\" enctype=\"multipart/form-data\">
                             <input type=\"hidden\" name=\"id\" id=\"id\" value=\"";
         // line 23
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["product"] ?? null), "_id", array()), "html", null, true);

@@ -1,14 +1,14 @@
 <?php
 
-/* Backend/ProductType/list.html.twig */
-class __TwigTemplate_d0ef0c90053009e56daf4c5dac04e867853615519666034e5c386e9cd7204148 extends Twig_Template
+/* Backend/Producer/list.html.twig */
+class __TwigTemplate_347a24ae396816ea3921177fff8fb1aa3f20a74d8c70ada003372a930eb215f6 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
         parent::__construct($env);
 
         // line 1
-        $this->parent = $this->loadTemplate("Backend/layout.html.twig", "Backend/ProductType/list.html.twig", 1);
+        $this->parent = $this->loadTemplate("Backend/layout.html.twig", "Backend/Producer/list.html.twig", 1);
         $this->blocks = array(
             'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
@@ -29,7 +29,7 @@ class __TwigTemplate_d0ef0c90053009e56daf4c5dac04e867853615519666034e5c386e9cd72
     // line 3
     public function block_title($context, array $blocks = array())
     {
-        echo "Danh sách loại sản phẩm";
+        echo "Danh sách nhà sản xuất";
     }
 
     // line 5
@@ -38,7 +38,7 @@ class __TwigTemplate_d0ef0c90053009e56daf4c5dac04e867853615519666034e5c386e9cd72
         // line 6
         echo "    <div class=\"row page-titles\">
         <div class=\"col-md-12 align-self-center\">
-            <h3 class=\"text-themecolor\"><a href=\"/loai-san-pham/add\" class=\"btn btn-info\"><i class=\"mdi mdi-folder-plus\"></i></a> Danh mục loại sản phẩm</h3>
+            <h3 class=\"text-themecolor\"><a href=\"/nha-san-xuat/add\" class=\"btn btn-info\"><i class=\"mdi mdi-folder-plus\"></i></a> Danh mục nhà sản xuất</h3>
         </div>
         <div>
             <a href=\"#top\" class=\"right-side-toggle waves-effect top waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10\"><i class=\"ti-arrow-circle-up text-white\"></i></a>
@@ -166,7 +166,7 @@ class __TwigTemplate_d0ef0c90053009e56daf4c5dac04e867853615519666034e5c386e9cd72
 
     public function getTemplateName()
     {
-        return "Backend/ProductType/list.html.twig";
+        return "Backend/Producer/list.html.twig";
     }
 
     public function isTraitable()
@@ -181,6 +181,6 @@ class __TwigTemplate_d0ef0c90053009e56daf4c5dac04e867853615519666034e5c386e9cd72
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "Backend/ProductType/list.html.twig", "C:\\wamp64\\www\\mvcframework\\App\\Views\\Backend\\ProductType\\list.html.twig");
+        return new Twig_Source("", "Backend/Producer/list.html.twig", "C:\\wamp64\\www\\mvcframework\\App\\Views\\Backend\\Producer\\list.html.twig");
     }
 }

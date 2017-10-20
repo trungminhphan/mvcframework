@@ -46,6 +46,20 @@ $router->add('loai-san-pham/edit', ['controller' => 'ProductTypeController', 'ac
 $router->add('loai-san-pham/update', ['controller' => 'ProductTypeController', 'action' => 'update']);
 $router->add('loai-san-pham/delete', ['controller' => 'ProductTypeController', 'action' => 'delete']);
 
+$router->add('nha-san-xuat', ['controller' => 'ProducerController', 'action' => 'index']);
+$router->add('nha-san-xuat/add', ['controller' => 'ProducerController', 'action' => 'add']);
+$router->add('nha-san-xuat/create', ['controller' => 'ProducerController', 'action' => 'create']);
+$router->add('nha-san-xuat/edit', ['controller' => 'ProducerController', 'action' => 'edit']);
+$router->add('nha-san-xuat/update', ['controller' => 'ProducerController', 'action' => 'update']);
+$router->add('nha-san-xuat/delete', ['controller' => 'ProducerController', 'action' => 'delete']);
+
+$router->add('nhom-san-pham', ['controller' => 'ProductGroupController', 'action' => 'index']);
+$router->add('nhom-san-pham/add', ['controller' => 'ProductGroupController', 'action' => 'add']);
+$router->add('nhom-san-pham/create', ['controller' => 'ProductGroupController', 'action' => 'create']);
+$router->add('nhom-san-pham/edit', ['controller' => 'ProductGroupController', 'action' => 'edit']);
+$router->add('nhom-san-pham/update', ['controller' => 'ProductGroupController', 'action' => 'update']);
+$router->add('nhom-san-pham/delete', ['controller' => 'ProductGroupController', 'action' => 'delete']);
+
 $router->add('danh-muc-nha-san-xuat', ['controller' => 'ProducerController', 'action' => 'index']);
 $router->add('danh-muc-nhom-san-pham', ['controller' => 'ProductGroupController', 'action' => 'index']);
 

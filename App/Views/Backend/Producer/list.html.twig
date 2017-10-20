@@ -1,11 +1,11 @@
 {% extends "Backend/layout.html.twig" %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Danh sách nhà sản xuất{% endblock %}
 
 {% block body %}
     <div class="row page-titles">
         <div class="col-md-12 align-self-center">
-            <h3 class="text-themecolor">Danh mục nhà sản xuất</h3>
+            <h3 class="text-themecolor"><a href="/nha-san-xuat/add" class="btn btn-info"><i class="mdi mdi-folder-plus"></i></a> Danh mục nhà sản xuất</h3>
         </div>
         <div>
             <a href="#top" class="right-side-toggle waves-effect top waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-arrow-circle-up text-white"></i></a>
@@ -16,7 +16,35 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                     Phan Minh Trung
+                        <div id="accordion2" role="tablist" class="minimal-faq" aria-multiselectable="true">
+                        {% if list %}
+                            {% for item in list %}
+                            <div class="card m-b-0">
+                                <div class="card-header" role="tab" id="heading_{{item._id}}">
+                                    <h5 class="mb-0">
+                                        <a href="/loai-san-pham/add?id_parent={{item._id}}" class="btn btn-sm btn-success"><i class="mdi mdi-plus"></i></a>
+                                        <a href="/loai-san-pham/edit&id={{item._id}}" class="btn btn-sm btn-info"><i class="mdi mdi-pencil-circle"></i></a>
+                                        <a href="/loai-san-pham/delete&id={{item._id}}" onclick="return confirm('Chắc chắn xóa?');" class="btn btn-sm btn-danger"><i class="mdi mdi-delete-circle"></i></a>
+                                        <a data-toggle="collapse" data-parent="#accordion2" href="#collapse_{{item._id}}" aria-expanded="true" aria-controls="collapse_{{item._id}}"> {{item.ten}} </a>
+                                  </h5>
+                                </div>
+                                <div id="collapse_{{item._id}}" class="collapse" role="tabpanel" aria-labelledby="heading_{{item._id}}">
+                                    <div class="card-body">
+                                        {% if item.childs %}
+                                        {% for child in item.childs %}
+                                            <span class="btn btn-info m-t-10">
+                                                <a href="/loai-san-pham/edit&id={{child.id}}" class="text-white"><i class="mdi mdi-pencil-circle"></i></a>
+                                                <a href="/loai-san-pham/delete&id={{child.id}}" class="text-white" onclick="return confirm('Chắc chắn xóa?');"><i class="mdi mdi-delete-circle"></i></a>
+                                                {{child.ten}}
+                                            </span>
+                                        {% endfor %}
+                                    {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        {% endif %}
+                        </div>
                     </div>
                 </div>
             </div>

@@ -29,7 +29,7 @@ class __TwigTemplate_d3c27a9d358808473746886b1fb525dc9909412229603430f51784a6702
     // line 3
     public function block_title($context, array $blocks = array())
     {
-        echo "Home";
+        echo "Danh sách tài khoản người dùng";
     }
 
     // line 5

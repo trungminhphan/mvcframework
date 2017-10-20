@@ -1,14 +1,14 @@
 <?php
 
-/* Backend/Users/add.html.twig */
-class __TwigTemplate_12ae0ccd433c25d1ac4cda6ddc9905488326d7c56fcda9586d6d9c587441b26e extends Twig_Template
+/* Backend/Users/edit.html.twig */
+class __TwigTemplate_05ed2478c2a8af7d9252d9d1370eb9098484a38deb49cf1b0c3e28a7a6f4a75d extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
         parent::__construct($env);
 
         // line 1
-        $this->parent = $this->loadTemplate("Backend/layout.html.twig", "Backend/Users/add.html.twig", 1);
+        $this->parent = $this->loadTemplate("Backend/layout.html.twig", "Backend/Users/edit.html.twig", 1);
         $this->blocks = array(
             'title' => array($this, 'block_title'),
             'css' => array($this, 'block_css'),
@@ -27,29 +27,29 @@ class __TwigTemplate_12ae0ccd433c25d1ac4cda6ddc9905488326d7c56fcda9586d6d9c58744
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
-    // line 2
+    // line 3
     public function block_title($context, array $blocks = array())
     {
-        echo "Thêm tài khoản người dùng";
+        echo "Chỉnh sửa tài khoản người dùng";
     }
 
-    // line 3
+    // line 4
     public function block_css($context, array $blocks = array())
     {
-        // line 4
+        // line 5
         echo "    <link href=\"/assets/Backend/plugins/select2/dist/css/select2.min.css\" rel=\"stylesheet\" type=\"text/css\" />
     <link href=\"/assets/Backend/plugins/Magnific-Popup-master/dist/magnific-popup.css\" rel=\"stylesheet\">
     <link href=\"/assets/Backend/plugins/switchery/dist/switchery.min.css\" rel=\"stylesheet\" />
 ";
     }
 
-    // line 8
+    // line 9
     public function block_body($context, array $blocks = array())
     {
-        // line 9
+        // line 10
         echo "    <div class=\"row page-titles\">
         <div class=\"col-md-12 align-self-center\">
-            <h3 class=\"text-themecolor\"><a href=\"/tai-khoan\" class=\"btn btn-info\"><i class=\"mdi mdi-reply-all\"></i></a> Thêm tài khoản người dùng</h3>
+            <h3 class=\"text-themecolor\"><a href=\"/tai-khoan\" class=\"btn btn-info\"><i class=\"mdi mdi-reply-all\"></i></a> Chỉnh sửa tài khoản người dùng</h3>
         </div>
         <div>
             <a href=\"#top\" class=\"right-side-toggle waves-effect top waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10\"><i class=\"ti-arrow-circle-up text-white\"></i></a>
@@ -60,27 +60,31 @@ class __TwigTemplate_12ae0ccd433c25d1ac4cda6ddc9905488326d7c56fcda9586d6d9c58744
             <div class=\"col-12\">
                 <div class=\"card\">
                     <div class=\"card-body\">
-                        <form action=\"/tai-khoan/create\" method=\"POST\" id=\"dinhkemform\" enctype=\"multipart/form-data\">
+                        <form action=\"/tai-khoan/update\" method=\"POST\" id=\"dinhkemform\" enctype=\"multipart/form-data\">
+                            <input type=\"hidden\" name=\"id\" id=\"id\" value=\"";
+        // line 24
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["user"] ?? null), "_id", array()), "html", null, true);
+        echo "\">
                             <div class=\"form-body\">
                                 <h3 class=\"card-title\">Thông tin tài khoản</h3>
                                 <hr>
                                 ";
-        // line 26
+        // line 28
         if (($context["msg"] ?? null)) {
-            // line 27
+            // line 29
             echo "                                    <div class=\"alert alert-success\">";
             echo twig_escape_filter($this->env, ($context["msg"] ?? null), "html", null, true);
             echo "</div>
                                 ";
         }
-        // line 29
+        // line 31
         echo "                                <div class=\"row\">
                                     <div class=\"col-md-12\">
                                         <div class=\"form-group row\">
                                             <label class=\"control-label col-md-3 text-right p-t-10\">Email</label>
                                             <div class=\"col-md-9\">
                                                 <input type=\"email\" id=\"username\" name=\"username\" class=\"form-control\" placeholder=\"Email (tài khoản)\" value=\"";
-        // line 34
+        // line 36
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["user"] ?? null), "username", array()), "html", null, true);
         echo "\" required />
                                             </div>
@@ -93,7 +97,7 @@ class __TwigTemplate_12ae0ccd433c25d1ac4cda6ddc9905488326d7c56fcda9586d6d9c58744
                                             <label class=\"control-label col-md-3 text-right p-t-10\">Họ tên</label>
                                             <div class=\"col-md-9\">
                                                 <input type=\"text\" id=\"fullname\" name=\"fullname\" class=\"form-control\" placeholder=\"Họ tên\" value=\"";
-        // line 44
+        // line 46
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["user"] ?? null), "fullname", array()), "html", null, true);
         echo "\">
                                             </div>
@@ -106,7 +110,7 @@ class __TwigTemplate_12ae0ccd433c25d1ac4cda6ddc9905488326d7c56fcda9586d6d9c58744
                                             <label class=\"control-label col-md-3 text-right p-t-10\">Mật khẩu</label>
                                             <div class=\"col-md-9\">
                                                 <input type=\"password\" id=\"password\" name=\"password\" class=\"form-control\" placeholder=\"Mật khẩu\" value=\"";
-        // line 54
+        // line 56
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["user"] ?? null), "password", array()), "html", null, true);
         echo "\" required>
                                             </div>
@@ -122,14 +126,14 @@ class __TwigTemplate_12ae0ccd433c25d1ac4cda6ddc9905488326d7c56fcda9586d6d9c58744
                                                 <select class=\"select2 m-b-10 select2-multiple\" name=\"roles[]\" style=\"width: 100%\" multiple=\"multiple\" data-placeholder=\"Chọn quyền\">
                                                     <option value=\"\">Chọn quyền</option>}
                                                     ";
-        // line 67
+        // line 69
         if (($context["roles"] ?? null)) {
-            // line 68
+            // line 70
             echo "                                                        ";
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(($context["roles"] ?? null));
             foreach ($context['_seq'] as $context["key"] => $context["role"]) {
-                // line 69
+                // line 71
                 echo "                                                            <option value=\"";
                 echo twig_escape_filter($this->env, $context["role"], "html", null, true);
                 echo "\" ";
@@ -144,16 +148,16 @@ class __TwigTemplate_12ae0ccd433c25d1ac4cda6ddc9905488326d7c56fcda9586d6d9c58744
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['key'], $context['role'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 71
+            // line 73
             echo "                                                    ";
         }
-        // line 72
+        // line 74
         echo "                                                </select>
                                             </div>
                                             <div class=\"col-md-3 switchery-demo\">
                                                 Hoạt động:&nbsp;&nbsp;&nbsp;
                                                 <input type=\"checkbox\" name=\"status\" id=\"status\" ";
-        // line 76
+        // line 78
         if ((twig_get_attribute($this->env, $this->getSourceContext(), ($context["user"] ?? null), "status", array()) == 1)) {
             echo " checked  ";
         }
@@ -174,27 +178,27 @@ class __TwigTemplate_12ae0ccd433c25d1ac4cda6ddc9905488326d7c56fcda9586d6d9c58744
                                 </div>
                                <div id=\"list_hinhanh\" class=\"form-group row el-element-overlay\">
                                     ";
-        // line 92
+        // line 94
         if (twig_get_attribute($this->env, $this->getSourceContext(), ($context["user"] ?? null), "hinhanh_aliasname", array())) {
-            // line 93
+            // line 95
             echo "                                        ";
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->getSourceContext(), ($context["user"] ?? null), "hinhanh_aliasname", array()));
             foreach ($context['_seq'] as $context["key"] => $context["ha"]) {
-                // line 94
+                // line 96
                 echo "                                            <div class=\"col-lg-3 col-md-6 items\">
                                                 <input type=\"hidden\" name=\"hinhanh_aliasname[]\" value=\"";
-                // line 95
+                // line 97
                 echo twig_escape_filter($this->env, $context["ha"], "html", null, true);
                 echo "\" readonly/>
                                                 <input type=\"hidden\" name=\"hinhanh_filename[]\" value=\"";
-                // line 96
+                // line 98
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), ($context["user"] ?? null), "hinhanh_filename", array()), $context["key"], array(), "array"), "html", null, true);
                 echo "\" class=\"form-control\"/>
                                                 <div class=\"card\">
                                                     <div class=\"el-card-item\">
                                                         <div class=\"el-card-avatar el-overlay-1\"> <img src=\"/uploads/images/thumb_300x200/";
-                // line 99
+                // line 101
                 echo twig_escape_filter($this->env, $context["ha"], "html", null, true);
                 echo "\" alt=\"";
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), ($context["user"] ?? null), "hinhanh_filename", array()), $context["key"], array(), "array"), "html", null, true);
@@ -202,11 +206,11 @@ class __TwigTemplate_12ae0ccd433c25d1ac4cda6ddc9905488326d7c56fcda9586d6d9c58744
                                                             <div class=\"el-overlay\">
                                                                 <ul class=\"el-info\">
                                                                     <li><a class=\"btn default btn-outline image-popup-vertical-fit\" href=\"/uploads/images/";
-                // line 102
+                // line 104
                 echo twig_escape_filter($this->env, $context["ha"], "html", null, true);
                 echo "\"><i class=\"mdi mdi-camera\"></i></a></li>
                                                                     <li><a class=\"btn default btn-outline delete_file\" href=\"/image/delete?file=";
-                // line 103
+                // line 105
                 echo twig_escape_filter($this->env, $context["ha"], "html", null, true);
                 echo "\" onclick=\"return false;\"><i class=\"ti ti-trash\"></i></a></li>
                                                                 </ul>
@@ -214,7 +218,7 @@ class __TwigTemplate_12ae0ccd433c25d1ac4cda6ddc9905488326d7c56fcda9586d6d9c58744
                                                         </div>
                                                         <div class=\"el-card-content\">
                                                             <h3 class=\"box-title\">";
-                // line 108
+                // line 110
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), ($context["user"] ?? null), "hinhanh_filename", array()), $context["key"], array(), "array"), "html", null, true);
                 echo "</h3><br/>
                                                         </div>
@@ -226,10 +230,10 @@ class __TwigTemplate_12ae0ccd433c25d1ac4cda6ddc9905488326d7c56fcda9586d6d9c58744
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['key'], $context['ha'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 114
+            // line 116
             echo "                                    ";
         }
-        // line 115
+        // line 117
         echo "                                </div>
                             </div>
                             <div class=\"form-actions\">
@@ -246,10 +250,10 @@ class __TwigTemplate_12ae0ccd433c25d1ac4cda6ddc9905488326d7c56fcda9586d6d9c58744
 ";
     }
 
-    // line 130
+    // line 132
     public function block_js($context, array $blocks = array())
     {
-        // line 131
+        // line 133
         echo "    <script src=\"/assets/Backend/plugins/select2/dist/js/select2.full.min.js\" type=\"text/javascript\"></script>
     <script src=\"/assets/Backend/plugins/Magnific-Popup-master/dist/jquery.magnific-popup.min.js\"></script>
     <!--<script src=\"/assets/Backend/plugins/Magnific-Popup-master/dist/jquery.magnific-popup-init.js\"></script>-->
@@ -280,7 +284,7 @@ class __TwigTemplate_12ae0ccd433c25d1ac4cda6ddc9905488326d7c56fcda9586d6d9c58744
 
     public function getTemplateName()
     {
-        return "Backend/Users/add.html.twig";
+        return "Backend/Users/edit.html.twig";
     }
 
     public function isTraitable()
@@ -290,11 +294,11 @@ class __TwigTemplate_12ae0ccd433c25d1ac4cda6ddc9905488326d7c56fcda9586d6d9c58744
 
     public function getDebugInfo()
     {
-        return array (  253 => 131,  250 => 130,  233 => 115,  230 => 114,  218 => 108,  210 => 103,  206 => 102,  198 => 99,  192 => 96,  188 => 95,  185 => 94,  180 => 93,  178 => 92,  157 => 76,  151 => 72,  148 => 71,  133 => 69,  128 => 68,  126 => 67,  110 => 54,  97 => 44,  84 => 34,  77 => 29,  71 => 27,  69 => 26,  50 => 9,  47 => 8,  40 => 4,  37 => 3,  31 => 2,  11 => 1,);
+        return array (  257 => 133,  254 => 132,  237 => 117,  234 => 116,  222 => 110,  214 => 105,  210 => 104,  202 => 101,  196 => 98,  192 => 97,  189 => 96,  184 => 95,  182 => 94,  161 => 78,  155 => 74,  152 => 73,  137 => 71,  132 => 70,  130 => 69,  114 => 56,  101 => 46,  88 => 36,  81 => 31,  75 => 29,  73 => 28,  66 => 24,  50 => 10,  47 => 9,  40 => 5,  37 => 4,  31 => 3,  11 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "Backend/Users/add.html.twig", "C:\\wamp64\\www\\mvcframework\\App\\Views\\Backend\\Users\\add.html.twig");
+        return new Twig_Source("", "Backend/Users/edit.html.twig", "C:\\wamp64\\www\\mvcframework\\App\\Views\\Backend\\Users\\edit.html.twig");
     }
 }

@@ -67,7 +67,7 @@ class User extends \Core\Model {
     }
 
     public function getOne(){
-        $query = array('_id' => new MongoId());
+        $query = array('_id' => ObjectController::ObjectId($this->id));
         return $this->_collection->findOne($query);
     }
 

@@ -27,7 +27,7 @@
                                         <div class="form-group row">
                                             <label class="control-label col-md-3 text-right p-t-10">Tên</label>
                                             <div class="col-md-9">
-                                                <input type="text" id="ten" name="ten" class="form-control" placeholder="Tên loại sản phẩm">
+                                                <input type="text" id="ten" name="ten" class="form-control" placeholder="Tên loại sản phẩm" required>
                                             </div>
                                         </div>
                                     </div>
@@ -55,7 +55,7 @@
                                                     <option value="">Chọn nhóm</option>}
                                                     {% if list %}
                                                         {% for item in list %}
-                                                            <option value="{{item._id}}">{{item.ten}}</option>
+                                                            <option value="{{item._id}}" {% if item._id == id_parent %} selected {% endif %}>{{item.ten}}</option>
                                                         {% endfor %}
                                                     {% endif %}
                                                 </select>
