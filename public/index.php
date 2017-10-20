@@ -32,7 +32,13 @@ $router->add('admin/login',['controller' => 'UserController', 'action' => 'getLo
 $router->add('admin/auth',['controller' => 'UserController', 'action' => 'auth']);
 $router->add('admin/logout',['controller' => 'UserController', 'action' => 'logout']);
 
-$router->add('users', ['controller' => 'UserController', 'action' => 'index']);
+$router->add('tai-khoan', ['controller' => 'UserController', 'action' => 'index']);
+$router->add('tai-khoan/add', ['controller' => 'UserController', 'action' => 'add']);
+$router->add('tai-khoan/create', ['controller' => 'UserController', 'action' => 'create']);
+$router->add('tai-khoan/edit', ['controller' => 'UserController', 'action' => 'edit']);
+$router->add('tai-khoan/update', ['controller' => 'UserController', 'action' => 'update']);
+$router->add('tai-khoan/delete', ['controller' => 'UserController', 'action' => 'delete']);
+
 $router->add('loai-san-pham', ['controller' => 'ProductTypeController', 'action' => 'index']);
 $router->add('loai-san-pham/add', ['controller' => 'ProductTypeController', 'action' => 'add']);
 $router->add('loai-san-pham/create', ['controller' => 'ProductTypeController', 'action' => 'create']);

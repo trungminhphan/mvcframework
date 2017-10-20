@@ -3,14 +3,20 @@
 namespace App\Controllers;
 
 use \Core\View;
-use \App\Models\User;
 use \Core\Router;
+use \App\Models\User;
+use \App\Config;
+use \App\Controllers\ObjectController;
 /**
  * Home controller
  *
  * PHP version 7.0
  */
 class UserController extends \Core\Controller {
+
+    public function __construct(){
+        ObjectController::checkPermis('Admin');
+    }
     /**
      * Show the index page
      *
@@ -19,7 +25,23 @@ class UserController extends \Core\Controller {
     public function indexAction() {
     	$users = new User();
         $list = $users->getAll();
-    	View::renderTemplate('Backend/users.html.twig', ['users' => $list]);
+    	View::renderTemplate('Backend/Users/list.html.twig', ['users' => $list]);
+    }
+
+    public function addAction(){
+        View::renderTemplate('Backend/Users/add.html.twig', ['roles' => Config::ARR_ROLES]);
+    }
+
+    public function createAction(){
+        $router = new Router();$users = new User();
+        $username = isset($_POST['username']) ? $_POST['username'] : '';
+        $users->username = $username;
+        if($users->check_exists()){
+            View::renderTemplate('Backend/Users/add.html.twig', ['roles' => Config::ARR_ROLES, 'user' => $_POST, 'msg' => 'Tài khoản đã tồn tại']);
+        } else if($users->insertQuery($_POST)){
+            $router->redirect('/tai-khoan');
+        }
+        //View::renderTemplate('Backend/Users/add.html.twig', ['roles' => Config::ARR_ROLES]);
     }
 
     public function getLoginAction(){

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 use \Core\Model;
+use \App\Controllers\ObjectController;
 /**
  * Example user model
  *
@@ -45,7 +46,6 @@ class User extends \Core\Model {
         return $this->_collection->insertOne($query);
     }
 
-
     public function edit(){
         $condition = array('_id'=> new MongoId($this->id));
         $query = array('$set' => array(
@@ -55,6 +55,10 @@ class User extends \Core\Model {
             'fullname'=>$this->fullname,
             'status'=>intval($this->status),
             'image' => $this->image));
+        return $this->_collection->updateOne($condition, $query);
+    }
+
+    public function editQuery($condition, $query){
         return $this->_collection->updateOne($condition, $query);
     }
 
@@ -76,13 +80,23 @@ class User extends \Core\Model {
     }
 
     public function logout(){
-        unset($_SESSION['user_id']); unset($_SESSION['roles']);
-        unset($_SESSION['username']); unset($_SESSION['fullname']);
+        unset($_SESSION['user_id']);unset($_SESSION['roles']);unset($_SESSION['username']);unset($_SESSION['fullname']);
         //session_destroy();
     }
 
     public function checkAuth() {
         return isset($_SESSION['user_id']);
+    }
+
+    public function check_exists(){
+        $query = array('username' => $this->username);
+        $result = $this->_collection->findOne($query);
+        if(isset($result['_id']) && $result['_id']) return true;
+        else return false;
+    }
+
+    public function delete(){
+        return $this->_collection->deleteOne(array('_id' => ObjectController::ObjectId($this->id)));
     }
 
 

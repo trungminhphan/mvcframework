@@ -1,0 +1,36 @@
+[20-Oct-2017 03:17:04 UTC] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 C:\wamp64\www\mvcframework\public\index.php(54): Core\Router->dispatch('tai-khoan/add')
+#1 {main}
+Thrown in 'C:\wamp64\www\mvcframework\Core\Router.php' on line 128
+[20-Oct-2017 03:17:04 UTC] PHP Fatal error:  Uncaught Twig_Error_Loader: Unable to find template "base.html" (looked into: C:\wamp64\www\mvcframework/App/Views) in "404.html" at line 1. in C:\wamp64\www\mvcframework\vendor\twig\twig\lib\Twig\Loader\Filesystem.php:226
+Stack trace:
+#0 C:\wamp64\www\mvcframework\vendor\twig\twig\lib\Twig\Loader\Filesystem.php(143): Twig_Loader_Filesystem->findTemplate('base.html')
+#1 C:\wamp64\www\mvcframework\vendor\twig\twig\lib\Twig\Environment.php(270): Twig_Loader_Filesystem->getCacheKey('base.html')
+#2 C:\wamp64\www\mvcframework\vendor\twig\twig\lib\Twig\Environment.php(350): Twig_Environment->getTemplateClass('base.html')
+#3 C:\wamp64\www\mvcframework\vendor\twig\twig\lib\Twig\Template.php(329): Twig_Environment->loadTemplate('base.html', NULL)
+#4 C:\wamp64\www\mvcframework\tmp\Cache\8a\8a7e8d9d2f8fe9127e6613073cbfb5e3486ca05f709239876456bb2e4d4cd9a5.php(11): Twig_Template->loadTemplate('base.html', '404.html', 1)
+#5 C:\wamp64\www\mvcframework\vendor\twig\twig\lib\Twig\Environment.php(397): __TwigTemplate_d41aba18bd in C:\wamp64\www\mvcframework\vendor\twig\twig\lib\Twig\Loader\Filesystem.php on line 226
+[20-Oct-2017 03:17:05 UTC] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 C:\wamp64\www\mvcframework\public\index.php(54): Core\Router->dispatch('tai-khoan/add')
+#1 {main}
+Thrown in 'C:\wamp64\www\mvcframework\Core\Router.php' on line 128
+[20-Oct-2017 03:17:05 UTC] PHP Fatal error:  Uncaught Twig_Error_Loader: Unable to find template "base.html" (looked into: C:\wamp64\www\mvcframework/App/Views) in "404.html" at line 1. in C:\wamp64\www\mvcframework\vendor\twig\twig\lib\Twig\Loader\Filesystem.php:226
+Stack trace:
+#0 C:\wamp64\www\mvcframework\vendor\twig\twig\lib\Twig\Loader\Filesystem.php(143): Twig_Loader_Filesystem->findTemplate('base.html')
+#1 C:\wamp64\www\mvcframework\vendor\twig\twig\lib\Twig\Environment.php(270): Twig_Loader_Filesystem->getCacheKey('base.html')
+#2 C:\wamp64\www\mvcframework\vendor\twig\twig\lib\Twig\Environment.php(350): Twig_Environment->getTemplateClass('base.html')
+#3 C:\wamp64\www\mvcframework\vendor\twig\twig\lib\Twig\Template.php(329): Twig_Environment->loadTemplate('base.html', NULL)
+#4 C:\wamp64\www\mvcframework\tmp\Cache\8a\8a7e8d9d2f8fe9127e6613073cbfb5e3486ca05f709239876456bb2e4d4cd9a5.php(11): Twig_Template->loadTemplate('base.html', '404.html', 1)
+#5 C:\wamp64\www\mvcframework\vendor\twig\twig\lib\Twig\Environment.php(397): __TwigTemplate_d41aba18bd in C:\wamp64\www\mvcframework\vendor\twig\twig\lib\Twig\Loader\Filesystem.php on line 226
+[20-Oct-2017 03:17:06 UTC] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 C:\wamp64\www\mvcframework\public\index.php(54): Core\Router->dispatch('tai-khoan/add')
+#1 {main}
+Thrown in 'C:\wamp64\www\mvcframework\Core\Router.php' on line 128
+[20-Oct-2017 03:17:06 UTC] PHP Fatal error:  Uncaught Twig_Error_Loader: Unable to find template "base.html" (looked into: C:\wamp64\www\mvcframework/App/Views) in "404.html" at line 1. in C:\wamp64\www\mvcframework\vendor\twig\twig\lib\Twig\Loader\Filesystem.php:226
+Stack trace:
+#0 C:\wamp64\www\mvcframework\vendor\twig\twig\lib\Twig\Loader\Filesystem.php(143): Twig_Loader_Filesystem->findTemplate('base.html')
+#1 C:\wamp64\www\mvcframework\vendor\twig\twig\lib\Twig\Environment.php(270): Twig_Loader_Filesystem->getCacheKey('base.html')
+#2 C:\wamp64\www\mvcframework\vendor\twig\twig\lib\Twig\Environment.php(350): Twig_Environment->getTemplateClass('base.html')
+#3 C:\wamp64\www\mvcframework\vendor\twig\twig\lib\Twig\Template.php(329): Twig_Environment->loadTemplate('base.html', NULL)
+#4 C:\wamp64\www\mvcframework\tmp\Cache\8a\8a7e8d9d2f8fe9127e6613073cbfb5e3486ca05f709239876456bb2e4d4cd9a5.php(11): Twig_Template->loadTemplate('base.html', '404.html', 1)
+#5 C:\wamp64\www\mvcframework\vendor\twig\twig\lib\Twig\Environment.php(397): __TwigTemplate_d41aba18bd in C:\wamp64\www\mvcframework\vendor\twig\twig\lib\Twig\Loader\Filesystem.php on line 226

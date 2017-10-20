@@ -2,6 +2,7 @@
 
 namespace App\Models;
 use \Core\Model;
+use \App\Controllers\ObjectController;
 /**
  * Example user model
  *
@@ -52,7 +53,7 @@ class ProductType extends \Core\Model {
     }
 
     public function getOne(){
-        return $this->_collection->findOne(array('_id' => new \MongoDB\BSON\ObjectId($this->id)));
+        return $this->_collection->findOne(array('_id' => ObjectController::ObjectId($this->id)));
     }
 
     public function getOneCondition($condition){
@@ -73,8 +74,9 @@ class ProductType extends \Core\Model {
     public function editQuery($condition, $query){
         return $this->_collection->updateOne($condition, $query);
     }
+
     public function delete(){
-        return $this->_collection->deleteOne(array('_id' => new \MongoDB\BSON\ObjectId($this->id)));
+        return $this->_collection->deleteOne(array('_id' => ObjectController::ObjectId($this->id)));
     }
 }
 ?>

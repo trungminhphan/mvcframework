@@ -1,6 +1,6 @@
 function upload_hinhanh(){
 	$(".dinhkem").change(function() {
-        var formData = new FormData($("#themsanphamform")[0]);
+        var formData = new FormData($("#dinhkemform")[0]);
         $.ajax({
             url: "/image/uploads", type: "POST",
             data: formData, async: false,

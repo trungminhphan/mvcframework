@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use \Core\View;
-use \App\Models\User;
+use \App\Controllers\ObjectController;
 /**
  * Home controller
  *
@@ -20,8 +20,7 @@ class HomeController extends \Core\Controller {
     }
 
     public function adminAction(){
-        $users = new User();
-        if(!$users->checkAuth()) View::renderTemplate('Backend/login.html.twig');
-        View::renderTemplate('Backend/index.html.twig');
+        ObjectController::checkAuth();
+        return View::renderTemplate('Backend/index.html.twig');
     }
 }

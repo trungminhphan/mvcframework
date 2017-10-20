@@ -3,8 +3,10 @@
 namespace App\Controllers;
 
 use \Core\View;
-use \App\Models\ProductType;
 use \Core\Router;
+use \App\Models\ProductType;
+use \App\Controllers\ObjectController;
+
 /**
  * Home controller
  *
@@ -16,6 +18,9 @@ class ProductTypeController extends \Core\Controller {
      *
      * @return void
      */
+    public function __construct(){
+        ObjectController::checkPermis('Admin');
+    }
     public function indexAction(){
         $db = new ProductType();
         $arr_list = array();
@@ -31,7 +36,6 @@ class ProductTypeController extends \Core\Controller {
                     }
                 }
                 $arr_list[$key]['childs'] = $arr_child;
-
             }
         }
         View::renderTemplate('Backend/ProductType/list.html.twig', ['list' => $arr_list]);
@@ -46,6 +50,8 @@ class ProductTypeController extends \Core\Controller {
     public function createAction(){
         $db = new ProductType();
         $router = new Router();
+        $_POST['createAt'] = ObjectController::setDate();
+        $_POST['updateAt'] = ObjectController::setDate();
         if($db->insertQuery($_POST)){
             $router->redirect('/loai-san-pham');
         }
@@ -61,10 +67,15 @@ class ProductTypeController extends \Core\Controller {
     }
 
     public function updateAction(){
-       $db = new ProductType();
+        $db = new ProductType();
         $router = new Router();
         $id = $_POST['id'];
-        $condition = array('_id' => new \MongoDB\BSON\ObjectId($id));
+        $condition = array('_id' => ObjectController::ObjectId($id));
+        if(!isset($_POST['hinhanh_aliasname'])){
+            $_POST['hinhanh_aliasname'] = [];
+            $_POST['hinhanh_filename'] = [];
+        }
+        $_POST['updateAt'] = ObjectController::setDate();
         $query = array('$set' => $_POST);
         if($db->editQuery($condition, $query)){
             $router->redirect('/loai-san-pham');

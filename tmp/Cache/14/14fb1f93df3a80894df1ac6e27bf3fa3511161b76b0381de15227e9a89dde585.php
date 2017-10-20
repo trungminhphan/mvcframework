@@ -225,7 +225,7 @@ class __TwigTemplate_fcc296c1b43b1fbc1a8bea83bc0968b1db4586c07931fa0173d1ad599cb
                             </div>
                             <div class=\"form-actions\">
                                 <button type=\"submit\" class=\"btn btn-info\"> <i class=\"fa fa-check\"></i> Cập nhật</button>
-                                <a href=\"/danh-muc-loai-san-pham\" class=\"btn btn-inverse\"><i class=\"mdi mdi-reply-all\"></i> Trở về</a>
+                                <a href=\"/loai-san-pham\" class=\"btn btn-inverse\"><i class=\"mdi mdi-reply-all\"></i> Trở về</a>
                             </div>
                         </form>
                     </div>

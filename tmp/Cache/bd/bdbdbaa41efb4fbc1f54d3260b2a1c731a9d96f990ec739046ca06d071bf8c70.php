@@ -78,41 +78,38 @@ class __TwigTemplate_d0ef0c90053009e56daf4c5dac04e867853615519666034e5c386e9cd72
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()), "html", null, true);
                 echo "\" aria-expanded=\"true\" aria-controls=\"collapse_";
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()), "html", null, true);
-                echo "\">
-                                      ";
-                // line 28
+                echo "\"> ";
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "ten", array()), "html", null, true);
-                echo "
-                                    </a>
+                echo " </a>
                                   </h5>
                                 </div>
                                 <div id=\"collapse_";
-                // line 32
+                // line 30
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()), "html", null, true);
                 echo "\" class=\"collapse show\" role=\"tabpanel\" aria-labelledby=\"heading_";
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()), "html", null, true);
                 echo "\">
                                     <div class=\"card-body\">
                                         ";
-                // line 34
+                // line 32
                 if (twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "childs", array())) {
-                    // line 35
+                    // line 33
                     echo "                                        ";
                     $context['_parent'] = $context;
                     $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "childs", array()));
                     foreach ($context['_seq'] as $context["_key"] => $context["child"]) {
-                        // line 36
+                        // line 34
                         echo "                                            <span class=\"btn btn-info m-t-10\">
                                                 <a href=\"/loai-san-pham/edit&id=";
-                        // line 37
+                        // line 35
                         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["child"], "id", array()), "html", null, true);
                         echo "\" class=\"text-white\"><i class=\"mdi mdi-pencil-circle\"></i></a>
                                                 <a href=\"/loai-san-pham/delete&id=";
-                        // line 38
+                        // line 36
                         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["child"], "id", array()), "html", null, true);
                         echo "\" class=\"text-white\" onclick=\"return confirm('Chắc chắn xóa?');\"><i class=\"mdi mdi-delete-circle\"></i></a>
                                                 ";
-                        // line 39
+                        // line 37
                         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["child"], "ten", array()), "html", null, true);
                         echo "
                                             </span>
@@ -121,10 +118,10 @@ class __TwigTemplate_d0ef0c90053009e56daf4c5dac04e867853615519666034e5c386e9cd72
                     $_parent = $context['_parent'];
                     unset($context['_seq'], $context['_iterated'], $context['_key'], $context['child'], $context['_parent'], $context['loop']);
                     $context = array_intersect_key($context, $_parent) + $_parent;
-                    // line 42
+                    // line 40
                     echo "                                    ";
                 }
-                // line 43
+                // line 41
                 echo "                                    </div>
                                 </div>
                             </div>
@@ -133,10 +130,10 @@ class __TwigTemplate_d0ef0c90053009e56daf4c5dac04e867853615519666034e5c386e9cd72
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 47
+            // line 45
             echo "                        ";
         }
-        // line 48
+        // line 46
         echo "                        </div>
                     </div>
                 </div>
@@ -146,10 +143,10 @@ class __TwigTemplate_d0ef0c90053009e56daf4c5dac04e867853615519666034e5c386e9cd72
 ";
     }
 
-    // line 56
+    // line 54
     public function block_js($context, array $blocks = array())
     {
-        // line 57
+        // line 55
         echo "    <script type=\"text/javascript\">
          \$(document).ready(function() {
             \$('.top').click(function(){
@@ -175,7 +172,7 @@ class __TwigTemplate_d0ef0c90053009e56daf4c5dac04e867853615519666034e5c386e9cd72
 
     public function getDebugInfo()
     {
-        return array (  153 => 57,  150 => 56,  140 => 48,  137 => 47,  128 => 43,  125 => 42,  116 => 39,  112 => 38,  108 => 37,  105 => 36,  100 => 35,  98 => 34,  91 => 32,  84 => 28,  78 => 27,  74 => 26,  70 => 25,  65 => 23,  62 => 22,  57 => 21,  55 => 20,  39 => 6,  36 => 5,  30 => 3,  11 => 1,);
+        return array (  150 => 55,  147 => 54,  137 => 46,  134 => 45,  125 => 41,  122 => 40,  113 => 37,  109 => 36,  105 => 35,  102 => 34,  97 => 33,  95 => 32,  88 => 30,  78 => 27,  74 => 26,  70 => 25,  65 => 23,  62 => 22,  57 => 21,  55 => 20,  39 => 6,  36 => 5,  30 => 3,  11 => 1,);
     }
 
     public function getSourceContext()

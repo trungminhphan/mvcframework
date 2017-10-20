@@ -116,11 +116,13 @@ class __TwigTemplate_31671761eca068a61edb4375dde5c4800ae3341fb3f1db873bb324704f8
                                         </div>
                                     </li>
                                     <li role=\"separator\" class=\"divider\"></li>
-                                    <li><a href=\"thong-tin-tai-khoan\"><i class=\"ti-user\"></i> Thông tin tài khoản</a></li>
+                                    <li><a href=\"/tai-khoan/profiles\"><i class=\"ti-user\"></i> Thông tin tài khoản</a></li>
                                     <li role=\"separator\" class=\"divider\"></li>
-                                    <li><a href=\"doi-mat-khau\"><i class=\"ti-settings\"></i> Đổi mật khẩu</a></li>
+                                    <li><a href=\"/tai-khoan\"><i class=\"mdi mdi-account-multiple\"></i> Danh sách tài khoản</a></li>
                                     <li role=\"separator\" class=\"divider\"></li>
-                                    <li><a href=\"admin/logout\"><i class=\"fa fa-power-off\"></i> Đăng xuất</a></li>
+                                    <li><a href=\"/tai-khoan/change-password\"><i class=\"ti-settings\"></i> Đổi mật khẩu</a></li>
+                                    <li role=\"separator\" class=\"divider\"></li>
+                                    <li><a href=\"/admin/logout\"><i class=\"fa fa-power-off\"></i> Đăng xuất</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -183,9 +185,9 @@ class __TwigTemplate_31671761eca068a61edb4375dde5c4800ae3341fb3f1db873bb324704f8
         <!-- ============================================================== -->
         <div class=\"page-wrapper\">
             ";
-        // line 151
+        // line 153
         $this->displayBlock('body', $context, $blocks);
-        // line 152
+        // line 154
         echo "            <footer class=\"footer\">
                 © 2017 JAYBranding
             </footer>
@@ -223,9 +225,9 @@ class __TwigTemplate_31671761eca068a61edb4375dde5c4800ae3341fb3f1db873bb324704f8
     <!-- ============================================================== -->
     <script src=\"/assets/Backend/plugins/styleswitcher/jQuery.style.switcher.js\"></script>
     ";
-        // line 188
+        // line 190
         $this->displayBlock('js', $context, $blocks);
-        // line 189
+        // line 191
         echo "</body>
 </html>
 ";
@@ -241,12 +243,12 @@ class __TwigTemplate_31671761eca068a61edb4375dde5c4800ae3341fb3f1db873bb324704f8
     {
     }
 
-    // line 151
+    // line 153
     public function block_body($context, array $blocks = array())
     {
     }
 
-    // line 188
+    // line 190
     public function block_js($context, array $blocks = array())
     {
     }
@@ -263,7 +265,7 @@ class __TwigTemplate_31671761eca068a61edb4375dde5c4800ae3341fb3f1db873bb324704f8
 
     public function getDebugInfo()
     {
-        return array (  250 => 188,  245 => 151,  240 => 26,  235 => 13,  229 => 189,  227 => 188,  189 => 152,  187 => 151,  114 => 81,  110 => 80,  55 => 27,  53 => 26,  37 => 13,  23 => 1,);
+        return array (  252 => 190,  247 => 153,  242 => 26,  237 => 13,  231 => 191,  229 => 190,  191 => 154,  189 => 153,  114 => 81,  110 => 80,  55 => 27,  53 => 26,  37 => 13,  23 => 1,);
     }
 
     public function getSourceContext()
