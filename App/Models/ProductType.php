@@ -17,7 +17,13 @@ class ProductType extends \Core\Model {
     public $icon = '';
     public $images = '';
     public $thutu = 0;
-    public $id_parent = array();
+    public $id_product_type = '';
+
+    public $hinhanh_aliasname = '';
+    public $hinhanh_filename = '';
+
+    public $createAt = '';
+    public $updateAt = '';
 
     public function __construct(){
         $this->db = static::getDB();
@@ -42,8 +48,7 @@ class ProductType extends \Core\Model {
             'ten' => $this->ten,
             'icon' => $this->icon,
             'images' => $this->images,
-            'thutu' => intval($this->thutu),
-            'id_parent' => $this->id_parent
+            'thutu' => intval($this->thutu)
         );
         return $this->_collection->insertOne($query);
     }
@@ -67,7 +72,7 @@ class ProductType extends \Core\Model {
             'images' => $this->images,
             'id_parent' => $this->id_parent
         ));
-        $codition = array('_id' => new \MongoDB\BSON\ObjectId($this->id));
+        $codition = array('_id' => ObjectController::ObjectId($this->id));
         return $this->_collection->updateOne($condition, $query);
     }
 

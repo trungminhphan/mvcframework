@@ -39,7 +39,7 @@ class ObjectController extends \Core\Controller {
     public static function checkAuth(){
         $router = new Router(); $users = new User();
         if(!$users->checkAuth()){
-            $router->redirect('/admin/auth');
+            $router->redirect('/admin/login');
             return false;
         } else {
             return true;
@@ -56,7 +56,7 @@ class ObjectController extends \Core\Controller {
                 //throw new \Exception('Not permission access');
             }
         }  else {
-            $router->redirect('/admin/auth');
+            $router->redirect('/admin/login');
         }
 
     }

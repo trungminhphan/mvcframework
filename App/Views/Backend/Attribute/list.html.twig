@@ -1,0 +1,85 @@
+{% extends "Backend/layout.html.twig" %}
+
+{% block title %}Danh sách thuộc tính sản phẩm{% endblock %}
+{% block body %}
+    <div class="row page-titles">
+        <div class="col-md-12 align-self-center">
+            <h3 class="text-themecolor"><a href="/thuoc-tinh-san-pham/add" class="btn btn-info"><i class="mdi mdi-folder-plus"></i></a> Danh mục thuộc tính sản phẩm</h3>
+        </div>
+        <div>
+            <a href="#top" class="right-side-toggle waves-effect top waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-arrow-circle-up text-white"></i></a>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                       <div class="table-responsive">
+                            <table id="demo-foo-addrow2" class="table table-bordered table-hover toggle-circle" data-page-size="7">
+                                <thead>
+                                    <tr>
+                                        <th data-sort-initial="true" data-toggle="true">STT</th>
+                                        <th>Tên thuộc tính sản phẩm</th>
+                                        <th data-sort-ignore="true" class="text-center">#</th>
+                                    </tr>
+                                </thead>
+                                <div class="m-t-40">
+                                    <div class="d-flex">
+                                        <div class="mr-auto">
+                                            <div class="form-group">
+                                                </div>
+                                        </div>
+                                        <div class="ml-auto">
+                                            <div class="form-group">
+                                                <input id="demo-input-search2" type="text" placeholder="Tìm kiếm" autocomplete="on">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <tbody>
+                                {% if list %}
+                                    {% for key, item in list %}
+                                    <tr>
+                                        <td>{{key+1}}</td>
+                                        <td>{{item.ten}}</td>
+                                        <td class="text-center">
+                                            <a href="/thuoc-tinh-san-pham/delete?id={{item._id}}" class="btn btn-sm btn-danger" onclick="return confirm('Chắc chắn xóa?')"><i class="mdi mdi-delete"></i> Xóa</a>
+                                            <a href="/thuoc-tinh-san-pham/edit?id={{item._id}}" class="btn btn-sm btn-info"><i class="mdi mdi-pencil-circle"></i> Sửa</a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                {% endif %}
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="6">
+                                            <div class="text-right">
+                                                <ul class="pagination">
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js%}
+    <script type="text/javascript">
+         $(document).ready(function() {
+            $('.top').click(function(){
+              $('html, body').animate({
+                scrollTop: $( $.attr(this, 'href') ).offset().top
+              }, 500);
+              return false;
+            });
+        });
+    </script>
+{% endblock %}
+

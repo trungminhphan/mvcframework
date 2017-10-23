@@ -62,8 +62,39 @@ $router->add('nhom-san-pham/edit', ['controller' => 'ProductGroupController', 'a
 $router->add('nhom-san-pham/update', ['controller' => 'ProductGroupController', 'action' => 'update']);
 $router->add('nhom-san-pham/delete', ['controller' => 'ProductGroupController', 'action' => 'delete']);
 
-$router->add('danh-muc-nha-san-xuat', ['controller' => 'ProducerController', 'action' => 'index']);
-$router->add('danh-muc-nhom-san-pham', ['controller' => 'ProductGroupController', 'action' => 'index']);
+$router->add('thuoc-tinh-san-pham', ['controller' => 'AttributeController', 'action' => 'index']);
+$router->add('thuoc-tinh-san-pham/add', ['controller' => 'AttributeController', 'action' => 'add']);
+$router->add('thuoc-tinh-san-pham/create', ['controller' => 'AttributeController', 'action' => 'create']);
+$router->add('thuoc-tinh-san-pham/edit', ['controller' => 'AttributeController', 'action' => 'edit']);
+$router->add('thuoc-tinh-san-pham/update', ['controller' => 'AttributeController', 'action' => 'update']);
+$router->add('thuoc-tinh-san-pham/delete', ['controller' => 'AttributeController', 'action' => 'delete']);
+
+$router->add('don-vi-tien-te', ['controller' => 'CurrencyController', 'action' => 'index']);
+$router->add('don-vi-tien-te/add', ['controller' => 'CurrencyController', 'action' => 'add']);
+$router->add('don-vi-tien-te/create', ['controller' => 'CurrencyController', 'action' => 'create']);
+$router->add('don-vi-tien-te/edit', ['controller' => 'CurrencyController', 'action' => 'edit']);
+$router->add('don-vi-tien-te/update', ['controller' => 'CurrencyController', 'action' => 'update']);
+$router->add('don-vi-tien-te/delete', ['controller' => 'CurrencyController', 'action' => 'delete']);
+
+$router->add('don-hang', ['controller' => 'OrderController', 'action' => 'index']);
+$router->add('don-hang/add', ['controller' => 'OrderController', 'action' => 'add']);
+$router->add('don-hang/create', ['controller' => 'OrderController', 'action' => 'create']);
+$router->add('don-hang/edit', ['controller' => 'OrderController', 'action' => 'edit']);
+$router->add('don-hang/update', ['controller' => 'OrderController', 'action' => 'update']);
+$router->add('don-hang/delete', ['controller' => 'OrderController', 'action' => 'delete']);
+
+$router->add('tong-quan-van-chuyen', ['controller' => 'DeliveryController', 'action' => 'index']);
+$router->add('van-chuyen', ['controller' => 'DeliveryController', 'action' => 'index']);
+$router->add('quan-ly-thu-ho', ['controller' => 'DeliveryController', 'action' => 'index']);
+$router->add('cau-hinh-van-chuyen', ['controller' => 'DeliveryController', 'action' => 'index']);
+
+$router->add('san-pham', ['controller' => 'ProductController', 'action' => 'index']);
+$router->add('san-pham-ton-kho', ['controller' => 'ProductController', 'action' => 'index']);
+
+$router->add('khach-hang', ['controller' => 'CustomerController', 'action' => 'index']);
+$router->add('bao-cao', ['controller' => 'ReportController', 'action' => 'index']);
+
+$router->add('khuyen-mai', ['controller' => 'PromotionController', 'action' => 'index']);
 
 #GET - POST
 $router->add('image/uploads', ['controller' => 'ImagesController', 'action' => 'uploads']);

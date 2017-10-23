@@ -51,5 +51,7 @@ class Config{
     const FILE_EXT = array('pdf', 'zip', 'rar', 'doc', 'docx', 'xls', 'png', 'gif', 'jpg', 'jpeg', 'bmp', 'rtf');
     const IMAGES_EXT = array('png', 'gif', 'jpg', 'jpeg', 'bmp');
     const VALID_EXT = array("jpg", "png", "gif", "zip", "bmp", "doc", "docx", "pdf", "xls", "xlsx", "ppt", "pptx", 'zip', 'rar');
+
+    const ARR_STATUS = array(0 => 'Chờ xử lý', 1 => 'Đang giao hàng', 2 => 'Hoàn tất', 3 => 'Hủy');
     const MAX_FILE_SIZE = 50*1024*1024*1024; //50MB
 }
