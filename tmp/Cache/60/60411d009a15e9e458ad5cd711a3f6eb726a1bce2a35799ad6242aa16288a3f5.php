@@ -22,7 +22,6 @@ class __TwigTemplate_31671761eca068a61edb4375dde5c4800ae3341fb3f1db873bb324704f8
         // line 1
         echo "<!DOCTYPE html>
 <html lang=\"en\">
-
 <head>
     <meta charset=\"utf-8\">
     <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">
@@ -33,7 +32,7 @@ class __TwigTemplate_31671761eca068a61edb4375dde5c4800ae3341fb3f1db873bb324704f8
     <!-- Favicon icon -->
     <link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"/assets/Backend/images/favicon.png\">
     <title>";
-        // line 13
+        // line 12
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
     <!-- Bootstrap Core CSS -->
@@ -49,9 +48,9 @@ class __TwigTemplate_31671761eca068a61edb4375dde5c4800ae3341fb3f1db873bb324704f8
     <script src=\"https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js\"></script>
 <![endif]-->
     ";
-        // line 26
+        // line 25
         $this->displayBlock('css', $context, $blocks);
-        // line 27
+        // line 26
         echo "</head>
 <body class=\"fix-header card-no-border logo-center\">
 <div id=\"top\"></div>
@@ -106,19 +105,27 @@ class __TwigTemplate_31671761eca068a61edb4375dde5c4800ae3341fb3f1db873bb324704f8
                                             <div class=\"u-img\"><img src=\"/assets/Backend/images/users/1.jpg\" alt=\"user\"></div>
                                             <div class=\"u-text\">
                                                 <h4>";
-        // line 80
+        // line 79
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["session"] ?? null), "fullname", array()), "html", null, true);
         echo "</h4>
                                                 <p class=\"text-muted\">";
-        // line 81
+        // line 80
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["session"] ?? null), "username", array()), "html", null, true);
         echo "</p><a href=\"thong-tin-tai-khoan\" class=\"btn btn-rounded btn-danger btn-sm\">Xem thông tin</a></div>
                                         </div>
                                     </li>
                                     <li role=\"separator\" class=\"divider\"></li>
                                     <li><a href=\"/tai-khoan/profiles\"><i class=\"ti-user\"></i> Thông tin tài khoản</a></li>
-                                    <li role=\"separator\" class=\"divider\"></li>
-                                    <li><a href=\"/tai-khoan\"><i class=\"mdi mdi-account-multiple\"></i> Danh sách tài khoản</a></li>
+                                    ";
+        // line 85
+        if (twig_in_filter("Admin", twig_get_attribute($this->env, $this->getSourceContext(), ($context["session"] ?? null), "roles", array()))) {
+            // line 86
+            echo "                                        <li role=\"separator\" class=\"divider\"></li>
+                                        <li><a href=\"/tai-khoan\"><i class=\"mdi mdi-account-multiple\"></i> Danh sách tài khoản</a></li>
+                                    ";
+        }
+        // line 89
+        echo "
                                     <li role=\"separator\" class=\"divider\"></li>
                                     <li><a href=\"/tai-khoan/change-password\"><i class=\"ti-settings\"></i> Đổi mật khẩu</a></li>
                                     <li role=\"separator\" class=\"divider\"></li>
@@ -185,9 +192,9 @@ class __TwigTemplate_31671761eca068a61edb4375dde5c4800ae3341fb3f1db873bb324704f8
         <!-- ============================================================== -->
         <div class=\"page-wrapper\">
             ";
-        // line 153
+        // line 155
         $this->displayBlock('body', $context, $blocks);
-        // line 154
+        // line 156
         echo "            <footer class=\"footer\">
                 © 2017 JAYBranding
             </footer>
@@ -225,30 +232,30 @@ class __TwigTemplate_31671761eca068a61edb4375dde5c4800ae3341fb3f1db873bb324704f8
     <!-- ============================================================== -->
     <script src=\"/assets/Backend/plugins/styleswitcher/jQuery.style.switcher.js\"></script>
     ";
-        // line 190
+        // line 192
         $this->displayBlock('js', $context, $blocks);
-        // line 191
+        // line 193
         echo "</body>
 </html>
 ";
     }
 
-    // line 13
+    // line 12
     public function block_title($context, array $blocks = array())
     {
     }
 
-    // line 26
+    // line 25
     public function block_css($context, array $blocks = array())
     {
     }
 
-    // line 153
+    // line 155
     public function block_body($context, array $blocks = array())
     {
     }
 
-    // line 190
+    // line 192
     public function block_js($context, array $blocks = array())
     {
     }
@@ -265,7 +272,7 @@ class __TwigTemplate_31671761eca068a61edb4375dde5c4800ae3341fb3f1db873bb324704f8
 
     public function getDebugInfo()
     {
-        return array (  252 => 190,  247 => 153,  242 => 26,  237 => 13,  231 => 191,  229 => 190,  191 => 154,  189 => 153,  114 => 81,  110 => 80,  55 => 27,  53 => 26,  37 => 13,  23 => 1,);
+        return array (  259 => 192,  254 => 155,  249 => 25,  244 => 12,  238 => 193,  236 => 192,  198 => 156,  196 => 155,  128 => 89,  123 => 86,  121 => 85,  113 => 80,  109 => 79,  54 => 26,  52 => 25,  36 => 12,  23 => 1,);
     }
 
     public function getSourceContext()

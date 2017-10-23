@@ -14,15 +14,14 @@ use \App\Controllers\ObjectController;
  */
 class UserController extends \Core\Controller {
 
-    public function __construct(){
-        ObjectController::checkPermis('Admin');
-    }
     /**
      * Show the index page
      *
      * @return void
      */
     public function indexAction() {
+        ObjectController::checkPermis('Admin');
+
     	$db = new User();
         $list = $db->getAll();
     	View::renderTemplate('Backend/Users/list.html.twig', ['users' => $list]);
@@ -36,6 +35,12 @@ class UserController extends \Core\Controller {
         $router = new Router();$db = new User();
         $username = isset($_POST['username']) ? $_POST['username'] : '';
         $db->username = $username;
+        if($_POST['status']) {
+            $_POST['status'] = intval($_POST['status']);
+        } else {
+            $_POST['status'] = 0;
+        }
+        $_POST['password'] = md5($_POST['password']);
         $_POST['createAt'] = ObjectController::setDate();
         $_POST['updateAt'] = ObjectController::setDate();
         if($db->check_exists()){
@@ -57,7 +62,12 @@ class UserController extends \Core\Controller {
         $router = new Router();$db = new User();
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         $condition = array('_id' => ObjectController::ObjectId($id));
-
+        $_POST['password'] = md5($_POST['password']);
+        if($_POST['status']) {
+            $_POST['status'] = intval($_POST['status']);
+        } else {
+            $_POST['status'] = 0;
+        }
         if(!isset($_POST['hinhanh_aliasname'])){
             $_POST['hinhanh_aliasname'] = [];
             $_POST['hinhanh_filename'] = [];
@@ -93,7 +103,7 @@ class UserController extends \Core\Controller {
     }
 
     public function authAction(){
-        $db = new User();
+        $db = new User();$router = new Router();
         $username = isset($_POST['username']) ? $_POST['username'] : '';
         $password = isset($_POST['password']) ? $_POST['password'] : '';
         $query = array(
@@ -101,12 +111,12 @@ class UserController extends \Core\Controller {
             'password' => md5($password),
             'status' => 1);
         $user = $db->getOneCondition($query);
-        if (empty($user)){
-            View::renderTemplate('Backend/login.html.twig', ['msg' => 'Đăng nhập thất bại', "username" => $username]);
+        if(empty($user)){
+            View::renderTemplate('Backend/login.html.twig', ['msg' => 'Đăng nhập thất bại, vui lòng kiểm tra tài khoản và mật khẩu', "username" => $username]);
+            //$router->redirect('/admin/login');
         } else {
-            $router = new Router();
             $_SESSION['user_id'] = (string) $user['_id'];
-            $_SESSION['roles'] = $user['roles'];
+            $_SESSION['roles'] = (array) $user['roles'];
             $_SESSION['username'] = $user['username'];
             $_SESSION['fullname'] = $user['fullname'];
             $router->redirect('/admin');

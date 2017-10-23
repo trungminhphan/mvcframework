@@ -28,7 +28,7 @@ class __TwigTemplate_da180d15a96cf79b408c84c6ff9d604187e4bd4fc6ac15b93f1496cc473
     <meta name=\"author\" content=\"\">
     <!-- Favicon icon -->
     <link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"../assets/images/favicon.png\">
-    <title>Login</title>
+    <title>Đăng nhập hệ thống</title>
     <!-- Bootstrap Core CSS -->
     <link href=\"/assets/Backend/plugins/bootstrap/css/bootstrap.min.css\" rel=\"stylesheet\">
     <!-- Custom CSS -->
@@ -60,10 +60,20 @@ class __TwigTemplate_da180d15a96cf79b408c84c6ff9d604187e4bd4fc6ac15b93f1496cc473
             <div class=\"card-body\">
                 <form class=\"form-horizontal form-material\" id=\"loginform\" action=\"/admin/auth\" method=\"POST\">
                     <h3 class=\"box-title m-b-20\">Đăng nhập hệ thống</h3>
-                    <div class=\"form-group \">
+                    ";
+        // line 45
+        if (($context["msg"] ?? null)) {
+            // line 46
+            echo "                        <div class=\"alert alert-success\">";
+            echo twig_escape_filter($this->env, ($context["msg"] ?? null), "html", null, true);
+            echo "</div>
+                    ";
+        }
+        // line 48
+        echo "                    <div class=\"form-group \">
                         <div class=\"col-xs-12\">
                             <input class=\"form-control\" type=\"text\" required=\"required\" placeholder=\"Tài khoản\" name=\"username\" value=\"";
-        // line 47
+        // line 50
         echo twig_escape_filter($this->env, ($context["username"] ?? null), "html", null, true);
         echo "\"> </div>
                     </div>
@@ -124,7 +134,7 @@ class __TwigTemplate_da180d15a96cf79b408c84c6ff9d604187e4bd4fc6ac15b93f1496cc473
 
     public function getDebugInfo()
     {
-        return array (  67 => 47,  19 => 1,);
+        return array (  77 => 50,  73 => 48,  67 => 46,  65 => 45,  19 => 1,);
     }
 
     public function getSourceContext()

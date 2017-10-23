@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -83,8 +82,11 @@
                                     </li>
                                     <li role="separator" class="divider"></li>
                                     <li><a href="/tai-khoan/profiles"><i class="ti-user"></i> Thông tin tài khoản</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="/tai-khoan"><i class="mdi mdi-account-multiple"></i> Danh sách tài khoản</a></li>
+                                    {% if 'Admin' in session.roles %}
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="/tai-khoan"><i class="mdi mdi-account-multiple"></i> Danh sách tài khoản</a></li>
+                                    {% endif %}
+
                                     <li role="separator" class="divider"></li>
                                     <li><a href="/tai-khoan/change-password"><i class="ti-settings"></i> Đổi mật khẩu</a></li>
                                     <li role="separator" class="divider"></li>

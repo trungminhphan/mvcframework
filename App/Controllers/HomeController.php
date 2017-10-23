@@ -19,6 +19,10 @@ class HomeController extends \Core\Controller {
         View::renderTemplate('Frontend/index.html.twig');
     }
 
+    public function forbiddenAction(){
+        View::renderTemplate('Backend/pages-error-403.html.twig');
+    }
+
     public function adminAction(){
         ObjectController::checkAuth();
         return View::renderTemplate('Backend/index.html.twig');

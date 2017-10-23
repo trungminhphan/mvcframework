@@ -27,10 +27,12 @@ $session = new Core\Sessions();
 // Add the routes
 //Backend
 
+
 $router->add('admin',['controller' => 'HomeController', 'action' => 'admin']);
 $router->add('admin/login',['controller' => 'UserController', 'action' => 'getLogin']);
 $router->add('admin/auth',['controller' => 'UserController', 'action' => 'auth']);
 $router->add('admin/logout',['controller' => 'UserController', 'action' => 'logout']);
+$router->add('admin/forbidden', ['controller' => 'HomeController', 'action' => 'forbidden']);
 
 $router->add('tai-khoan', ['controller' => 'UserController', 'action' => 'index']);
 $router->add('tai-khoan/add', ['controller' => 'UserController', 'action' => 'add']);

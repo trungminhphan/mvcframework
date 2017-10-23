@@ -42,6 +42,9 @@
             <div class="card-body">
                 <form class="form-horizontal form-material" id="loginform" action="/admin/auth" method="POST">
                     <h3 class="box-title m-b-20">Đăng nhập hệ thống</h3>
+                    {% if msg %}
+                        <div class="alert alert-success">{{ msg }}</div>
+                    {% endif %}
                     <div class="form-group ">
                         <div class="col-xs-12">
                             <input class="form-control" type="text" required="required" placeholder="Tài khoản" name="username" value="{{username}}"> </div>
