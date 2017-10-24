@@ -35,9 +35,9 @@ class __TwigTemplate_9ecf1b915161fecc511159cc24f47483b5f43c03958bd87effc8ec2d0d0
     public function block_body($context, array $blocks = array())
     {
         // line 6
-        echo "
-<h1>Welcome Font End</h1>
-
+        echo "\t<h1>";
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Trang chủ"), "html", null, true);
+        echo "</h1>
 ";
     }
 

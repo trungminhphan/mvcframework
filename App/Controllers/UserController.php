@@ -21,7 +21,6 @@ class UserController extends \Core\Controller {
      */
     public function indexAction() {
         ObjectController::checkPermis('Admin');
-
     	$db = new User();
         $list = $db->getAll();
     	View::renderTemplate('Backend/Users/list.html.twig', ['users' => $list]);
@@ -35,7 +34,7 @@ class UserController extends \Core\Controller {
         $router = new Router();$db = new User();
         $username = isset($_POST['username']) ? $_POST['username'] : '';
         $db->username = $username;
-        if($_POST['status']) {
+        if(isset($_POST['status']) && $_POST['status']) {
             $_POST['status'] = intval($_POST['status']);
         } else {
             $_POST['status'] = 0;
@@ -43,6 +42,7 @@ class UserController extends \Core\Controller {
         $_POST['password'] = md5($_POST['password']);
         $_POST['createAt'] = ObjectController::setDate();
         $_POST['updateAt'] = ObjectController::setDate();
+
         if($db->check_exists()){
             View::renderTemplate('Backend/Users/add.html.twig', ['roles' => Config::ARR_ROLES, 'user' => $_POST, 'msg' => 'Tài khoản đã tồn tại']);
         } else if($db->insertQuery($_POST)){

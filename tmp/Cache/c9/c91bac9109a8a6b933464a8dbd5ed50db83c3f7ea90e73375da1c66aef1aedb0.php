@@ -154,26 +154,26 @@ class __TwigTemplate_c54a91cfc67c206963e355a6d6af71619244d7115d77873113d86a91c0b
                         </li>
                         <li> <a class=\"has-arrow waves-effect waves-dark\" href=\"#\" aria-expanded=\"false\"><i class=\"mdi mdi-book-plus\"></i><span class=\"hide-menu\">Đơn hàng</span></a>
                             <ul aria-expanded=\"false\" class=\"collapse\">
-                                <li><a href=\"don-hang?status=all\">Tất cả</a></li>
-                                <li><a href=\"don-hang?status=0\">Chờ xử lý</a></li>
-                                <li><a href=\"don-hang?status=1\">Đang xử lý</a></li>
-                                <li><a href=\"don-hang?status=2\">Hoàn tất</a></li>
-                                <li><a href=\"don-hang?status=3\">Đơn hàng hủy</a></li>
+                                <li><a href=\"/don-hang?status=all\">Tất cả</a></li>
+                                <li><a href=\"/don-hang?status=0\">Chờ xử lý</a></li>
+                                <li><a href=\"/don-hang?status=1\">Đang xử lý</a></li>
+                                <li><a href=\"/don-hang?status=2\">Hoàn tất</a></li>
+                                <li><a href=\"/don-hang?status=3\">Đơn hàng hủy</a></li>
                             </ul>
                         </li>
                         <li> <a class=\"has-arrow waves-effect waves-dark\" href=\"#\" aria-expanded=\"false\"><i class=\"mdi mdi-truck-delivery\"></i><span class=\"hide-menu\">Vận chuyển</span></a>
                             <ul aria-expanded=\"false\" class=\"collapse\">
-                                <li><a href=\"tong-quan-van-chuyen\">Tổng quan</a></li>
-                                <li><a href=\"van-chuyen\">Vận chuyển</a></li>
-                                <li><a href=\"quan-ly-thu-ho\">Quản lý thu hộ</a></li>
-                                <li><a href=\"cau-hinh-van-chuyen\">Cấu hình</a></li>
+                                <li><a href=\"/tong-quan-van-chuyen\">Tổng quan</a></li>
+                                <li><a href=\"/van-chuyen\">Vận chuyển</a></li>
+                                <li><a href=\"/quan-ly-thu-ho\">Quản lý thu hộ</a></li>
+                                <li><a href=\"/cau-hinh-van-chuyen\">Cấu hình</a></li>
                             </ul>
                         </li>
                         <li> <a class=\"has-arrow waves-effect waves-dark\" href=\"#\" aria-expanded=\"false\"><i class=\"mdi mdi-trophy\"></i><span class=\"hide-menu\">Sản phẩm</span></a>
                             <ul aria-expanded=\"false\" class=\"collapse\">
-                                <li><a href=\"san-pham\">Tất cả sản phẩm</a></li>
-                                <li><a href=\"nhom-san-pham\">Nhóm sản phẩm</a></li>
-                                <li><a href=\"san-pham-ton-kho\">Tồn kho</a></li>
+                                <li><a href=\"/san-pham\">Tất cả sản phẩm</a></li>
+                                <li><a href=\"/nhom-san-pham\">Nhóm sản phẩm</a></li>
+                                <li><a href=\"/san-pham-ton-kho\">Tồn kho</a></li>
                             </ul>
                         </li>
                         <li> <a class=\"has-arrow waves-effect waves-dark\" href=\"khach-hang\" aria-expanded=\"false\"><i class=\"mdi mdi-human-male-female\"></i><span class=\"hide-menu\">Khách hàng</span></a></li>
