@@ -53,7 +53,6 @@ class __TwigTemplate_31671761eca068a61edb4375dde5c4800ae3341fb3f1db873bb324704f8
         // line 26
         echo "</head>
 <body class=\"fix-header card-no-border logo-center\">
-<div id=\"top\"></div>
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -97,19 +96,19 @@ class __TwigTemplate_31671761eca068a61edb4375dde5c4800ae3341fb3f1db873bb324704f8
                         <!-- Profile -->
                         <!-- ============================================================== -->
                         <li class=\"nav-item dropdown\">
-                            <a class=\"nav-link dropdown-toggle text-muted waves-effect waves-dark\" href=\"\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><img src=\"/assets/Backend/images/users/1.jpg\" alt=\"user\" class=\"profile-pic\" /></a>
+                            <a class=\"nav-link dropdown-toggle text-muted waves-effect waves-dark\" href=\"\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><img src=\"/assets/Backend/images/users/1.png\" alt=\"user\" class=\"profile-pic\" /></a>
                             <div class=\"dropdown-menu dropdown-menu-right scale-up\">
                                 <ul class=\"dropdown-user\">
                                     <li>
                                         <div class=\"dw-user-box\">
-                                            <div class=\"u-img\"><img src=\"/assets/Backend/images/users/1.jpg\" alt=\"user\"></div>
+                                            <div class=\"u-img\"><img src=\"/assets/Backend/images/users/1.png\" alt=\"user\"></div>
                                             <div class=\"u-text\">
                                                 <h4>";
-        // line 79
+        // line 78
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["session"] ?? null), "fullname", array()), "html", null, true);
         echo "</h4>
                                                 <p class=\"text-muted\">";
-        // line 80
+        // line 79
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["session"] ?? null), "username", array()), "html", null, true);
         echo "</p><a href=\"thong-tin-tai-khoan\" class=\"btn btn-rounded btn-danger btn-sm\">Xem thông tin</a></div>
                                         </div>
@@ -117,14 +116,14 @@ class __TwigTemplate_31671761eca068a61edb4375dde5c4800ae3341fb3f1db873bb324704f8
                                     <li role=\"separator\" class=\"divider\"></li>
                                     <li><a href=\"/tai-khoan/profiles\"><i class=\"ti-user\"></i> Thông tin tài khoản</a></li>
                                     ";
-        // line 85
+        // line 84
         if (twig_in_filter("Admin", twig_get_attribute($this->env, $this->getSourceContext(), ($context["session"] ?? null), "roles", array()))) {
-            // line 86
+            // line 85
             echo "                                        <li role=\"separator\" class=\"divider\"></li>
                                         <li><a href=\"/tai-khoan\"><i class=\"mdi mdi-account-multiple\"></i> Danh sách tài khoản</a></li>
                                     ";
         }
-        // line 89
+        // line 88
         echo "
                                     <li role=\"separator\" class=\"divider\"></li>
                                     <li><a href=\"/tai-khoan/change-password\"><i class=\"ti-settings\"></i> Đổi mật khẩu</a></li>
@@ -149,30 +148,32 @@ class __TwigTemplate_31671761eca068a61edb4375dde5c4800ae3341fb3f1db873bb324704f8
                                 <li><a href=\"/loai-san-pham\">Loại sản phẩm</a></li>
                                 <li><a href=\"/nha-san-xuat\">Nhà sản xuất</a></li>
                                 <li><a href=\"/nhom-san-pham\">Nhóm sản phẩm</a></li>
+                                <li><a href=\"/thuoc-tinh-san-pham\">Thuộc tính sản phẩm</a></li>
+                                <li><a href=\"/don-vi-tien-te\">Đơn vị tiền tệ</a></li>
                             </ul>
                         </li>
                         <li> <a class=\"has-arrow waves-effect waves-dark\" href=\"#\" aria-expanded=\"false\"><i class=\"mdi mdi-book-plus\"></i><span class=\"hide-menu\">Đơn hàng</span></a>
                             <ul aria-expanded=\"false\" class=\"collapse\">
-                                <li><a href=\"don-hang\">Tất cả</a></li>
-                                <li><a href=\"don-hang-chua-xy-ly\">Chưa xử lý</a></li>
-                                <li><a href=\"don-hang-dang-xu-ly\">Đang xử lý</a></li>
-                                <li><a href=\"don-hang-hoan-tat\">Hoàn tất</a></li>
-                                <li><a href=\"don-hang-huy\">Đơn hàng hủy</a></li>
+                                <li><a href=\"/don-hang?status=all\">Tất cả</a></li>
+                                <li><a href=\"/don-hang?status=0\">Chờ xử lý</a></li>
+                                <li><a href=\"/don-hang?status=1\">Đang xử lý</a></li>
+                                <li><a href=\"/don-hang?status=2\">Hoàn tất</a></li>
+                                <li><a href=\"/don-hang?status=3\">Đơn hàng hủy</a></li>
                             </ul>
                         </li>
                         <li> <a class=\"has-arrow waves-effect waves-dark\" href=\"#\" aria-expanded=\"false\"><i class=\"mdi mdi-truck-delivery\"></i><span class=\"hide-menu\">Vận chuyển</span></a>
                             <ul aria-expanded=\"false\" class=\"collapse\">
-                                <li><a href=\"tong-quan-van-chuyen\">Tổng quan</a></li>
-                                <li><a href=\"van-chuyen\">Vận chuyển</a></li>
-                                <li><a href=\"quan-ly-thu-ho\">Quản lý thu hộ</a></li>
-                                <li><a href=\"cau-hinh-van-chuyen\">Cấu hình</a></li>
+                                <li><a href=\"/tong-quan-van-chuyen\">Tổng quan</a></li>
+                                <li><a href=\"/van-chuyen\">Vận chuyển</a></li>
+                                <li><a href=\"/quan-ly-thu-ho\">Quản lý thu hộ</a></li>
+                                <li><a href=\"/cau-hinh-van-chuyen\">Cấu hình</a></li>
                             </ul>
                         </li>
                         <li> <a class=\"has-arrow waves-effect waves-dark\" href=\"#\" aria-expanded=\"false\"><i class=\"mdi mdi-trophy\"></i><span class=\"hide-menu\">Sản phẩm</span></a>
                             <ul aria-expanded=\"false\" class=\"collapse\">
-                                <li><a href=\"san-pham\">Tất cả sản phẩm</a></li>
-                                <li><a href=\"nhom-san-ham\">Nhóm sản phẩm</a></li>
-                                <li><a href=\"san-pham-ton-kho\">Tồn kho</a></li>
+                                <li><a href=\"/san-pham\">Tất cả sản phẩm</a></li>
+                                <li><a href=\"/nhom-san-pham\">Nhóm sản phẩm</a></li>
+                                <li><a href=\"/san-pham-ton-kho\">Tồn kho</a></li>
                             </ul>
                         </li>
                         <li> <a class=\"has-arrow waves-effect waves-dark\" href=\"khach-hang\" aria-expanded=\"false\"><i class=\"mdi mdi-human-male-female\"></i><span class=\"hide-menu\">Khách hàng</span></a></li>
@@ -192,9 +193,9 @@ class __TwigTemplate_31671761eca068a61edb4375dde5c4800ae3341fb3f1db873bb324704f8
         <!-- ============================================================== -->
         <div class=\"page-wrapper\">
             ";
-        // line 155
-        $this->displayBlock('body', $context, $blocks);
         // line 156
+        $this->displayBlock('body', $context, $blocks);
+        // line 157
         echo "            <footer class=\"footer\">
                 © 2017 JAYBranding
             </footer>
@@ -202,6 +203,7 @@ class __TwigTemplate_31671761eca068a61edb4375dde5c4800ae3341fb3f1db873bb324704f8
             <!-- End footer -->
             <!-- ============================================================== -->
         </div>
+
         <!-- ============================================================== -->
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->
@@ -232,9 +234,9 @@ class __TwigTemplate_31671761eca068a61edb4375dde5c4800ae3341fb3f1db873bb324704f8
     <!-- ============================================================== -->
     <script src=\"/assets/Backend/plugins/styleswitcher/jQuery.style.switcher.js\"></script>
     ";
-        // line 192
+        // line 194
         $this->displayBlock('js', $context, $blocks);
-        // line 193
+        // line 195
         echo "</body>
 </html>
 ";
@@ -250,12 +252,12 @@ class __TwigTemplate_31671761eca068a61edb4375dde5c4800ae3341fb3f1db873bb324704f8
     {
     }
 
-    // line 155
+    // line 156
     public function block_body($context, array $blocks = array())
     {
     }
 
-    // line 192
+    // line 194
     public function block_js($context, array $blocks = array())
     {
     }
@@ -272,7 +274,7 @@ class __TwigTemplate_31671761eca068a61edb4375dde5c4800ae3341fb3f1db873bb324704f8
 
     public function getDebugInfo()
     {
-        return array (  259 => 192,  254 => 155,  249 => 25,  244 => 12,  238 => 193,  236 => 192,  198 => 156,  196 => 155,  128 => 89,  123 => 86,  121 => 85,  113 => 80,  109 => 79,  54 => 26,  52 => 25,  36 => 12,  23 => 1,);
+        return array (  261 => 194,  256 => 156,  251 => 25,  246 => 12,  240 => 195,  238 => 194,  199 => 157,  197 => 156,  127 => 88,  122 => 85,  120 => 84,  112 => 79,  108 => 78,  54 => 26,  52 => 25,  36 => 12,  23 => 1,);
     }
 
     public function getSourceContext()

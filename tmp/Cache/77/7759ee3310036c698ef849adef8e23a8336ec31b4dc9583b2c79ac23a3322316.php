@@ -1,14 +1,14 @@
 <?php
 
-/* Frontend/index.html.twig */
-class __TwigTemplate_5637fa9eb9b5428d6e25dcad9316a51841089ae1f326f3823173ecfb7a93a4ba extends Twig_Template
+/* Frontend/product-detail.html.twig */
+class __TwigTemplate_b6e7a66fe8153b2e42fa7de6972dfeda509d4862a9b5f499b56c2058ec702092 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
         parent::__construct($env);
 
         // line 1
-        $this->parent = $this->loadTemplate("Frontend/layout.html.twig", "Frontend/index.html.twig", 1);
+        $this->parent = $this->loadTemplate("Frontend/layout.html.twig", "Frontend/product-detail.html.twig", 1);
         $this->blocks = array(
             'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
@@ -37,7 +37,7 @@ class __TwigTemplate_5637fa9eb9b5428d6e25dcad9316a51841089ae1f326f3823173ecfb7a9
         // line 6
         echo "<div style=\"width:100%;margin:auto;\">
     <a href=\"/chi-tiet-san-pham\">
-        <img src=\"/assets/Frontend/images/Art_home.jpg\" style=\"width:100%;\" />
+        <img src=\"/assets/Frontend/images/Art_product-detail.jpg\" style=\"width:100%;\" />
     </a>
 </div>
 ";
@@ -45,7 +45,7 @@ class __TwigTemplate_5637fa9eb9b5428d6e25dcad9316a51841089ae1f326f3823173ecfb7a9
 
     public function getTemplateName()
     {
-        return "Frontend/index.html.twig";
+        return "Frontend/product-detail.html.twig";
     }
 
     public function isTraitable()
@@ -60,6 +60,6 @@ class __TwigTemplate_5637fa9eb9b5428d6e25dcad9316a51841089ae1f326f3823173ecfb7a9
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "Frontend/index.html.twig", "C:\\wamp64\\www\\mvcframework\\App\\Views\\Frontend\\index.html.twig");
+        return new Twig_Source("", "Frontend/product-detail.html.twig", "C:\\wamp64\\www\\mvcframework\\App\\Views\\Frontend\\product-detail.html.twig");
     }
 }

@@ -49,96 +49,93 @@ class __TwigTemplate_347a24ae396816ea3921177fff8fb1aa3f20a74d8c70ada003372a930eb
             <div class=\"col-12\">
                 <div class=\"card\">
                     <div class=\"card-body\">
-                        <div id=\"accordion2\" role=\"tablist\" class=\"minimal-faq\" aria-multiselectable=\"true\">
-                        ";
-        // line 20
+                       <div class=\"table-responsive\">
+                            <table id=\"demo-foo-addrow2\" class=\"table table-bordered table-hover toggle-circle\" data-page-size=\"7\">
+                                <thead>
+                                    <tr>
+                                        <th data-sort-initial=\"true\" data-toggle=\"true\">STT</th>
+                                        <th>Hình</th>
+                                        <th>Tên nhà sản xuất</th>
+                                        <th data-sort-ignore=\"true\" class=\"text-center\">#</th>
+                                    </tr>
+                                </thead>
+                                <div class=\"m-t-40\">
+                                    <div class=\"d-flex\">
+                                        <div class=\"mr-auto\">
+                                            <div class=\"form-group\">
+                                                </div>
+                                        </div>
+                                        <div class=\"ml-auto\">
+                                            <div class=\"form-group\">
+                                                <input id=\"demo-input-search2\" type=\"text\" placeholder=\"Tìm kiếm\" autocomplete=\"on\">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <tbody>
+                                ";
+        // line 43
         if (($context["list"] ?? null)) {
-            // line 21
-            echo "                            ";
+            // line 44
+            echo "                                    ";
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(($context["list"] ?? null));
-            foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-                // line 22
-                echo "                            <div class=\"card m-b-0\">
-                                <div class=\"card-header\" role=\"tab\" id=\"heading_";
-                // line 23
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()), "html", null, true);
-                echo "\">
-                                    <h5 class=\"mb-0\">
-                                        <a href=\"/loai-san-pham/add?id_parent=";
-                // line 25
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()), "html", null, true);
-                echo "\" class=\"btn btn-sm btn-success\"><i class=\"mdi mdi-plus\"></i></a>
-                                        <a href=\"/loai-san-pham/edit&id=";
-                // line 26
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()), "html", null, true);
-                echo "\" class=\"btn btn-sm btn-info\"><i class=\"mdi mdi-pencil-circle\"></i></a>
-                                        <a href=\"/loai-san-pham/delete&id=";
-                // line 27
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()), "html", null, true);
-                echo "\" onclick=\"return confirm('Chắc chắn xóa?');\" class=\"btn btn-sm btn-danger\"><i class=\"mdi mdi-delete-circle\"></i></a>
-                                        <a data-toggle=\"collapse\" data-parent=\"#accordion2\" href=\"#collapse_";
-                // line 28
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()), "html", null, true);
-                echo "\" aria-expanded=\"true\" aria-controls=\"collapse_";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()), "html", null, true);
-                echo "\"> ";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "ten", array()), "html", null, true);
-                echo " </a>
-                                  </h5>
-                                </div>
-                                <div id=\"collapse_";
-                // line 31
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()), "html", null, true);
-                echo "\" class=\"collapse\" role=\"tabpanel\" aria-labelledby=\"heading_";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()), "html", null, true);
-                echo "\">
-                                    <div class=\"card-body\">
-                                        ";
-                // line 33
-                if (twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "childs", array())) {
-                    // line 34
-                    echo "                                        ";
-                    $context['_parent'] = $context;
-                    $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "childs", array()));
-                    foreach ($context['_seq'] as $context["_key"] => $context["child"]) {
-                        // line 35
-                        echo "                                            <span class=\"btn btn-info m-t-10\">
-                                                <a href=\"/loai-san-pham/edit&id=";
-                        // line 36
-                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["child"], "id", array()), "html", null, true);
-                        echo "\" class=\"text-white\"><i class=\"mdi mdi-pencil-circle\"></i></a>
-                                                <a href=\"/loai-san-pham/delete&id=";
-                        // line 37
-                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["child"], "id", array()), "html", null, true);
-                        echo "\" class=\"text-white\" onclick=\"return confirm('Chắc chắn xóa?');\"><i class=\"mdi mdi-delete-circle\"></i></a>
-                                                ";
-                        // line 38
-                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["child"], "ten", array()), "html", null, true);
-                        echo "
-                                            </span>
-                                        ";
-                    }
-                    $_parent = $context['_parent'];
-                    unset($context['_seq'], $context['_iterated'], $context['_key'], $context['child'], $context['_parent'], $context['loop']);
-                    $context = array_intersect_key($context, $_parent) + $_parent;
-                    // line 41
-                    echo "                                    ";
+            foreach ($context['_seq'] as $context["key"] => $context["item"]) {
+                // line 45
+                echo "                                    <tr>
+                                        <td>";
+                // line 46
+                echo twig_escape_filter($this->env, ($context["key"] + 1), "html", null, true);
+                echo "</td>
+                                        <td>
+                                            ";
+                // line 48
+                if (twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "hinhanh_aliasname", array()), 0, array())) {
+                    // line 49
+                    echo "                                                <img src=\"/uploads/images/thumb_300x200/";
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "hinhanh_aliasname", array()), 0, array()), "html", null, true);
+                    echo "\" height=\"30\" />
+                                            ";
                 }
-                // line 42
-                echo "                                    </div>
-                                </div>
-                            </div>
-                            ";
+                // line 51
+                echo "                                        </td>
+                                        <td>";
+                // line 52
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "ten", array()), "html", null, true);
+                echo "</td>
+                                        <td class=\"text-center\">
+                                            <a href=\"/nha-san-xuat/delete?id=";
+                // line 54
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()), "html", null, true);
+                echo "\" class=\"btn btn-sm btn-danger\" onclick=\"return confirm('Chắc chắn xóa?')\"><i class=\"mdi mdi-delete\"></i> Xóa</a>
+                                            <a href=\"/nha-san-xuat/edit?id=";
+                // line 55
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()), "html", null, true);
+                echo "\" class=\"btn btn-sm btn-info\"><i class=\"mdi mdi-pencil-circle\"></i> Sửa</a>
+                                        </td>
+                                    </tr>
+                                    ";
             }
             $_parent = $context['_parent'];
-            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
+            unset($context['_seq'], $context['_iterated'], $context['key'], $context['item'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 46
-            echo "                        ";
+            // line 59
+            echo "                                ";
         }
-        // line 47
-        echo "                        </div>
+        // line 60
+        echo "                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan=\"6\">
+                                            <div class=\"text-right\">
+                                                <ul class=\"pagination\">
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -147,10 +144,10 @@ class __TwigTemplate_347a24ae396816ea3921177fff8fb1aa3f20a74d8c70ada003372a930eb
 ";
     }
 
-    // line 55
+    // line 80
     public function block_js($context, array $blocks = array())
     {
-        // line 56
+        // line 81
         echo "    <script type=\"text/javascript\">
          \$(document).ready(function() {
             \$('.top').click(function(){
@@ -176,7 +173,7 @@ class __TwigTemplate_347a24ae396816ea3921177fff8fb1aa3f20a74d8c70ada003372a930eb
 
     public function getDebugInfo()
     {
-        return array (  154 => 56,  151 => 55,  141 => 47,  138 => 46,  129 => 42,  126 => 41,  117 => 38,  113 => 37,  109 => 36,  106 => 35,  101 => 34,  99 => 33,  92 => 31,  82 => 28,  78 => 27,  74 => 26,  70 => 25,  65 => 23,  62 => 22,  57 => 21,  55 => 20,  39 => 6,  36 => 5,  30 => 3,  11 => 1,);
+        return array (  151 => 81,  148 => 80,  126 => 60,  123 => 59,  113 => 55,  109 => 54,  104 => 52,  101 => 51,  95 => 49,  93 => 48,  88 => 46,  85 => 45,  80 => 44,  78 => 43,  39 => 6,  36 => 5,  30 => 3,  11 => 1,);
     }
 
     public function getSourceContext()

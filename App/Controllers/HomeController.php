@@ -18,6 +18,9 @@ class HomeController extends \Core\Controller {
     public function indexAction(){
         View::renderTemplate('Frontend/index.html.twig');
     }
+    public function ProductDetailAction(){
+        View::renderTemplate('Frontend/product-detail.html.twig');
+    }
 
     public function forbiddenAction(){
         View::renderTemplate('Backend/pages-error-403.html.twig');

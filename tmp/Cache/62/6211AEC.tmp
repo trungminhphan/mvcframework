@@ -35,11 +35,9 @@ class __TwigTemplate_5637fa9eb9b5428d6e25dcad9316a51841089ae1f326f3823173ecfb7a9
     public function block_body($context, array $blocks = array())
     {
         // line 6
-        echo "<div style=\"width:100%;margin:auto;\">
-    <a href=\"/chi-tiet-san-pham\">
-        <img src=\"/assets/Frontend/images/Art_home.jpg\" style=\"width:100%;\" />
-    </a>
-</div>
+        echo "\t<h1>";
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Trang chủ"), "html", null, true);
+        echo "</h1>
 ";
     }
 

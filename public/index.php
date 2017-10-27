@@ -102,5 +102,6 @@ $router->add('image/delete', ['controller' => 'ImagesController', 'action' => 'd
 
 //Frontend
 $router->add('', ['controller' => 'HomeController', 'action' => 'index']);
+$router->add('chi-tiet-san-pham', ['controller' => 'HomeController', 'action' => 'ProductDetail']);
 
 $router->dispatch($_SERVER['QUERY_STRING']);
