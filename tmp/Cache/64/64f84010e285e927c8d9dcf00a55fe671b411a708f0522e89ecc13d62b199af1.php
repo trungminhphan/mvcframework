@@ -38,7 +38,7 @@ class __TwigTemplate_dced9e1e06ffb50ddd22b4340d78ac9a1235005b3c42a35bd0d9a0a597e
         // line 6
         echo "    <div class=\"row page-titles\">
         <div class=\"col-md-12 align-self-center\">
-            <h3 class=\"text-themecolor\">Trang chủ</h3>
+            <h3 class=\"text-themecolor\">ArtArt Admin</h3>
         </div>
         <div>
             <a href=\"#top\" class=\"right-side-toggle waves-effect top waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10\"><i class=\"ti-arrow-circle-up text-white\"></i></a>
@@ -49,10 +49,7 @@ class __TwigTemplate_dced9e1e06ffb50ddd22b4340d78ac9a1235005b3c42a35bd0d9a0a597e
             <div class=\"col-12\">
                 <div class=\"card\">
                     <div class=\"card-body\">
-                     ";
-        // line 19
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["session"] ?? null), "username", array()), "html", null, true);
-        echo "
+                     <h3>Welcome ArtArt Home Admin</h3>
                     </div>
                 </div>
             </div>
@@ -90,7 +87,7 @@ class __TwigTemplate_dced9e1e06ffb50ddd22b4340d78ac9a1235005b3c42a35bd0d9a0a597e
 
     public function getDebugInfo()
     {
-        return array (  68 => 28,  65 => 27,  54 => 19,  39 => 6,  36 => 5,  30 => 3,  11 => 1,);
+        return array (  65 => 28,  62 => 27,  39 => 6,  36 => 5,  30 => 3,  11 => 1,);
     }
 
     public function getSourceContext()

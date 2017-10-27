@@ -96,12 +96,12 @@ class __TwigTemplate_c54a91cfc67c206963e355a6d6af71619244d7115d77873113d86a91c0b
                         <!-- Profile -->
                         <!-- ============================================================== -->
                         <li class=\"nav-item dropdown\">
-                            <a class=\"nav-link dropdown-toggle text-muted waves-effect waves-dark\" href=\"\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><img src=\"/assets/Backend/images/users/1.jpg\" alt=\"user\" class=\"profile-pic\" /></a>
+                            <a class=\"nav-link dropdown-toggle text-muted waves-effect waves-dark\" href=\"\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><img src=\"/assets/Backend/images/users/1.png\" alt=\"user\" class=\"profile-pic\" /></a>
                             <div class=\"dropdown-menu dropdown-menu-right scale-up\">
                                 <ul class=\"dropdown-user\">
                                     <li>
                                         <div class=\"dw-user-box\">
-                                            <div class=\"u-img\"><img src=\"/assets/Backend/images/users/1.jpg\" alt=\"user\"></div>
+                                            <div class=\"u-img\"><img src=\"/assets/Backend/images/users/1.png\" alt=\"user\"></div>
                                             <div class=\"u-text\">
                                                 <h4>";
         // line 78

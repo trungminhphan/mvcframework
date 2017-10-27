@@ -89,6 +89,7 @@ $router->add('quan-ly-thu-ho', ['controller' => 'DeliveryController', 'action' =
 $router->add('cau-hinh-van-chuyen', ['controller' => 'DeliveryController', 'action' => 'index']);
 
 $router->add('san-pham', ['controller' => 'ProductController', 'action' => 'index']);
+$router->add('san-pham/add', ['controller' => 'ProductController', 'action' => 'add']);
 $router->add('san-pham-ton-kho', ['controller' => 'ProductController', 'action' => 'index']);
 
 $router->add('khach-hang', ['controller' => 'CustomerController', 'action' => 'index']);
