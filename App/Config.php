@@ -45,7 +45,7 @@ class Config{
     const DEFAULT_LANGUAGE = 'vi';
     const ARR_ROLES = array('Admin', 'Manager', 'Updater', 'Seller', 'Delivery');
     const SHOW_ERRORS = true;
-
+    const UPLOAD_DIR = '/uploads/';
     const IMAGES_DIR = '/uploads/images/';
     const FILES_DIR = '/uploads/files/';
     const FILE_EXT = array('pdf', 'zip', 'rar', 'doc', 'docx', 'xls', 'png', 'gif', 'jpg', 'jpeg', 'bmp', 'rtf');

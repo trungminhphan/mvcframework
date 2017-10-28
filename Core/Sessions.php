@@ -14,7 +14,7 @@ class Sessions extends Model{
     //Should be the domain name of you web app, for example
     //mywebapp.com. DO NOT use empty string unless you are
     //running on a local environment.
-    const SESSION_COOKIE_DOMAIN = 'yourdomain.com';
+    const SESSION_COOKIE_DOMAIN = 'mvcframework.com';
     private $db;
     private $_collection;
     //represents the current session

@@ -18,7 +18,6 @@ error_reporting(E_ALL);
 set_error_handler('Core\Error::errorHandler');
 set_exception_handler('Core\Error::exceptionHandler');
 
-
 /**
  * Routing
  */
@@ -26,8 +25,6 @@ $router = new Core\Router();
 $session = new Core\Sessions();
 // Add the routes
 //Backend
-
-
 $router->add('admin',['controller' => 'HomeController', 'action' => 'admin']);
 $router->add('admin/login',['controller' => 'UserController', 'action' => 'getLogin']);
 $router->add('admin/auth',['controller' => 'UserController', 'action' => 'auth']);
