@@ -19,12 +19,10 @@ $_SESSION['RF']["verify"] = "RESPONSIVEfilemanager";
 
 if(isset($_POST['submit'])){
 	include 'upload.php';
-}else{
-
+} else {
 $lang = $config['default_language'];
 $languages = include 'lang/languages.php';
-if (isset($_GET['lang']))
-{
+if (isset($_GET['lang'])){
 	$lang = strip_tags($_GET['lang']);
 	if(array_key_exists($lang,$languages)){
 		$_SESSION['RF']['language'] = $lang;
@@ -43,15 +41,12 @@ if (isset($_GET['fldr'])
 	&& strpos($_GET['fldr'],'../') === FALSE
 	&& strpos($_GET['fldr'],'./') === FALSE
 	&& strpos($_GET['fldr'],'..\\') === FALSE
-	&& strpos($_GET['fldr'],'.\\') === FALSE)
-{
+	&& strpos($_GET['fldr'],'.\\') === FALSE){
 	$subdir = rawurldecode(trim(strip_tags($_GET['fldr']),"/") ."/");
 	$_SESSION['RF']["filter"]='';
-}
-else { $subdir = ''; }
+} else { $subdir = ''; }
 
-if($subdir == "")
-{
+if($subdir == "") {
 	if(!empty($_COOKIE['last_position']) && strpos($_COOKIE['last_position'],'.') === FALSE){
 		$subdir= trim($_COOKIE['last_position']);
 	}
@@ -102,7 +97,6 @@ if (($ftp && !$ftp->isDir($ftp_base_folder.$upload_dir.$rfm_subfolder.$subdir)) 
 	$subdir = '';
 	$rfm_subfolder = "";
 }
-
 
 $cur_dir		= $upload_dir.$rfm_subfolder.$subdir;
 $cur_path		= $current_path.$rfm_subfolder.$subdir;
@@ -168,8 +162,7 @@ if(!isset($_SESSION['RF']["view_type"]))
 	$_SESSION['RF']["view_type"] = $view;
 }
 
-if (isset($_GET['view']))
-{
+if (isset($_GET['view'])) {
 	$view = fix_get_params($_GET['view']);
 	$_SESSION['RF']["view_type"] = $view;
 }
@@ -199,13 +192,11 @@ if (isset($_GET["sort_by"]))
 } else $sort_by = $_SESSION['RF']['sort_by'];
 
 
-if (!isset($_SESSION['RF']['descending']))
-{
+if (!isset($_SESSION['RF']['descending'])){
 	$_SESSION['RF']['descending'] = TRUE;
 }
 
-if (isset($_GET["descending"]))
-{
+if (isset($_GET["descending"])){
 	$descending = $_SESSION['RF']['descending'] = fix_get_params($_GET["descending"])==1;
 } else {
 	$descending = $_SESSION['RF']['descending'];
@@ -382,7 +373,7 @@ $get_params = http_build_query($get_params);
 
 	<input type="hidden" id="ftp" value="<?php echo !!$ftp; ?>" />
 	<input type="hidden" id="popup" value="<?php echo $popup;?>" />
-	<input type="hidden" id="callback" value="<?php echo $callback; ?>" />	
+	<input type="hidden" id="callback" value="<?php echo $callback; ?>" />
 	<input type="hidden" id="crossdomain" value="<?php echo $crossdomain;?>" />
 	<input type="hidden" id="editor" value="<?php echo $editor;?>" />
 	<input type="hidden" id="view" value="<?php echo $view;?>" />
@@ -602,10 +593,9 @@ if($ftp){
 		echo "<br/>Please check configurations";
 		die();
 	}
-}else{
+} else{
 	$files	= scandir($current_path.$rfm_subfolder.$subdir);
 }
-
 $n_files= count($files);
 
 //php sorting
@@ -868,8 +858,6 @@ $files=$sorted;
 		<ul class="grid cs-style-2 <?php echo "list-view".$view;?>" id="main-item-container">
 		<?php
 		$jplayer_ext=array("mp4","flv","webmv","webma","webm","m4a","m4v","ogv","oga","mp3","midi","mid","ogg","wav");
-
-
 		foreach ($files as $file_array) {
 			$file=$file_array['file'];
 			if($file == '.' || ( substr($file, 0, 1) == '.' && isset( $file_array[ 'extension' ] ) && $file_array[ 'extension' ] == strtolower(trans( 'Type_dir' ) )) || (isset($file_array['extension']) && $file_array['extension']!=strtolower(trans('Type_dir'))) || ($file == '..' && $subdir == '') || in_array($file, $hidden_folders) || ($filter!='' && $n_files>$file_number_limit_js && $file!=".." && stripos($file,$filter)===false)){
@@ -958,7 +946,6 @@ $files=$sorted;
 			</li>
 			<?php
 			}
-
 
 			$files_prevent_duplicate = array();
 			foreach ($files as $nu=>$file_array) {

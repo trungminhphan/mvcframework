@@ -5,37 +5,34 @@ if (!isset($config)){
 
 include 'include/utils.php';
 
-if ($_SESSION['RF']["verify"] != "RESPONSIVEfilemanager")
-{
+if ($_SESSION['RF']["verify"] != "RESPONSIVEfilemanager") {
 	response(trans('forbiden').AddErrorLocation(), 403)->send();
 	exit;
 }
-
 include 'include/mime_type_lib.php';
-
 
 $ftp=ftp_con($config);
 if($ftp){
 	$source_base = $config['ftp_base_folder'].$config['upload_dir'];
 	$thumb_base = $config['ftp_base_folder'].$config['ftp_thumbs_dir'];
 
-}else{
+} else{
 	$source_base = $config['current_path'];
 	$thumb_base = $config['thumbs_base_path'];
 }
+
 if(isset($_POST["fldr"])){
 	$_POST['fldr'] = str_replace('undefined','',$_POST['fldr']);
 	$storeFolder = $source_base.$_POST["fldr"];
 	$storeFolderThumb = $thumb_base.$_POST["fldr"];
-}else{
+} else{
 	return;
 }
 
 if (strpos($_POST["fldr"],'../') !== FALSE
 	|| strpos($_POST["fldr"],'./') !== FALSE
 	|| strpos($_POST["fldr"],'..\\') !== FALSE
-	|| strpos($_POST["fldr"],'.\\') !== FALSE )
-{
+	|| strpos($_POST["fldr"],'.\\') !== FALSE ) {
 	response(trans('wrong path'.AddErrorLocation()))->send();
 	exit;
 }
@@ -123,7 +120,6 @@ $uploadConfig = array(
     'correct_image_extensions' => true,
     'print_response' => false
 );
-
 if($ftp){
 	if (!is_dir($config['ftp_temp_folder'])) {
 		mkdir($config['ftp_temp_folder'], $config['folderPermission'], true);

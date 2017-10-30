@@ -1,6 +1,6 @@
 <?php
 $version = "9.12.1";
-//if (session_id() == '') session_start();
+if (session_id() == '') session_start();
 
 mb_internal_encoding('UTF-8');
 mb_http_output('UTF-8');
@@ -74,7 +74,7 @@ $config = array(
 	| with start and final /
 	|
 	*/
-	'upload_dir' => '/uploads/users/',
+	'upload_dir' => '../../../../../uploads/users/',
 	/*
 	|--------------------------------------------------------------------------
 	| relative path from filemanager folder to upload folder
@@ -83,7 +83,7 @@ $config = array(
 	| with final /
 	|
 	*/
-	'current_path' => './../../../../../uploads/users/',
+	'current_path' => $_SERVER['DOCUMENT_ROOT'].'/uploads/users/',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -94,7 +94,7 @@ $config = array(
 	| DO NOT put inside upload folder
 	|
 	*/
-	'thumbs_base_path' => './../../../../../../uploads/users/thumbs/',
+	'thumbs_base_path' => '/uploads/users/',
 
 
 	/*
@@ -103,7 +103,7 @@ $config = array(
 	|--------------------------------------------------------------------------
 	|
 	| If you want enable ftp use write these parametres otherwise leave empty
-	| Remember to set base_url properly to point in the ftp server domain and 
+	| Remember to set base_url properly to point in the ftp server domain and
 	| upload dir will be ftp_base_folder + upload_dir so without final /
 	|
 	*/
@@ -260,7 +260,7 @@ $config = array(
 	//******************
 	//
 	// WATERMARK IMAGE
-	// 
+	//
 	//Watermark url or false
 	'image_watermark'                          => false,
 	# Could be a pre-determined position such as:
@@ -321,7 +321,7 @@ $config = array(
 	// if you want you can add html,css etc.
 	// but for security reasons it's NOT RECOMMENDED!
 	'editable_text_file_exts'                 => array( 'txt', 'log', 'xml', 'html', 'css', 'htm', 'js' ),
-	
+
 	// Preview with Google Documents
 	'googledoc_enabled'                       => true,
 	'googledoc_file_exts'                     => array( 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx' , 'pdf', 'odt', 'odp', 'ods'),
