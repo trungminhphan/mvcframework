@@ -76,15 +76,14 @@ if ($show_total_size) {
 *SUB-DIR CODE
 ***/
 if (!isset($_SESSION['RF']["subfolder"])) {
-	$_SESSION['RF']["subfolder"] = '';
+	$_SESSION['RF']["subfolder"] = $_GET['subfolder'];
 }
 
 $rfm_subfolder = '';
 
 if (!empty($_SESSION['RF']["subfolder"]) && strpos($_SESSION['RF']["subfolder"],'../') === FALSE && strpos($_SESSION['RF']["subfolder"],'..\\') === FALSE
 && strpos($_SESSION['RF']["subfolder"],'./') === FALSE && strpos($_SESSION['RF']["subfolder"],"/") !== 0
-&& strpos($_SESSION['RF']["subfolder"],'.') === FALSE)
-{
+&& strpos($_SESSION['RF']["subfolder"],'.') === FALSE) {
 	$rfm_subfolder = $_SESSION['RF']['subfolder'];
 }
 

@@ -15,6 +15,10 @@ use \App\Controllers\ObjectController;
  * PHP version 7.0
  */
 class ProductController extends \Core\Controller {
+
+    public function __construct(){
+        return ObjectController::checkPermis('Admin');
+    }
     /**
      * Show the index page
      *
@@ -23,7 +27,6 @@ class ProductController extends \Core\Controller {
     public function indexAction(){
         View::renderTemplate('Backend/Product/list.html.twig');
     }
-
 
     public function addAction(){
         $producttype = new ProductType();

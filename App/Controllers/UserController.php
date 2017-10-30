@@ -119,7 +119,6 @@ class UserController extends \Core\Controller {
             $_SESSION['roles'] = (array) $user['roles'];
             $_SESSION['username'] = $user['username'];
             $_SESSION['fullname'] = $user['fullname'];
-            $_SESSION['RF']["subfolder"] = $user['username'];
             $router->redirect('/admin');
         }
     }

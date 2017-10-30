@@ -8,8 +8,8 @@ mb_http_input('UTF-8');
 mb_language('uni');
 mb_regex_encoding('UTF-8');
 ob_start('mb_output_handler');
-date_default_timezone_set('Europe/Rome');
-setlocale(LC_CTYPE, 'en_US'); //correct transliteration
+date_default_timezone_set('Asia/Ho_Chi_minh');
+setlocale(LC_CTYPE, 'vn_VN'); //correct transliteration
 
 /*
 |--------------------------------------------------------------------------
@@ -74,7 +74,7 @@ $config = array(
 	| with start and final /
 	|
 	*/
-	'upload_dir' => '../../../../../uploads/users/',
+	'upload_dir' => '/uploads/users/',
 	/*
 	|--------------------------------------------------------------------------
 	| relative path from filemanager folder to upload folder
@@ -83,7 +83,7 @@ $config = array(
 	| with final /
 	|
 	*/
-	'current_path' => $_SERVER['DOCUMENT_ROOT'].'/uploads/users/',
+	'current_path' => '../../../../../uploads/users/',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -94,7 +94,7 @@ $config = array(
 	| DO NOT put inside upload folder
 	|
 	*/
-	'thumbs_base_path' => '/uploads/users/',
+	'thumbs_base_path' => '../../../../../uploads/users/',
 
 
 	/*

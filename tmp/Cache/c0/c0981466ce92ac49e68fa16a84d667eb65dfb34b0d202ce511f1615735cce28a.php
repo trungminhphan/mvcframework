@@ -39,14 +39,13 @@ class __TwigTemplate_99e9f83eaff8480f0af9d35731351e10f08f207b96acf9157f8fc074af7
         // line 4
         echo "    <link href=\"/assets/Backend/plugins/select2/dist/css/select2.min.css\" rel=\"stylesheet\" type=\"text/css\" />
     <link href=\"/assets/Backend/plugins/Magnific-Popup-master/dist/magnific-popup.css\" rel=\"stylesheet\">
-    <link rel=\"stylesheet\" href=\"/assets/Backend/plugins/html5-editor/bootstrap-wysihtml5.css\" />
 ";
     }
 
-    // line 8
+    // line 7
     public function block_body($context, array $blocks = array())
     {
-        // line 9
+        // line 8
         echo "    <div class=\"row page-titles\">
         <div class=\"col-md-12 align-self-center\">
             <h3 class=\"text-themecolor\"><a href=\"/loai-san-pham\" class=\"btn btn-info\"><i class=\"mdi mdi-reply-all\"></i></a> Thêm sản phẩm</h3>
@@ -82,28 +81,28 @@ class __TwigTemplate_99e9f83eaff8480f0af9d35731351e10f08f207b96acf9157f8fc074af7
                                                 <select class=\"select2 m-b-10 select2-multiple\" name=\"id_parent[]\" style=\"width: 100%\" multiple=\"multiple\" data-placeholder=\"Chọn thuộc tính nhóm\">
                                                     <option value=\"\">Chọn loại sản phẩm</option>}
                                                     ";
-        // line 43
+        // line 42
         if (($context["producttype"] ?? null)) {
-            // line 44
+            // line 43
             echo "                                                        ";
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(($context["producttype"] ?? null));
             foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-                // line 45
+                // line 44
                 echo "                                                            <option value=\"";
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()), "html", null, true);
                 echo "\">";
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "ten", array()), "html", null, true);
                 echo "</option>
                                                             ";
-                // line 46
+                // line 45
                 if (twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "childs", array())) {
-                    // line 47
+                    // line 46
                     echo "                                                                ";
                     $context['_parent'] = $context;
                     $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "childs", array()));
                     foreach ($context['_seq'] as $context["_key"] => $context["child"]) {
-                        // line 48
+                        // line 47
                         echo "                                                                    <option value=\"";
                         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["child"], "id", array()), "html", null, true);
                         echo "\">&nbsp;&nbsp;&nbsp;--- ";
@@ -114,19 +113,19 @@ class __TwigTemplate_99e9f83eaff8480f0af9d35731351e10f08f207b96acf9157f8fc074af7
                     $_parent = $context['_parent'];
                     unset($context['_seq'], $context['_iterated'], $context['_key'], $context['child'], $context['_parent'], $context['loop']);
                     $context = array_intersect_key($context, $_parent) + $_parent;
-                    // line 50
+                    // line 49
                     echo "                                                            ";
                 }
-                // line 51
+                // line 50
                 echo "                                                        ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 52
+            // line 51
             echo "                                                    ";
         }
-        // line 53
+        // line 52
         echo "                                                </select>
                                             </div>
                                         </div>
@@ -167,15 +166,15 @@ class __TwigTemplate_99e9f83eaff8480f0af9d35731351e10f08f207b96acf9157f8fc074af7
 ";
     }
 
-    // line 92
+    // line 91
     public function block_js($context, array $blocks = array())
     {
-        // line 93
+        // line 92
         echo "    <script src=\"/assets/Backend/plugins/select2/dist/js/select2.full.min.js\" type=\"text/javascript\"></script>
     <script src=\"/assets/Backend/plugins/Magnific-Popup-master/dist/jquery.magnific-popup.min.js\"></script>
     <!--<script src=\"/assets/Backend/plugins/Magnific-Popup-master/dist/jquery.magnific-popup-init.js\"></script>-->
     <script src=\"/assets/Backend/js/themsanpham.js\" type=\"text/javascript\"></script>
-    <script src=\"/assets/Backend/plugins/tinymce/tinymce.min.js\"></script>
+    <script type=\"text/javascript\" src=\"/assets/Backend/plugins/ckeditor/ckeditor.js\"></script>
     <script type=\"text/javascript\">
          \$(document).ready(function() {
             \$(\".select2\").select2();upload_hinhanh();delete_hinhanh();popup_images();
@@ -185,21 +184,20 @@ class __TwigTemplate_99e9f83eaff8480f0af9d35731351e10f08f207b96acf9157f8fc074af7
               }, 500);
               return false;
             });
-            tinymce.init({
-                selector: \"textarea\",theme: \"modern\",
-                plugins: [
-                     \"advlist autolink link image lists charmap print preview hr anchor pagebreak\",
-                     \"searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking\",
-                     \"table contextmenu directionality emoticons paste textcolor responsivefilemanager code\"
-               ],
-               toolbar1: \"undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect\",
-               toolbar2: \"| responsivefilemanager | link unlink anchor | image media | forecolor backcolor  | print preview code \",
-               image_advtab: true ,
-               
-               external_filemanager_path:\"/assets/Backend/plugins/filemanager/filemanager/\",
-               filemanager_title:\"Responsive Filemanager\" ,
-               external_plugins: { \"filemanager\" : \"/assets/Backend/plugins/filemanager/filemanager/plugin.min.js\"}
-             });
+            CKEDITOR.replace('motachitiet' ,{
+                filebrowserBrowseUrl : '/assets/Backend/plugins/filemanager/filemanager/dialog.php?type=2&editor=ckeditor&subfolder=";
+        // line 107
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["session"] ?? null), "user_id", array()), "html", null, true);
+        echo "',
+                filebrowserUploadUrl : '/assets/Backend/plugins/filemanager/filemanager/dialog.php?type=2&editor=ckeditor&subfolder=";
+        // line 108
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["session"] ?? null), "user_id", array()), "html", null, true);
+        echo "',
+                filebrowserImageBrowseUrl : '/assets/Backend/plugins/filemanager/filemanager/dialog.php?type=1&editor=ckeditor&subfolder=";
+        // line 109
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["session"] ?? null), "user_id", array()), "html", null, true);
+        echo "'
+            });
         });
     </script>
 ";
@@ -217,7 +215,7 @@ class __TwigTemplate_99e9f83eaff8480f0af9d35731351e10f08f207b96acf9157f8fc074af7
 
     public function getDebugInfo()
     {
-        return array (  174 => 93,  171 => 92,  130 => 53,  127 => 52,  121 => 51,  118 => 50,  107 => 48,  102 => 47,  100 => 46,  93 => 45,  88 => 44,  86 => 43,  50 => 9,  47 => 8,  40 => 4,  37 => 3,  31 => 2,  11 => 1,);
+        return array (  198 => 109,  194 => 108,  190 => 107,  173 => 92,  170 => 91,  129 => 52,  126 => 51,  120 => 50,  117 => 49,  106 => 47,  101 => 46,  99 => 45,  92 => 44,  87 => 43,  85 => 42,  49 => 8,  46 => 7,  40 => 4,  37 => 3,  31 => 2,  11 => 1,);
     }
 
     public function getSourceContext()
