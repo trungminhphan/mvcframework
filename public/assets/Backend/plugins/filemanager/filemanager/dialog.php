@@ -16,7 +16,6 @@ if (USE_ACCESS_KEYS == TRUE){
 }
 
 $_SESSION['RF']["verify"] = "RESPONSIVEfilemanager";
-
 if(isset($_POST['submit'])){
 	include 'upload.php';
 } else {
@@ -35,13 +34,12 @@ if (isset($_GET['lang'])){
 }
 
 include 'include/utils.php';
-
 if (isset($_GET['fldr'])
 	&& !empty($_GET['fldr'])
 	&& strpos($_GET['fldr'],'../') === FALSE
 	&& strpos($_GET['fldr'],'./') === FALSE
 	&& strpos($_GET['fldr'],'..\\') === FALSE
-	&& strpos($_GET['fldr'],'.\\') === FALSE){
+	&& strpos($_GET['fldr'],'.\\') === FALSE) {
 	$subdir = rawurldecode(trim(strip_tags($_GET['fldr']),"/") ."/");
 	$_SESSION['RF']["filter"]='';
 } else { $subdir = ''; }
@@ -80,22 +78,20 @@ if (!isset($_SESSION['RF']["subfolder"])) {
 }
 
 $rfm_subfolder = '';
-
 if (!empty($_SESSION['RF']["subfolder"]) && strpos($_SESSION['RF']["subfolder"],'../') === FALSE && strpos($_SESSION['RF']["subfolder"],'..\\') === FALSE
 && strpos($_SESSION['RF']["subfolder"],'./') === FALSE && strpos($_SESSION['RF']["subfolder"],"/") !== 0
 && strpos($_SESSION['RF']["subfolder"],'.') === FALSE) {
 	$rfm_subfolder = $_SESSION['RF']['subfolder'];
 }
 
+
 if ($rfm_subfolder != "" && $rfm_subfolder[strlen($rfm_subfolder)-1] != "/") { $rfm_subfolder .= "/"; }
 
 $ftp=ftp_con($config);
-
-if (($ftp && !$ftp->isDir($ftp_base_folder.$upload_dir.$rfm_subfolder.$subdir)) || (!$ftp && !file_exists($current_path.$rfm_subfolder.$subdir)))
-{
+/*if (($ftp && !$ftp->isDir($ftp_base_folder.$upload_dir.$rfm_subfolder.$subdir)) || (!$ftp && !file_exists($current_path.$rfm_subfolder.$subdir))){
 	$subdir = '';
 	$rfm_subfolder = "";
-}
+}*/
 
 $cur_dir		= $upload_dir.$rfm_subfolder.$subdir;
 $cur_path		= $current_path.$rfm_subfolder.$subdir;

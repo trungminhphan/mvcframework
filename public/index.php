@@ -1,16 +1,13 @@
 <?php
-
 /**
  * Front controller
  *
  * PHP version 7.0
  */
-
 /**
  * Composer
  */
 require dirname(__DIR__) . '/vendor/autoload.php';
-
 /**
  * Error and Exception handling
  */
@@ -93,11 +90,9 @@ $router->add('khach-hang', ['controller' => 'CustomerController', 'action' => 'i
 $router->add('bao-cao', ['controller' => 'ReportController', 'action' => 'index']);
 
 $router->add('khuyen-mai', ['controller' => 'PromotionController', 'action' => 'index']);
-
 #GET - POST
 $router->add('image/uploads', ['controller' => 'ImagesController', 'action' => 'uploads']);
 $router->add('image/delete', ['controller' => 'ImagesController', 'action' => 'delete']);
-
 //Frontend
 $router->add('', ['controller' => 'HomeController', 'action' => 'index']);
 $router->add('chi-tiet-san-pham', ['controller' => 'HomeController', 'action' => 'ProductDetail']);

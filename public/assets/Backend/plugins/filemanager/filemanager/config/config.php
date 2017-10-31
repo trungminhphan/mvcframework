@@ -1,7 +1,6 @@
 <?php
 $version = "9.12.1";
 if (session_id() == '') session_start();
-
 mb_internal_encoding('UTF-8');
 mb_http_output('UTF-8');
 mb_http_input('UTF-8');
@@ -30,7 +29,6 @@ setlocale(LC_CTYPE, 'vn_VN'); //correct transliteration
 */
 
 define('USE_ACCESS_KEYS', false); // TRUE or FALSE
-
 /*
 |--------------------------------------------------------------------------
 | DON'T COPY THIS VARIABLES IN FOLDERS config.php FILES
@@ -38,7 +36,6 @@ define('USE_ACCESS_KEYS', false); // TRUE or FALSE
 */
 
 define('DEBUG_ERROR_MESSAGE', true); // TRUE or FALSE
-
 /*
 |--------------------------------------------------------------------------
 | Path configuration
