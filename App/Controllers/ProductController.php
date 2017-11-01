@@ -8,7 +8,9 @@ use \App\Config;
 use \App\Models\ProductType;
 use \App\Models\Producer;
 use \App\Models\ProductGroup;
+use \App\Models\Attribute;
 use \App\Controllers\ObjectController;
+
 /**
  * Home controller
  *
@@ -29,9 +31,9 @@ class ProductController extends \Core\Controller {
     }
 
     public function addAction(){
-        $producttype = new ProductType();
-        $producer = new Producer();
-        $productgroup = new ProductGroup();
+        $producttype = new ProductType();$producer = new Producer();
+        $productgroup = new ProductGroup();$attribute = new Attribute();
+        $attributes = $attribute->getAll();
         $root_list = $producttype->getAllRoot();
         $arr_type = array();
         if($root_list){
@@ -48,7 +50,7 @@ class ProductController extends \Core\Controller {
             }
         }
 
-        View::renderTemplate('Backend/Product/add.html.twig', ['producttype' => $arr_type]);
+        View::renderTemplate('Backend/Product/add.html.twig', ['producttype' => $arr_type, 'attributes' => $attributes]);
     }
 
     public function createAction(){
@@ -85,4 +87,5 @@ class ProductController extends \Core\Controller {
         $db->id = $id;
         if($db->delete()) $router->redirect('/don-vi-tien-te');
     }
+
 }

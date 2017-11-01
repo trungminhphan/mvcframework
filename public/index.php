@@ -97,4 +97,5 @@ $router->add('image/delete', ['controller' => 'ImagesController', 'action' => 'd
 $router->add('', ['controller' => 'HomeController', 'action' => 'index']);
 $router->add('chi-tiet-san-pham', ['controller' => 'HomeController', 'action' => 'ProductDetail']);
 
+$router->add('get/attributes', ['controller' => 'ObjectController', 'action' => 'getAttributes']);
 $router->dispatch($_SERVER['QUERY_STRING']);

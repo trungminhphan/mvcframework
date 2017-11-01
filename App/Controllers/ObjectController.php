@@ -3,6 +3,7 @@ namespace App\Controllers;
 use \Core\View;
 use \Core\Router;
 use \App\Models\User;
+use \App\Models\Attribute;
 /**
  * Home controller
  *
@@ -58,6 +59,11 @@ class ObjectController extends \Core\Controller {
         }  else {
             $router->redirect('/admin/login');
         }
+    }
 
+    public function getAttributesAction(){
+        $attribute = new Attribute();
+        $attributes = $attribute->getAll();
+        View::renderTemplate('Backend/Get/attributes.html.twig', ['attributes' => $attributes]);
     }
 }
