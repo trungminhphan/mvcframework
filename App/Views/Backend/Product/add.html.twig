@@ -100,7 +100,7 @@
                                             {% endfor %}
                                         {% endif %}
                                         </select>
-                                    </div>                                  
+                                    </div>
                                     <div class="form-group col-md-2">
                                         <input type="number" name="price[]" class="form-control" placeholder="Giá" required>
                                     </div>
@@ -111,12 +111,11 @@
                                         <input type="number" name="quantity[]" class="form-control" placeholder="Số lượng" required>
                                     </div>
                                     <div class="form-group col-md-2">
-                                        <div style="width:40px;height:40px;float:left;margin-right:5px;background:#ccc;">
+                                        <div style="width:40px;height:40px;float:left;margin-right:5px;background:#ccc;" class="img-icon">
                                             <img src="/assets/Backend/images/logo-icon.png" style="width:40px;height:40px;"/>
-                                            <a href=""></a>
                                         </div>
                                         <label class="btn btn-info btn-circle">
-                                            <input type="file" name="img[]" style="display:none;" accept="image/*" />
+                                            <input type="file" name="img[]" style="display:none;" accept="image/*" class="image-icon"/>
                                             <i class="fa fa-file-photo-o"></i>
                                         </label>
                                         <a href="#" onclick="return false;" class="btn btn-primary btn-circle add-attribute"><i class="fa fa-plus"></i></a>
@@ -151,15 +150,23 @@
                 var _this = $(this);
                 _this.parents(".items").fadeOut();
             });
+            $(".image-icon").change(function(){
+              var reader = new FileReader();
+              var _this = $(this);
+              reader.onload = function (e) {
+                _this.parent('label').prev('.img-icon img').attr('src', e.target.result).width(40).height(40);
+              };
+               reader.readAsDataURL(_this[0].files[0]);
+            });
             $(".add-attribute").click(function(){
                 $.get('/get/attributes', function(data){
-                    $("#attributes_list").append(data);    
+                    $("#attributes_list").append(data);
                     $(".delete-attribute").click(function(){
                     var _this = $(this);
                         _this.parents(".items").remove();
                     });
                     $(".select2").select2();
-                });               
+                });
             });
             $('.mota').wysihtml5();
             $('.top').click(function(){
