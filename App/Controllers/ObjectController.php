@@ -37,6 +37,10 @@ class ObjectController extends \Core\Controller {
         return new \MongoDB\BSON\ObjectId($id);
     }
 
+    public static function Id(){
+      return new \MongoDB\BSON\ObjectId();
+    }
+
     public static function checkAuth(){
         $router = new Router(); $users = new User();
         if(!$users->checkAuth()){

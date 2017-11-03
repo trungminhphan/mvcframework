@@ -22,70 +22,65 @@
                         </div>
                     </div>
                     <div class="card-body collapse show">
-                        <div class="table-responsive">
-                            <table class="table product-overview">
-                                <thead>
-                                    <tr>
-                                        <th>Customer</th>
-                                        <th>Photo</th>
-                                        <th>Quantity</th>
-                                        <th>Date</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Steave Jobs</td>
-                                        <td>
-                                            <img src="/assets/Backend/images/gallery/chair.jpg" alt="iMac" width="80">
-                                        </td>
-                                        <td>20</td>
-                                        <td>10-7-2017</td>
-                                        <td>
-                                            <span class="label label-success font-weight-100">Paid</span>
-                                        </td>
-                                        <td><a href="javascript:void(0)" class="text-inverse p-r-10" data-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a href="javascript:void(0)" class="text-inverse" title="" data-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Varun Dhavan</td>
-                                        <td>
-                                            <img src="/assets/Backend/images/gallery/chair2.jpg" alt="iPhone" width="80">
-                                        </td>
-                                        <td>25</td>
-                                        <td>09-7-2017</td>
-                                        <td>
-                                            <span class="label label-warning font-weight-100">Pending</span>
-                                        </td>
-                                        <td><a href="javascript:void(0)" class="text-inverse p-r-10" data-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a href="javascript:void(0)" class="text-inverse" title="" data-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ritesh Desh</td>
-                                        <td>
-                                            <img src="/assets/Backend/images/gallery/chair3.jpg" alt="apple_watch" width="80">
-                                        </td>
-                                        <td>12</td>
-                                        <td>08-7-2017</td>
-                                        <td>
-                                            <span class="label label-success font-weight-100">Paid</span>
-                                        </td>
-                                        <td><a href="javascript:void(0)" class="text-inverse p-r-10" data-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a href="javascript:void(0)" class="text-inverse" title="" data-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hrithik</td>
-                                        <td>
-                                            <img src="/assets/Backend/images/gallery/chair4.jpg" alt="mac_mouse" width="80">
-                                        </td>
-                                        <td>18</td>
-                                        <td>02-7-2017</td>
-                                        <td>
-                                            <span class="label label-danger font-weight-100">Failed</span>
-                                        </td>
-                                        <td><a href="javascript:void(0)" class="text-inverse p-r-10" data-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a href="javascript:void(0)" class="text-inverse" title="" data-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                        <!--<table class="table product-overview">-->
+                        <table id="demo-foo-addrow2" class="table product-overview table-hover toggle-circle" data-page-size="7">
+                            <thead>
+                                <tr>
+                                    <th>Hình</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Số lượng</th>
+                                    <th>Date</th>
+                                    <th>Tình trạng</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+                            <div class="m-t-40">
+                                <div class="d-flex">
+                                    <div class="mr-auto">
+                                        <div class="form-group">
+                                            </div>
+                                    </div>
+                                    <div class="ml-auto">
+                                        <div class="form-group">
+                                            <input id="demo-input-search2" type="text" placeholder="Tìm kiếm" autocomplete="on">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <tbody>
+                            {% if products %}
+                              {% for product in products %}
+                                <tr>
+                                    <td>
+                                    {% if product.hinhanh.0.aliasname %}
+                                      <img src="/uploads/images/thumb_300x200/{{product.hinhanh.0.aliasname}}" alt="{{product.ten}}" width="80">
+                                    {% else %}
+                                        <img src="/assets/Backend/images/gallery/chair.jpg" alt="iMac" width="80">
+                                    {% endif %}
+                                    </td>
+                                    <td>Steave Jobs</td>
+                                    <td>20</td>
+                                    <td>10-7-2017</td>
+                                    <td>
+                                        <span class="label label-success font-weight-100">Paid</span>
+                                    </td>
+                                    <td><a href="javascript:void(0)" class="text-inverse p-r-10" data-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a href="javascript:void(0)" class="text-inverse" title="" data-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
+                                </tr>
+                              {% endfor %}
+                            {% endif %}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="6">
+                                        <div class="text-right">
+                                            <ul class="pagination">
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+
                     </div>
                 </div>
             </div>
@@ -94,6 +89,8 @@
 {% endblock %}
 
 {% block js%}
+<script src="/assets/Backend/plugins/footable/js/footable.all.min.js"></script>
+<script src="/assets/Backend/js/footable-init.js"></script>
     <script type="text/javascript">
          $(document).ready(function() {
             $('.top').click(function(){
@@ -105,4 +102,3 @@
         });
     </script>
 {% endblock %}
-

@@ -142,7 +142,6 @@ class __TwigTemplate_c54a91cfc67c206963e355a6d6af71619244d7115d77873113d86a91c0b
                 <!-- Sidebar navigation-->
                 <nav class=\"sidebar-nav\">
                     <ul id=\"sidebarnav\">
-                        <li class=\"nav-small-cap\">PERSONAL</li>
                         <li> <a class=\"has-arrow waves-effect waves-dark\" href=\"#\" aria-expanded=\"false\"><i class=\"mdi mdi-apps\"></i><span class=\"hide-menu\">Quản lý chung</span></a>
                             <ul aria-expanded=\"false\" class=\"collapse\">
                                 <li><a href=\"/loai-san-pham\">Loại sản phẩm</a></li>
@@ -193,9 +192,9 @@ class __TwigTemplate_c54a91cfc67c206963e355a6d6af71619244d7115d77873113d86a91c0b
         <!-- ============================================================== -->
         <div class=\"page-wrapper\">
             ";
-        // line 156
+        // line 155
         $this->displayBlock('body', $context, $blocks);
-        // line 157
+        // line 156
         echo "            <footer class=\"footer\">
                 © 2017 JAYBranding
             </footer>
@@ -234,9 +233,9 @@ class __TwigTemplate_c54a91cfc67c206963e355a6d6af71619244d7115d77873113d86a91c0b
     <!-- ============================================================== -->
     <script src=\"/assets/Backend/plugins/styleswitcher/jQuery.style.switcher.js\"></script>
     ";
-        // line 194
+        // line 193
         $this->displayBlock('js', $context, $blocks);
-        // line 195
+        // line 194
         echo "</body>
 </html>
 ";
@@ -252,12 +251,12 @@ class __TwigTemplate_c54a91cfc67c206963e355a6d6af71619244d7115d77873113d86a91c0b
     {
     }
 
-    // line 156
+    // line 155
     public function block_body($context, array $blocks = array())
     {
     }
 
-    // line 194
+    // line 193
     public function block_js($context, array $blocks = array())
     {
     }
@@ -274,7 +273,7 @@ class __TwigTemplate_c54a91cfc67c206963e355a6d6af71619244d7115d77873113d86a91c0b
 
     public function getDebugInfo()
     {
-        return array (  261 => 194,  256 => 156,  251 => 25,  246 => 12,  240 => 195,  238 => 194,  199 => 157,  197 => 156,  127 => 88,  122 => 85,  120 => 84,  112 => 79,  108 => 78,  54 => 26,  52 => 25,  36 => 12,  23 => 1,);
+        return array (  260 => 193,  255 => 155,  250 => 25,  245 => 12,  239 => 194,  237 => 193,  198 => 156,  196 => 155,  127 => 88,  122 => 85,  120 => 84,  112 => 79,  108 => 78,  54 => 26,  52 => 25,  36 => 12,  23 => 1,);
     }
 
     public function getSourceContext()

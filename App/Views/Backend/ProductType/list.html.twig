@@ -53,15 +53,14 @@
 {% endblock %}
 
 {% block js%}
-    <script type="text/javascript">
-         $(document).ready(function() {
-            $('.top').click(function(){
-              $('html, body').animate({
-                scrollTop: $( $.attr(this, 'href') ).offset().top
-              }, 500);
-              return false;
-            });
+<script type="text/javascript">
+     $(document).ready(function() {
+        $('.top').click(function(){
+          $('html, body').animate({
+            scrollTop: $( $.attr(this, 'href') ).offset().top
+          }, 500);
+          return false;
         });
-    </script>
+    });
+</script>
 {% endblock %}
-

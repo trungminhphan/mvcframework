@@ -49,13 +49,13 @@ class __TwigTemplate_99e9f83eaff8480f0af9d35731351e10f08f207b96acf9157f8fc074af7
         // line 9
         echo "    <div class=\"row page-titles\">
         <div class=\"col-md-12 align-self-center\">
-            <h3 class=\"text-themecolor\"><a href=\"/loai-san-pham\" class=\"btn btn-info\"><i class=\"mdi mdi-reply-all\"></i></a> Thêm sản phẩm</h3>
+            <h3 class=\"text-themecolor\"><a href=\"/san-pham\" class=\"btn btn-info\"><i class=\"mdi mdi-reply-all\"></i></a> Thêm sản phẩm</h3>
         </div>
         <div>
             <a href=\"#top\" class=\"right-side-toggle waves-effect top waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10\"><i class=\"ti-arrow-circle-up text-white\"></i></a>
         </div>
     </div>
-    <form action=\"/loai-san-pham/create\" method=\"POST\" id=\"dinhkemform\" enctype=\"multipart/form-data\">
+    <form action=\"/san-pham/create\" method=\"POST\" id=\"dinhkemform\" enctype=\"multipart/form-data\">
     <div class=\"container-fluid\">
         <div class=\"row\">
             <div class=\"col-12\">
@@ -79,7 +79,7 @@ class __TwigTemplate_99e9f83eaff8480f0af9d35731351e10f08f207b96acf9157f8fc074af7
                                     <div class=\"form-group row\">
                                         <label class=\"control-label col-md-3 text-right p-t-10\">Loại sản phẩm</label>
                                         <div class=\"col-md-9\">
-                                            <select class=\"select2 m-b-10 select2-multiple\" name=\"id_parent[]\" style=\"width: 100%\" multiple=\"multiple\" data-placeholder=\"Chọn thuộc tính nhóm\">
+                                            <select class=\"select2 m-b-10 select2-multiple\" name=\"id_producttype[]\" style=\"width: 100%\" multiple=\"multiple\" data-placeholder=\"Chọn thuộc tính nhóm\">
                                                 <option value=\"\">Chọn loại sản phẩm</option>
                                                 ";
         // line 43
@@ -170,7 +170,7 @@ class __TwigTemplate_99e9f83eaff8480f0af9d35731351e10f08f207b96acf9157f8fc074af7
                             <div id=\"attributes_list\">
                                 <div class=\"row items\">
                                     <div class=\"form-group col-md-4\">
-                                        <select class=\"form-control custom-select select2\" style=\"width: 100%; height:36px;\">
+                                        <select name=\"id_attribute[]\" class=\"form-control custom-select select2\" style=\"width: 100%; height:36px;\">
                                         ";
         // line 97
         if (($context["attributes"] ?? null)) {
@@ -197,20 +197,21 @@ class __TwigTemplate_99e9f83eaff8480f0af9d35731351e10f08f207b96acf9157f8fc074af7
         echo "                                        </select>
                                     </div>
                                     <div class=\"form-group col-md-2\">
-                                        <input type=\"number\" name=\"price[]\" class=\"form-control\" placeholder=\"Giá\" required>
+                                        <input type=\"number\" name=\"gia[]\" class=\"form-control\" placeholder=\"Giá\" required>
                                     </div>
                                     <div class=\"form-group col-md-2\">
-                                        <input type=\"number\" name=\"selling_price[]\" class=\"form-control\" placeholder=\"Giá bán\" required>
+                                        <input type=\"number\" name=\"giaban[]\" class=\"form-control\" placeholder=\"Giá bán\" required>
                                     </div>
                                     <div class=\"form-group col-md-2\">
-                                        <input type=\"number\" name=\"quantity[]\" class=\"form-control\" placeholder=\"Số lượng\" required value=\"1\">
+                                        <input type=\"number\" name=\"soluong[]\" class=\"form-control\" placeholder=\"Số lượng\" required value=\"1\">
                                     </div>
                                     <div class=\"form-group col-md-2\">
                                         <div style=\"width:40px;height:40px;float:left;margin-right:5px;background:#ccc;\" class=\"img_icon\">
                                             <img src=\"/assets/Backend/images/logo-icon.png\" style=\"width:40px;height:40px;\" class=\"icon\"/>
+                                            <!--<a href=\"#\" onclick=\"return false;\" class=\"delete-icon\"><i class=\"fa fa-trash\"></i></a>-->
                                         </div>
                                         <label class=\"file btn btn-info btn-circle\">
-                                            <input type=\"file\" name=\"img[]\" style=\"display:none;\" accept=\"image/*\" class=\"image-icon\"/>
+                                            <input type=\"file\" name=\"hinhanh[]\" style=\"display:none;\" accept=\"image/*\" class=\"image-icon\"/>
                                             <i class=\"fa fa-file-photo-o\"></i>
                                         </label>
                                         <a href=\"#\" onclick=\"return false;\" class=\"btn btn-primary btn-circle add-attribute\"><i class=\"fa fa-plus\"></i></a>
@@ -232,10 +233,10 @@ class __TwigTemplate_99e9f83eaff8480f0af9d35731351e10f08f207b96acf9157f8fc074af7
 ";
     }
 
-    // line 139
+    // line 140
     public function block_js($context, array $blocks = array())
     {
-        // line 140
+        // line 141
         echo "    <script src=\"/assets/Backend/plugins/select2/dist/js/select2.full.min.js\" type=\"text/javascript\"></script>
     <script src=\"/assets/Backend/plugins/Magnific-Popup-master/dist/jquery.magnific-popup.min.js\"></script>
     <script src=\"/assets/Backend/js/themsanpham.js\" type=\"text/javascript\"></script>
@@ -246,22 +247,7 @@ class __TwigTemplate_99e9f83eaff8480f0af9d35731351e10f08f207b96acf9157f8fc074af7
     <script type=\"text/javascript\">
          \$(document).ready(function() {
             \$(\".select2\").select2();upload_hinhanh();delete_hinhanh();popup_images();
-            \$(\".delete-attribute\").click(function(){
-                var _this = \$(this);
-                _this.parents(\".items\").fadeOut();
-            });
-
-            add_icon();
-            \$(\".add-attribute\").click(function(){
-                \$.get('/get/attributes', function(data){
-                    \$(\"#attributes_list\").append(data);
-                    \$(\".delete-attribute\").click(function(){
-                    var _this = \$(this);
-                        _this.parents(\".items\").remove();
-                    });
-                    \$(\".select2\").select2();add_icon();
-                });
-            });
+            delete_attribute(); add_icon();delete_icon();get_attribute();
             \$('.mota').wysihtml5();
             \$('.top').click(function(){
               \$('html, body').animate({
@@ -271,15 +257,15 @@ class __TwigTemplate_99e9f83eaff8480f0af9d35731351e10f08f207b96acf9157f8fc074af7
             });
             CKEDITOR.replace('motachitiet' ,{
                 filebrowserBrowseUrl : '/assets/Backend/plugins/filemanager/filemanager/dialog.php?type=2&editor=ckeditor&subfolder=";
-        // line 174
+        // line 160
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["session"] ?? null), "user_id", array()), "html", null, true);
         echo "',
                 filebrowserUploadUrl : '/assets/Backend/plugins/filemanager/filemanager/dialog.php?type=2&editor=ckeditor&subfolder=";
-        // line 175
+        // line 161
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["session"] ?? null), "user_id", array()), "html", null, true);
         echo "',
                 filebrowserImageBrowseUrl : '/assets/Backend/plugins/filemanager/filemanager/dialog.php?type=1&editor=ckeditor&subfolder=";
-        // line 176
+        // line 162
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["session"] ?? null), "user_id", array()), "html", null, true);
         echo "'
             });
@@ -300,7 +286,7 @@ class __TwigTemplate_99e9f83eaff8480f0af9d35731351e10f08f207b96acf9157f8fc074af7
 
     public function getDebugInfo()
     {
-        return array (  283 => 176,  279 => 175,  275 => 174,  239 => 140,  236 => 139,  197 => 102,  194 => 101,  183 => 99,  178 => 98,  176 => 97,  130 => 53,  127 => 52,  121 => 51,  118 => 50,  107 => 48,  102 => 47,  100 => 46,  93 => 45,  88 => 44,  86 => 43,  50 => 9,  47 => 8,  40 => 4,  37 => 3,  31 => 2,  11 => 1,);
+        return array (  269 => 162,  265 => 161,  261 => 160,  240 => 141,  237 => 140,  197 => 102,  194 => 101,  183 => 99,  178 => 98,  176 => 97,  130 => 53,  127 => 52,  121 => 51,  118 => 50,  107 => 48,  102 => 47,  100 => 46,  93 => 45,  88 => 44,  86 => 43,  50 => 9,  47 => 8,  40 => 4,  37 => 3,  31 => 2,  11 => 1,);
     }
 
     public function getSourceContext()

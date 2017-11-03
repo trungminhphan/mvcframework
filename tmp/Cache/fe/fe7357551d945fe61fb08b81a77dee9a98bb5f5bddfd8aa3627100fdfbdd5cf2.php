@@ -26,16 +26,16 @@ class __TwigTemplate_8b23a103ae75dc5803ef7af44c00100d5b0290657ae652453a1f2d09a2e
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
-    // line 3
+    // line 2
     public function block_title($context, array $blocks = array())
     {
         echo "Danh sách tài khoản người dùng";
     }
 
-    // line 5
+    // line 3
     public function block_body($context, array $blocks = array())
     {
-        // line 6
+        // line 4
         echo "    <div class=\"row page-titles\">
         <div class=\"col-md-12 align-self-center\">
             <h3 class=\"text-themecolor\"><a href=\"/tai-khoan/add\" class=\"btn btn-info\"><i class=\"mdi mdi-folder-plus\"></i></a> Danh sách tài khoản người dùng</h3>
@@ -76,37 +76,37 @@ class __TwigTemplate_8b23a103ae75dc5803ef7af44c00100d5b0290657ae652453a1f2d09a2e
                                 </div>
                                 <tbody>
                                 ";
-        // line 45
+        // line 43
         if (($context["users"] ?? null)) {
-            // line 46
+            // line 44
             echo "                                    ";
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(($context["users"] ?? null));
             foreach ($context['_seq'] as $context["key"] => $context["user"]) {
-                // line 47
+                // line 45
                 echo "                                    <tr>
                                         <td>";
-                // line 48
+                // line 46
                 echo twig_escape_filter($this->env, ($context["key"] + 1), "html", null, true);
                 echo "</td>
                                         <td>";
-                // line 49
+                // line 47
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["user"], "username", array()), "html", null, true);
                 echo "</td>
                                         <td>";
-                // line 50
+                // line 48
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["user"], "fullname", array()), "html", null, true);
                 echo "</td>
                                         <td>
                                             ";
-                // line 52
+                // line 50
                 if (twig_get_attribute($this->env, $this->getSourceContext(), $context["user"], "roles", array())) {
-                    // line 53
+                    // line 51
                     echo "                                                ";
                     $context['_parent'] = $context;
                     $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->getSourceContext(), $context["user"], "roles", array()));
                     foreach ($context['_seq'] as $context["_key"] => $context["role"]) {
-                        // line 54
+                        // line 52
                         echo "                                                    <span class=\"label label-table label-info\">";
                         echo twig_escape_filter($this->env, $context["role"], "html", null, true);
                         echo "</span>
@@ -115,32 +115,32 @@ class __TwigTemplate_8b23a103ae75dc5803ef7af44c00100d5b0290657ae652453a1f2d09a2e
                     $_parent = $context['_parent'];
                     unset($context['_seq'], $context['_iterated'], $context['_key'], $context['role'], $context['_parent'], $context['loop']);
                     $context = array_intersect_key($context, $_parent) + $_parent;
-                    // line 56
+                    // line 54
                     echo "                                            ";
                 }
-                // line 57
+                // line 55
                 echo "                                        </td>
                                         <td class=\"text-center\">
                                             ";
-                // line 59
+                // line 57
                 if ((twig_get_attribute($this->env, $this->getSourceContext(), $context["user"], "status", array()) == 1)) {
-                    // line 60
+                    // line 58
                     echo "                                                <i class=\"mdi mdi-check-circle text-info\"></i>
                                             ";
                 } else {
-                    // line 62
+                    // line 60
                     echo "                                                <i class=\"mdi mdi-close-circle text-danger\"></i>
                                             ";
                 }
-                // line 64
+                // line 62
                 echo "                                        </td>
                                         <td class=\"text-center\">
                                             <a href=\"/tai-khoan/delete?id=";
-                // line 66
+                // line 64
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["user"], "_id", array()), "html", null, true);
                 echo "\" class=\"btn btn-sm btn-danger\" onclick=\"return confirm('Chắc chắn xóa?')\"><i class=\"mdi mdi-delete\"></i> Xóa</a>
                                             <a href=\"/tai-khoan/edit?id=";
-                // line 67
+                // line 65
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["user"], "_id", array()), "html", null, true);
                 echo "\" class=\"btn btn-sm btn-info\"><i class=\"mdi mdi-account-edit\"></i> Sửa</a>
                                         </td>
@@ -150,10 +150,10 @@ class __TwigTemplate_8b23a103ae75dc5803ef7af44c00100d5b0290657ae652453a1f2d09a2e
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['key'], $context['user'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 71
+            // line 69
             echo "                                ";
         }
-        // line 72
+        // line 70
         echo "                                </tbody>
                                 <tfoot>
                                     <tr>
@@ -175,10 +175,10 @@ class __TwigTemplate_8b23a103ae75dc5803ef7af44c00100d5b0290657ae652453a1f2d09a2e
 ";
     }
 
-    // line 92
+    // line 90
     public function block_js($context, array $blocks = array())
     {
-        // line 93
+        // line 91
         echo "    <script src=\"/assets/Backend/plugins/footable/js/footable.all.min.js\"></script>
     <script src=\"/assets/Backend/js/footable-init.js\"></script>
     <script type=\"text/javascript\">
@@ -206,7 +206,7 @@ class __TwigTemplate_8b23a103ae75dc5803ef7af44c00100d5b0290657ae652453a1f2d09a2e
 
     public function getDebugInfo()
     {
-        return array (  182 => 93,  179 => 92,  157 => 72,  154 => 71,  144 => 67,  140 => 66,  136 => 64,  132 => 62,  128 => 60,  126 => 59,  122 => 57,  119 => 56,  110 => 54,  105 => 53,  103 => 52,  98 => 50,  94 => 49,  90 => 48,  87 => 47,  82 => 46,  80 => 45,  39 => 6,  36 => 5,  30 => 3,  11 => 1,);
+        return array (  182 => 91,  179 => 90,  157 => 70,  154 => 69,  144 => 65,  140 => 64,  136 => 62,  132 => 60,  128 => 58,  126 => 57,  122 => 55,  119 => 54,  110 => 52,  105 => 51,  103 => 50,  98 => 48,  94 => 47,  90 => 46,  87 => 45,  82 => 44,  80 => 43,  39 => 4,  36 => 3,  30 => 2,  11 => 1,);
     }
 
     public function getSourceContext()

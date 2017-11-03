@@ -49,80 +49,78 @@ class __TwigTemplate_396b5e8ff988f3b83fda0f5f3591831d91312a12e53b33149543a0a980d
             <div class=\"col-12\">
                 <div class=\"card\">
                     <div class=\"card-body\">
-                       <div class=\"table-responsive\">
-                            <table id=\"demo-foo-addrow2\" class=\"table table-bordered table-hover toggle-circle\" data-page-size=\"7\">
-                                <thead>
-                                    <tr>
-                                        <th data-sort-initial=\"true\" data-toggle=\"true\">STT</th>
-                                        <th>Tên thuộc tính sản phẩm</th>
-                                        <th data-sort-ignore=\"true\" class=\"text-center\">#</th>
-                                    </tr>
-                                </thead>
-                                <div class=\"m-t-40\">
-                                    <div class=\"d-flex\">
-                                        <div class=\"mr-auto\">
-                                            <div class=\"form-group\">
-                                                </div>
-                                        </div>
-                                        <div class=\"ml-auto\">
-                                            <div class=\"form-group\">
-                                                <input id=\"demo-input-search2\" type=\"text\" placeholder=\"Tìm kiếm\" autocomplete=\"on\">
+                        <table id=\"demo-foo-addrow2\" class=\"table table-bordered table-hover toggle-circle\" data-page-size=\"7\">
+                            <thead>
+                                <tr>
+                                    <th data-sort-initial=\"true\" data-toggle=\"true\">STT</th>
+                                    <th>Tên thuộc tính sản phẩm</th>
+                                    <th data-sort-ignore=\"true\" class=\"text-center\">#</th>
+                                </tr>
+                            </thead>
+                            <div class=\"m-t-40\">
+                                <div class=\"d-flex\">
+                                    <div class=\"mr-auto\">
+                                        <div class=\"form-group\">
                                             </div>
+                                    </div>
+                                    <div class=\"ml-auto\">
+                                        <div class=\"form-group\">
+                                            <input id=\"demo-input-search2\" type=\"text\" placeholder=\"Tìm kiếm\" autocomplete=\"on\">
                                         </div>
                                     </div>
                                 </div>
-                                <tbody>
-                                ";
-        // line 41
+                            </div>
+                            <tbody>
+                            ";
+        // line 40
         if (($context["list"] ?? null)) {
-            // line 42
-            echo "                                    ";
+            // line 41
+            echo "                                ";
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(($context["list"] ?? null));
             foreach ($context['_seq'] as $context["key"] => $context["item"]) {
+                // line 42
+                echo "                                <tr>
+                                    <td>";
                 // line 43
-                echo "                                    <tr>
-                                        <td>";
-                // line 44
                 echo twig_escape_filter($this->env, ($context["key"] + 1), "html", null, true);
                 echo "</td>
-                                        <td>";
-                // line 45
+                                    <td>";
+                // line 44
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "ten", array()), "html", null, true);
                 echo "</td>
-                                        <td class=\"text-center\">
-                                            <a href=\"/thuoc-tinh-san-pham/delete?id=";
-                // line 47
+                                    <td class=\"text-center\">
+                                        <a href=\"/thuoc-tinh-san-pham/delete?id=";
+                // line 46
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()), "html", null, true);
                 echo "\" class=\"btn btn-sm btn-danger\" onclick=\"return confirm('Chắc chắn xóa?')\"><i class=\"mdi mdi-delete\"></i> Xóa</a>
-                                            <a href=\"/thuoc-tinh-san-pham/edit?id=";
-                // line 48
+                                        <a href=\"/thuoc-tinh-san-pham/edit?id=";
+                // line 47
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()), "html", null, true);
                 echo "\" class=\"btn btn-sm btn-info\"><i class=\"mdi mdi-pencil-circle\"></i> Sửa</a>
-                                        </td>
-                                    </tr>
-                                    ";
+                                    </td>
+                                </tr>
+                                ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['key'], $context['item'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 52
-            echo "                                ";
+            // line 51
+            echo "                            ";
         }
-        // line 53
-        echo "                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <td colspan=\"6\">
-                                            <div class=\"text-right\">
-                                                <ul class=\"pagination\">
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                        </div>
+        // line 52
+        echo "                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan=\"6\">
+                                        <div class=\"text-right\">
+                                            <ul class=\"pagination\">
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -131,20 +129,22 @@ class __TwigTemplate_396b5e8ff988f3b83fda0f5f3591831d91312a12e53b33149543a0a980d
 ";
     }
 
-    // line 73
+    // line 71
     public function block_js($context, array $blocks = array())
     {
-        // line 74
-        echo "    <script type=\"text/javascript\">
-         \$(document).ready(function() {
-            \$('.top').click(function(){
-              \$('html, body').animate({
-                scrollTop: \$( \$.attr(this, 'href') ).offset().top
-              }, 500);
-              return false;
-            });
-        });
-    </script>
+        // line 72
+        echo "  <script src=\"/assets/Backend/plugins/footable/js/footable.all.min.js\"></script>
+  <script src=\"/assets/Backend/js/footable-init.js\"></script>
+  <script type=\"text/javascript\">
+       \$(document).ready(function() {
+          \$('.top').click(function(){
+            \$('html, body').animate({
+              scrollTop: \$( \$.attr(this, 'href') ).offset().top
+            }, 500);
+            return false;
+          });
+      });
+  </script>
 ";
     }
 
@@ -160,7 +160,7 @@ class __TwigTemplate_396b5e8ff988f3b83fda0f5f3591831d91312a12e53b33149543a0a980d
 
     public function getDebugInfo()
     {
-        return array (  138 => 74,  135 => 73,  113 => 53,  110 => 52,  100 => 48,  96 => 47,  91 => 45,  87 => 44,  84 => 43,  79 => 42,  77 => 41,  39 => 5,  36 => 4,  30 => 3,  11 => 1,);
+        return array (  136 => 72,  133 => 71,  112 => 52,  109 => 51,  99 => 47,  95 => 46,  90 => 44,  86 => 43,  83 => 42,  78 => 41,  76 => 40,  39 => 5,  36 => 4,  30 => 3,  11 => 1,);
     }
 
     public function getSourceContext()

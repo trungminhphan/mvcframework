@@ -8,13 +8,13 @@
 {% block body %}
     <div class="row page-titles">
         <div class="col-md-12 align-self-center">
-            <h3 class="text-themecolor"><a href="/loai-san-pham" class="btn btn-info"><i class="mdi mdi-reply-all"></i></a> Thêm sản phẩm</h3>
+            <h3 class="text-themecolor"><a href="/san-pham" class="btn btn-info"><i class="mdi mdi-reply-all"></i></a> Thêm sản phẩm</h3>
         </div>
         <div>
             <a href="#top" class="right-side-toggle waves-effect top waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-arrow-circle-up text-white"></i></a>
         </div>
     </div>
-    <form action="/loai-san-pham/create" method="POST" id="dinhkemform" enctype="multipart/form-data">
+    <form action="/san-pham/create" method="POST" id="dinhkemform" enctype="multipart/form-data">
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
@@ -38,7 +38,7 @@
                                     <div class="form-group row">
                                         <label class="control-label col-md-3 text-right p-t-10">Loại sản phẩm</label>
                                         <div class="col-md-9">
-                                            <select class="select2 m-b-10 select2-multiple" name="id_parent[]" style="width: 100%" multiple="multiple" data-placeholder="Chọn thuộc tính nhóm">
+                                            <select class="select2 m-b-10 select2-multiple" name="id_producttype[]" style="width: 100%" multiple="multiple" data-placeholder="Chọn thuộc tính nhóm">
                                                 <option value="">Chọn loại sản phẩm</option>
                                                 {% if producttype %}
                                                     {% for item in producttype %}
@@ -93,7 +93,7 @@
                             <div id="attributes_list">
                                 <div class="row items">
                                     <div class="form-group col-md-4">
-                                        <select class="form-control custom-select select2" style="width: 100%; height:36px;">
+                                        <select name="id_attribute[]" class="form-control custom-select select2" style="width: 100%; height:36px;">
                                         {% if attributes %}
                                             {% for attribute in attributes %}
                                                 <option value="{{attribute._id}}">{{attribute.ten}}</option>
@@ -102,20 +102,21 @@
                                         </select>
                                     </div>
                                     <div class="form-group col-md-2">
-                                        <input type="number" name="price[]" class="form-control" placeholder="Giá" required>
+                                        <input type="number" name="gia[]" class="form-control" placeholder="Giá" required>
                                     </div>
                                     <div class="form-group col-md-2">
-                                        <input type="number" name="selling_price[]" class="form-control" placeholder="Giá bán" required>
+                                        <input type="number" name="giaban[]" class="form-control" placeholder="Giá bán" required>
                                     </div>
                                     <div class="form-group col-md-2">
-                                        <input type="number" name="quantity[]" class="form-control" placeholder="Số lượng" required value="1">
+                                        <input type="number" name="soluong[]" class="form-control" placeholder="Số lượng" required value="1">
                                     </div>
                                     <div class="form-group col-md-2">
                                         <div style="width:40px;height:40px;float:left;margin-right:5px;background:#ccc;" class="img_icon">
                                             <img src="/assets/Backend/images/logo-icon.png" style="width:40px;height:40px;" class="icon"/>
+                                            <!--<a href="#" onclick="return false;" class="delete-icon"><i class="fa fa-trash"></i></a>-->
                                         </div>
                                         <label class="file btn btn-info btn-circle">
-                                            <input type="file" name="img[]" style="display:none;" accept="image/*" class="image-icon"/>
+                                            <input type="file" name="hinhanh[]" style="display:none;" accept="image/*" class="image-icon"/>
                                             <i class="fa fa-file-photo-o"></i>
                                         </label>
                                         <a href="#" onclick="return false;" class="btn btn-primary btn-circle add-attribute"><i class="fa fa-plus"></i></a>
@@ -147,22 +148,7 @@
     <script type="text/javascript">
          $(document).ready(function() {
             $(".select2").select2();upload_hinhanh();delete_hinhanh();popup_images();
-            $(".delete-attribute").click(function(){
-                var _this = $(this);
-                _this.parents(".items").fadeOut();
-            });
-
-            add_icon();
-            $(".add-attribute").click(function(){
-                $.get('/get/attributes', function(data){
-                    $("#attributes_list").append(data);
-                    $(".delete-attribute").click(function(){
-                    var _this = $(this);
-                        _this.parents(".items").remove();
-                    });
-                    $(".select2").select2();add_icon();
-                });
-            });
+            delete_attribute(); add_icon();delete_icon();get_attribute();
             $('.mota').wysihtml5();
             $('.top').click(function(){
               $('html, body').animate({

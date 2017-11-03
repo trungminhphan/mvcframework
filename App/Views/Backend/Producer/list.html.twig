@@ -16,60 +16,58 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                       <div class="table-responsive">
-                            <table id="demo-foo-addrow2" class="table table-bordered table-hover toggle-circle" data-page-size="7">
-                                <thead>
-                                    <tr>
-                                        <th data-sort-initial="true" data-toggle="true">STT</th>
-                                        <th>Hình</th>
-                                        <th>Tên nhà sản xuất</th>
-                                        <th data-sort-ignore="true" class="text-center">#</th>
-                                    </tr>
-                                </thead>
-                                <div class="m-t-40">
-                                    <div class="d-flex">
-                                        <div class="mr-auto">
-                                            <div class="form-group">
-                                                </div>
-                                        </div>
-                                        <div class="ml-auto">
-                                            <div class="form-group">
-                                                <input id="demo-input-search2" type="text" placeholder="Tìm kiếm" autocomplete="on">
+                        <table id="demo-foo-addrow2" class="table table-bordered table-hover toggle-circle">
+                            <thead>
+                                <tr>
+                                    <th data-sort-initial="true" data-toggle="true">STT</th>
+                                    <th>Hình</th>
+                                    <th>Tên nhà sản xuất</th>
+                                    <thclass="text-center">#</th>
+                                </tr>
+                            </thead>
+                            <div class="m-t-40">
+                                <div class="d-flex">
+                                    <div class="mr-auto">
+                                        <div class="form-group">
                                             </div>
+                                    </div>
+                                    <div class="ml-auto">
+                                        <div class="form-group">
+                                            <input id="demo-input-search2" type="text" placeholder="Tìm kiếm" autocomplete="on">
                                         </div>
                                     </div>
                                 </div>
-                                <tbody>
-                                {% if list %}
-                                    {% for key, item in list %}
-                                    <tr>
-                                        <td>{{key+1}}</td>
-                                        <td>
-                                            {% if item.hinhanh_aliasname.0 %}
-                                                <img src="/uploads/images/thumb_300x200/{{item.hinhanh_aliasname.0}}" height="30" />
-                                            {% endif %}
-                                        </td>
-                                        <td>{{item.ten}}</td>
-                                        <td class="text-center">
-                                            <a href="/nha-san-xuat/delete?id={{item._id}}" class="btn btn-sm btn-danger" onclick="return confirm('Chắc chắn xóa?')"><i class="mdi mdi-delete"></i> Xóa</a>
-                                            <a href="/nha-san-xuat/edit?id={{item._id}}" class="btn btn-sm btn-info"><i class="mdi mdi-pencil-circle"></i> Sửa</a>
-                                        </td>
-                                    </tr>
-                                    {% endfor %}
-                                {% endif %}
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <td colspan="6">
-                                            <div class="text-right">
-                                                <ul class="pagination">
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                        </div>
+                            </div>
+                            <tbody>
+                            {% if list %}
+                                {% for key, item in list %}
+                                <tr>
+                                    <td>{{key+1}}</td>
+                                    <td>
+                                        {% if item.hinhanh_aliasname.0 %}
+                                            <img src="/uploads/images/thumb_300x200/{{item.hinhanh_aliasname.0}}" height="30" />
+                                        {% endif %}
+                                    </td>
+                                    <td>{{item.ten}}</td>
+                                    <td class="text-center">
+                                        <a href="/nha-san-xuat/delete?id={{item._id}}" class="btn btn-sm btn-danger" onclick="return confirm('Chắc chắn xóa?')"><i class="mdi mdi-delete"></i> Xóa</a>
+                                        <a href="/nha-san-xuat/edit?id={{item._id}}" class="btn btn-sm btn-info"><i class="mdi mdi-pencil-circle"></i> Sửa</a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            {% endif %}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="6">
+                                        <div class="text-right">
+                                            <ul class="pagination">
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -78,6 +76,8 @@
 {% endblock %}
 
 {% block js%}
+  <script src="/assets/Backend/plugins/footable/js/footable.all.min.js"></script>
+  <script src="/assets/Backend/js/footable-init.js"></script>
     <script type="text/javascript">
          $(document).ready(function() {
             $('.top').click(function(){
@@ -89,4 +89,3 @@
         });
     </script>
 {% endblock %}
-

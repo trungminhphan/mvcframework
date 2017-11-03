@@ -131,7 +131,10 @@ class __TwigTemplate_52fe73a607a58b1e2959a23af96c280d8505cdd32592faeb9ca0ac3b6b1
                                         <div class=\"form-group row\">
                                             <label class=\"control-label col-md-3 text-right p-t-10\">Hình ảnh</label>
                                             <div class=\"col-md-2\">
-                                                <input type=\"file\" name=\"dinhkem[]\" class=\"dinhkem btn btn-info\" multiple accept=\"image/*\" placeholder=\"Chọn hình ảnh\" />
+                                                 <label class=\"btn btn-info\">
+                                                <input type=\"file\" name=\"dinhkem[]\" class=\"dinhkem btn btn-info\" multiple accept=\"image/*\" placeholder=\"Chọn hình ảnh\" style=\"display:none;\" />
+                                                <i class=\"fa fa-file-photo-o\"></i> Chọn hình ảnh
+                                            </label>
                                             </div>
                                         </div>
                                     </div>
@@ -151,10 +154,10 @@ class __TwigTemplate_52fe73a607a58b1e2959a23af96c280d8505cdd32592faeb9ca0ac3b6b1
 ";
     }
 
-    // line 90
+    // line 93
     public function block_js($context, array $blocks = array())
     {
-        // line 91
+        // line 94
         echo "    <script src=\"/assets/Backend/plugins/select2/dist/js/select2.full.min.js\" type=\"text/javascript\"></script>
     <script src=\"/assets/Backend/plugins/Magnific-Popup-master/dist/jquery.magnific-popup.min.js\"></script>
     <!--<script src=\"/assets/Backend/plugins/Magnific-Popup-master/dist/jquery.magnific-popup-init.js\"></script>-->
@@ -185,7 +188,7 @@ class __TwigTemplate_52fe73a607a58b1e2959a23af96c280d8505cdd32592faeb9ca0ac3b6b1
 
     public function getDebugInfo()
     {
-        return array (  158 => 91,  155 => 90,  124 => 61,  121 => 60,  106 => 58,  101 => 57,  99 => 56,  49 => 8,  46 => 7,  40 => 4,  37 => 3,  31 => 2,  11 => 1,);
+        return array (  161 => 94,  158 => 93,  124 => 61,  121 => 60,  106 => 58,  101 => 57,  99 => 56,  49 => 8,  46 => 7,  40 => 4,  37 => 3,  31 => 2,  11 => 1,);
     }
 
     public function getSourceContext()

@@ -49,93 +49,91 @@ class __TwigTemplate_00437a0c6a5c357c8af852aa8c702fd198d73e28115b3c633a77de4c09a
             <div class=\"col-12\">
                 <div class=\"card\">
                     <div class=\"card-body\">
-                       <div class=\"table-responsive\">
-                            <table id=\"demo-foo-addrow2\" class=\"table table-bordered table-hover toggle-circle\" data-page-size=\"7\">
-                                <thead>
-                                    <tr>
-                                        <th data-sort-initial=\"true\" data-toggle=\"true\">STT</th>
-                                        <th>Hình</th>
-                                        <th>Tên nhà sản xuất</th>
-                                        <th data-sort-ignore=\"true\" class=\"text-center\">#</th>
-                                    </tr>
-                                </thead>
-                                <div class=\"m-t-40\">
-                                    <div class=\"d-flex\">
-                                        <div class=\"mr-auto\">
-                                            <div class=\"form-group\">
-                                                </div>
-                                        </div>
-                                        <div class=\"ml-auto\">
-                                            <div class=\"form-group\">
-                                                <input id=\"demo-input-search2\" type=\"text\" placeholder=\"Tìm kiếm\" autocomplete=\"on\">
+                        <table id=\"demo-foo-addrow2\" class=\"table table-bordered table-hover toggle-circle\">
+                            <thead>
+                                <tr>
+                                    <th data-sort-initial=\"true\" data-toggle=\"true\">STT</th>
+                                    <th>Hình</th>
+                                    <th>Tên nhà sản xuất</th>
+                                    <thclass=\"text-center\">#</th>
+                                </tr>
+                            </thead>
+                            <div class=\"m-t-40\">
+                                <div class=\"d-flex\">
+                                    <div class=\"mr-auto\">
+                                        <div class=\"form-group\">
                                             </div>
+                                    </div>
+                                    <div class=\"ml-auto\">
+                                        <div class=\"form-group\">
+                                            <input id=\"demo-input-search2\" type=\"text\" placeholder=\"Tìm kiếm\" autocomplete=\"on\">
                                         </div>
                                     </div>
                                 </div>
-                                <tbody>
-                                ";
-        // line 43
+                            </div>
+                            <tbody>
+                            ";
+        // line 42
         if (($context["list"] ?? null)) {
-            // line 44
-            echo "                                    ";
+            // line 43
+            echo "                                ";
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(($context["list"] ?? null));
             foreach ($context['_seq'] as $context["key"] => $context["item"]) {
+                // line 44
+                echo "                                <tr>
+                                    <td>";
                 // line 45
-                echo "                                    <tr>
-                                        <td>";
-                // line 46
                 echo twig_escape_filter($this->env, ($context["key"] + 1), "html", null, true);
                 echo "</td>
-                                        <td>
-                                            ";
-                // line 48
+                                    <td>
+                                        ";
+                // line 47
                 if (twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "hinhanh_aliasname", array()), 0, array())) {
-                    // line 49
-                    echo "                                                <img src=\"/uploads/images/thumb_300x200/";
+                    // line 48
+                    echo "                                            <img src=\"/uploads/images/thumb_300x200/";
                     echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "hinhanh_aliasname", array()), 0, array()), "html", null, true);
                     echo "\" height=\"30\" />
-                                            ";
+                                        ";
                 }
+                // line 50
+                echo "                                    </td>
+                                    <td>";
                 // line 51
-                echo "                                        </td>
-                                        <td>";
-                // line 52
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "ten", array()), "html", null, true);
                 echo "</td>
-                                        <td class=\"text-center\">
-                                            <a href=\"/nha-san-xuat/delete?id=";
-                // line 54
+                                    <td class=\"text-center\">
+                                        <a href=\"/nha-san-xuat/delete?id=";
+                // line 53
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()), "html", null, true);
                 echo "\" class=\"btn btn-sm btn-danger\" onclick=\"return confirm('Chắc chắn xóa?')\"><i class=\"mdi mdi-delete\"></i> Xóa</a>
-                                            <a href=\"/nha-san-xuat/edit?id=";
-                // line 55
+                                        <a href=\"/nha-san-xuat/edit?id=";
+                // line 54
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()), "html", null, true);
                 echo "\" class=\"btn btn-sm btn-info\"><i class=\"mdi mdi-pencil-circle\"></i> Sửa</a>
-                                        </td>
-                                    </tr>
-                                    ";
+                                    </td>
+                                </tr>
+                                ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['key'], $context['item'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 59
-            echo "                                ";
+            // line 58
+            echo "                            ";
         }
-        // line 60
-        echo "                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <td colspan=\"6\">
-                                            <div class=\"text-right\">
-                                                <ul class=\"pagination\">
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                        </div>
+        // line 59
+        echo "                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan=\"6\">
+                                        <div class=\"text-right\">
+                                            <ul class=\"pagination\">
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -144,11 +142,13 @@ class __TwigTemplate_00437a0c6a5c357c8af852aa8c702fd198d73e28115b3c633a77de4c09a
 ";
     }
 
-    // line 80
+    // line 78
     public function block_js($context, array $blocks = array())
     {
-        // line 81
-        echo "    <script type=\"text/javascript\">
+        // line 79
+        echo "  <script src=\"/assets/Backend/plugins/footable/js/footable.all.min.js\"></script>
+  <script src=\"/assets/Backend/js/footable-init.js\"></script>
+    <script type=\"text/javascript\">
          \$(document).ready(function() {
             \$('.top').click(function(){
               \$('html, body').animate({
@@ -173,7 +173,7 @@ class __TwigTemplate_00437a0c6a5c357c8af852aa8c702fd198d73e28115b3c633a77de4c09a
 
     public function getDebugInfo()
     {
-        return array (  151 => 81,  148 => 80,  126 => 60,  123 => 59,  113 => 55,  109 => 54,  104 => 52,  101 => 51,  95 => 49,  93 => 48,  88 => 46,  85 => 45,  80 => 44,  78 => 43,  39 => 6,  36 => 5,  30 => 3,  11 => 1,);
+        return array (  149 => 79,  146 => 78,  125 => 59,  122 => 58,  112 => 54,  108 => 53,  103 => 51,  100 => 50,  94 => 48,  92 => 47,  87 => 45,  84 => 44,  79 => 43,  77 => 42,  39 => 6,  36 => 5,  30 => 3,  11 => 1,);
     }
 
     public function getSourceContext()

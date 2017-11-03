@@ -49,90 +49,88 @@ class __TwigTemplate_3b19906971a5e65d1a6057a40a0e64724488e6903f8d85711b3397e2bf6
             <div class=\"col-12\">
                 <div class=\"card\">
                     <div class=\"card-body\">
-                       <div class=\"table-responsive\">
-                            <table id=\"demo-foo-addrow2\" class=\"table table-bordered table-hover toggle-circle\" data-page-size=\"7\">
-                                <thead>
-                                    <tr>
-                                        <th data-sort-initial=\"true\" data-toggle=\"true\">STT</th>
-                                        <th>Mã đơn vị</th>
-                                        <th>Tên đơn vị tiền tệ</th>
-                                        <th>Quy đổi USD</th>
-                                        <th data-sort-ignore=\"true\" class=\"text-center\">#</th>
-                                    </tr>
-                                </thead>
-                                <div class=\"m-t-40\">
-                                    <div class=\"d-flex\">
-                                        <div class=\"mr-auto\">
-                                            <div class=\"form-group\">
-                                                </div>
-                                        </div>
-                                        <div class=\"ml-auto\">
-                                            <div class=\"form-group\">
-                                                <input id=\"demo-input-search2\" type=\"text\" placeholder=\"Tìm kiếm\" autocomplete=\"on\">
+                        <table id=\"demo-foo-addrow2\" class=\"table table-bordered table-hover toggle-circle\" data-page-size=\"7\">
+                            <thead>
+                                <tr>
+                                    <th data-sort-initial=\"true\" data-toggle=\"true\">STT</th>
+                                    <th>Mã đơn vị</th>
+                                    <th>Tên đơn vị tiền tệ</th>
+                                    <th>Quy đổi USD</th>
+                                    <th data-sort-ignore=\"true\" class=\"text-center\">#</th>
+                                </tr>
+                            </thead>
+                            <div class=\"m-t-40\">
+                                <div class=\"d-flex\">
+                                    <div class=\"mr-auto\">
+                                        <div class=\"form-group\">
                                             </div>
+                                    </div>
+                                    <div class=\"ml-auto\">
+                                        <div class=\"form-group\">
+                                            <input id=\"demo-input-search2\" type=\"text\" placeholder=\"Tìm kiếm\" autocomplete=\"on\">
                                         </div>
                                     </div>
                                 </div>
-                                <tbody>
-                                ";
-        // line 43
+                            </div>
+                            <tbody>
+                            ";
+        // line 42
         if (($context["list"] ?? null)) {
-            // line 44
-            echo "                                    ";
+            // line 43
+            echo "                                ";
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(($context["list"] ?? null));
             foreach ($context['_seq'] as $context["key"] => $context["item"]) {
+                // line 44
+                echo "                                <tr>
+                                    <td>";
                 // line 45
-                echo "                                    <tr>
-                                        <td>";
-                // line 46
                 echo twig_escape_filter($this->env, ($context["key"] + 1), "html", null, true);
                 echo "</td>
-                                        <td>";
-                // line 47
+                                    <td>";
+                // line 46
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "ma", array()), "html", null, true);
                 echo "</td>
-                                        <td>";
-                // line 48
+                                    <td>";
+                // line 47
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "ten", array()), "html", null, true);
                 echo "</td>
-                                        <td>";
-                // line 49
+                                    <td>";
+                // line 48
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "quydoisang_usd", array()), "html", null, true);
                 echo "</td>
-                                        <td class=\"text-center\">
-                                            <a href=\"/don-vi-tien-te/delete?id=";
-                // line 51
+                                    <td class=\"text-center\">
+                                        <a href=\"/don-vi-tien-te/delete?id=";
+                // line 50
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()), "html", null, true);
                 echo "\" class=\"btn btn-sm btn-danger\" onclick=\"return confirm('Chắc chắn xóa?')\"><i class=\"mdi mdi-delete\"></i> Xóa</a>
-                                            <a href=\"/don-vi-tien-te/edit?id=";
-                // line 52
+                                        <a href=\"/don-vi-tien-te/edit?id=";
+                // line 51
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()), "html", null, true);
                 echo "\" class=\"btn btn-sm btn-info\"><i class=\"mdi mdi-pencil-circle\"></i> Sửa</a>
-                                        </td>
-                                    </tr>
-                                    ";
+                                    </td>
+                                </tr>
+                                ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['key'], $context['item'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 56
-            echo "                                ";
+            // line 55
+            echo "                            ";
         }
-        // line 57
-        echo "                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <td colspan=\"6\">
-                                            <div class=\"text-right\">
-                                                <ul class=\"pagination\">
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                        </div>
+        // line 56
+        echo "                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan=\"6\">
+                                        <div class=\"text-right\">
+                                            <ul class=\"pagination\">
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -141,20 +139,22 @@ class __TwigTemplate_3b19906971a5e65d1a6057a40a0e64724488e6903f8d85711b3397e2bf6
 ";
     }
 
-    // line 77
+    // line 75
     public function block_js($context, array $blocks = array())
     {
-        // line 78
-        echo "    <script type=\"text/javascript\">
-         \$(document).ready(function() {
-            \$('.top').click(function(){
-              \$('html, body').animate({
-                scrollTop: \$( \$.attr(this, 'href') ).offset().top
-              }, 500);
-              return false;
-            });
-        });
-    </script>
+        // line 76
+        echo "  <script src=\"/assets/Backend/plugins/footable/js/footable.all.min.js\"></script>
+  <script src=\"/assets/Backend/js/footable-init.js\"></script>
+  <script type=\"text/javascript\">
+       \$(document).ready(function() {
+          \$('.top').click(function(){
+            \$('html, body').animate({
+              scrollTop: \$( \$.attr(this, 'href') ).offset().top
+            }, 500);
+            return false;
+          });
+      });
+  </script>
 ";
     }
 
@@ -170,7 +170,7 @@ class __TwigTemplate_3b19906971a5e65d1a6057a40a0e64724488e6903f8d85711b3397e2bf6
 
     public function getDebugInfo()
     {
-        return array (  148 => 78,  145 => 77,  123 => 57,  120 => 56,  110 => 52,  106 => 51,  101 => 49,  97 => 48,  93 => 47,  89 => 46,  86 => 45,  81 => 44,  79 => 43,  39 => 5,  36 => 4,  30 => 3,  11 => 1,);
+        return array (  146 => 76,  143 => 75,  122 => 56,  119 => 55,  109 => 51,  105 => 50,  100 => 48,  96 => 47,  92 => 46,  88 => 45,  85 => 44,  80 => 43,  78 => 42,  39 => 5,  36 => 4,  30 => 3,  11 => 1,);
     }
 
     public function getSourceContext()
