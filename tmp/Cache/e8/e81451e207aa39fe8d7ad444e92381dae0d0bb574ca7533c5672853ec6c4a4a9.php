@@ -56,70 +56,151 @@ class __TwigTemplate_89336c04ae85f876c5ca384848bfa95ba877917e2a3679c2ea15459c221
                         </div>
                     </div>
                     <div class=\"card-body collapse show\">
-                        <div class=\"table-responsive\">
-                            <table class=\"table product-overview\">
-                                <thead>
-                                    <tr>
-                                        <th>Customer</th>
-                                        <th>Photo</th>
-                                        <th>Quantity</th>
-                                        <th>Date</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Steave Jobs</td>
-                                        <td>
-                                            <img src=\"/assets/Backend/images/gallery/chair.jpg\" alt=\"iMac\" width=\"80\">
-                                        </td>
-                                        <td>20</td>
-                                        <td>10-7-2017</td>
-                                        <td>
-                                            <span class=\"label label-success font-weight-100\">Paid</span>
-                                        </td>
-                                        <td><a href=\"javascript:void(0)\" class=\"text-inverse p-r-10\" data-toggle=\"tooltip\" title=\"\" data-original-title=\"Edit\"><i class=\"ti-marker-alt\"></i></a> <a href=\"javascript:void(0)\" class=\"text-inverse\" title=\"\" data-toggle=\"tooltip\" data-original-title=\"Delete\"><i class=\"ti-trash\"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Varun Dhavan</td>
-                                        <td>
-                                            <img src=\"/assets/Backend/images/gallery/chair2.jpg\" alt=\"iPhone\" width=\"80\">
-                                        </td>
-                                        <td>25</td>
-                                        <td>09-7-2017</td>
-                                        <td>
-                                            <span class=\"label label-warning font-weight-100\">Pending</span>
-                                        </td>
-                                        <td><a href=\"javascript:void(0)\" class=\"text-inverse p-r-10\" data-toggle=\"tooltip\" title=\"\" data-original-title=\"Edit\"><i class=\"ti-marker-alt\"></i></a> <a href=\"javascript:void(0)\" class=\"text-inverse\" title=\"\" data-toggle=\"tooltip\" data-original-title=\"Delete\"><i class=\"ti-trash\"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ritesh Desh</td>
-                                        <td>
-                                            <img src=\"/assets/Backend/images/gallery/chair3.jpg\" alt=\"apple_watch\" width=\"80\">
-                                        </td>
-                                        <td>12</td>
-                                        <td>08-7-2017</td>
-                                        <td>
-                                            <span class=\"label label-success font-weight-100\">Paid</span>
-                                        </td>
-                                        <td><a href=\"javascript:void(0)\" class=\"text-inverse p-r-10\" data-toggle=\"tooltip\" title=\"\" data-original-title=\"Edit\"><i class=\"ti-marker-alt\"></i></a> <a href=\"javascript:void(0)\" class=\"text-inverse\" title=\"\" data-toggle=\"tooltip\" data-original-title=\"Delete\"><i class=\"ti-trash\"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hrithik</td>
-                                        <td>
-                                            <img src=\"/assets/Backend/images/gallery/chair4.jpg\" alt=\"mac_mouse\" width=\"80\">
-                                        </td>
-                                        <td>18</td>
-                                        <td>02-7-2017</td>
-                                        <td>
-                                            <span class=\"label label-danger font-weight-100\">Failed</span>
-                                        </td>
-                                        <td><a href=\"javascript:void(0)\" class=\"text-inverse p-r-10\" data-toggle=\"tooltip\" title=\"\" data-original-title=\"Edit\"><i class=\"ti-marker-alt\"></i></a> <a href=\"javascript:void(0)\" class=\"text-inverse\" title=\"\" data-toggle=\"tooltip\" data-original-title=\"Delete\"><i class=\"ti-trash\"></i></a></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                        <!--<table class=\"table product-overview\">-->
+                        <table id=\"demo-foo-addrow2\" class=\"table product-overview table-hover toggle-circle\" data-page-size=\"7\">
+                            <thead>
+                                <tr>
+                                    <th>Hình</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Số lượng</th>
+                                    <th>Ngày cập nhật</th>
+                                    <th>Tình trạng</th>
+                                    <th>Người bán</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+                            <div class=\"m-t-40\">
+                                <div class=\"d-flex\">
+                                    <div class=\"mr-auto\">
+                                        <div class=\"form-group\">
+                                            </div>
+                                    </div>
+                                    <div class=\"ml-auto\">
+                                        <div class=\"form-group\">
+                                            <input id=\"demo-input-search2\" type=\"text\" placeholder=\"Tìm kiếm\" autocomplete=\"on\">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <tbody>
+                            ";
+        // line 52
+        if (($context["products"] ?? null)) {
+            // line 53
+            echo "                              ";
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable(($context["products"] ?? null));
+            foreach ($context['_seq'] as $context["_key"] => $context["product"]) {
+                // line 54
+                echo "                                ";
+                $context["tongsoluong"] = 0;
+                // line 55
+                echo "                                  ";
+                if ((twig_length_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["product"], "thuoctinh", array())) > 0)) {
+                    // line 56
+                    echo "                                    ";
+                    $context['_parent'] = $context;
+                    $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->getSourceContext(), $context["product"], "thuoctinh", array()));
+                    foreach ($context['_seq'] as $context["_key"] => $context["tt"]) {
+                        // line 57
+                        echo "                                    ";
+                        $context["tongsoluong"] = (($context["tongsoluong"] ?? null) + twig_get_attribute($this->env, $this->getSourceContext(), $context["tt"], "soluong", array()));
+                        // line 58
+                        echo "                                    ";
+                    }
+                    $_parent = $context['_parent'];
+                    unset($context['_seq'], $context['_iterated'], $context['_key'], $context['tt'], $context['_parent'], $context['loop']);
+                    $context = array_intersect_key($context, $_parent) + $_parent;
+                    // line 59
+                    echo "                                  ";
+                }
+                // line 60
+                echo "                                <tr>
+                                    <td>
+                                    ";
+                // line 62
+                if (twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), $context["product"], "hinhanh", array()), 0, array()), "aliasname", array())) {
+                    // line 63
+                    echo "                                      <img src=\"/uploads/images/thumb_300x200/";
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), $context["product"], "hinhanh", array()), 0, array()), "aliasname", array()), "html", null, true);
+                    echo "\" alt=\"";
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["product"], "ten", array()), "html", null, true);
+                    echo "\" width=\"40\">
+                                    ";
+                } else {
+                    // line 65
+                    echo "                                        <img src=\"/assets/Backend/images/gallery/chair.jpg\" alt=\"";
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["product"], "ten", array()), "html", null, true);
+                    echo "\" width=\"40\">
+                                    ";
+                }
+                // line 67
+                echo "                                    </td>
+                                    <td>";
+                // line 68
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["product"], "ten", array()), "html", null, true);
+                echo "</td>
+                                    <td><b>";
+                // line 69
+                echo twig_escape_filter($this->env, ($context["tongsoluong"] ?? null), "html", null, true);
+                echo "</b> sản phẩm trong <b>";
+                echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["product"], "thuoctinh", array())), "html", null, true);
+                echo "</b> nhóm</td>
+                                    <td>";
+                // line 70
+                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), $context["product"], "updateAt", array()), "sec", array()), "d/m/Y H:i"), "html", null, true);
+                echo "</td>
+                                    <td class=\"text-center\">
+                                      ";
+                // line 72
+                if ((twig_get_attribute($this->env, $this->getSourceContext(), $context["product"], "status", array()) == 1)) {
+                    // line 73
+                    echo "                                        <span class=\"label label-info font-weight-100\">On</span>
+                                      ";
+                } else {
+                    // line 75
+                    echo "                                        <span class=\"label label-danger font-weight-100\">Off</span>
+                                      ";
+                }
+                // line 77
+                echo "                                    </td>
+                                    <td>";
+                // line 78
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["product"], "username", array()), "html", null, true);
+                echo "</td>
+                                    <td>
+                                      <a href=\"/san-pham/delete&id=";
+                // line 80
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["product"], "_id", array()), "html", null, true);
+                echo "\" class=\"text-inverse\" title=\"\" data-toggle=\"tooltip\" data-original-title=\"Xóa\" onclick=\"return confirm('Chắc chắn xóa?')\"><i class=\"ti-trash\"></i></a>
+                                      <a href=\"/san-pham/edit&id=";
+                // line 81
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["product"], "_id", array()), "html", null, true);
+                echo "\" class=\"text-inverse p-r-10\" data-toggle=\"tooltip\" title=\"\" data-original-title=\"Sửa\"><i class=\"ti-marker-alt\"></i></a>
+                                    </td>
+                                </tr>
+                              ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['product'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 85
+            echo "                            ";
+        }
+        // line 86
+        echo "                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan=\"6\">
+                                        <div class=\"text-right\">
+                                            <ul class=\"pagination\">
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+
                     </div>
                 </div>
             </div>
@@ -128,11 +209,13 @@ class __TwigTemplate_89336c04ae85f876c5ca384848bfa95ba877917e2a3679c2ea15459c221
 ";
     }
 
-    // line 96
+    // line 106
     public function block_js($context, array $blocks = array())
     {
-        // line 97
-        echo "    <script type=\"text/javascript\">
+        // line 107
+        echo "<script src=\"/assets/Backend/plugins/footable/js/footable.all.min.js\"></script>
+<script src=\"/assets/Backend/js/footable-init.js\"></script>
+    <script type=\"text/javascript\">
          \$(document).ready(function() {
             \$('.top').click(function(){
               \$('html, body').animate({
@@ -157,7 +240,7 @@ class __TwigTemplate_89336c04ae85f876c5ca384848bfa95ba877917e2a3679c2ea15459c221
 
     public function getDebugInfo()
     {
-        return array (  135 => 97,  132 => 96,  39 => 5,  36 => 4,  30 => 3,  11 => 1,);
+        return array (  216 => 107,  213 => 106,  191 => 86,  188 => 85,  178 => 81,  174 => 80,  169 => 78,  166 => 77,  162 => 75,  158 => 73,  156 => 72,  151 => 70,  145 => 69,  141 => 68,  138 => 67,  132 => 65,  124 => 63,  122 => 62,  118 => 60,  115 => 59,  109 => 58,  106 => 57,  101 => 56,  98 => 55,  95 => 54,  90 => 53,  88 => 52,  39 => 5,  36 => 4,  30 => 3,  11 => 1,);
     }
 
     public function getSourceContext()

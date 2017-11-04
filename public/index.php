@@ -85,6 +85,9 @@ $router->add('cau-hinh-van-chuyen', ['controller' => 'DeliveryController', 'acti
 $router->add('san-pham', ['controller' => 'ProductController', 'action' => 'index']);
 $router->add('san-pham/add', ['controller' => 'ProductController', 'action' => 'add']);
 $router->add('san-pham/create', ['controller' => 'ProductController', 'action' => 'create']);
+$router->add('san-pham/edit', ['controller' => 'ProductController', 'action' => 'edit']);
+$router->add('san-pham/update', ['controller' => 'ProductController', 'action' => 'update']);
+$router->add('san-pham/delete', ['controller' => 'ProductController', 'action' => 'delete']);
 $router->add('san-pham-ton-kho', ['controller' => 'ProductController', 'action' => 'index']);
 
 $router->add('khach-hang', ['controller' => 'CustomerController', 'action' => 'index']);

@@ -52,7 +52,7 @@ class __TwigTemplate_31671761eca068a61edb4375dde5c4800ae3341fb3f1db873bb324704f8
         $this->displayBlock('css', $context, $blocks);
         // line 26
         echo "</head>
-<body class=\"fix-header card-no-border logo-center\">
+<body class=\"fix-header fix-sidebar card-no-border\">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -73,11 +73,20 @@ class __TwigTemplate_31671761eca068a61edb4375dde5c4800ae3341fb3f1db873bb324704f8
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class=\"navbar-header\">
-                   <a class=\"navbar-brand\" href=\"/admin\">
+                    <a class=\"navbar-brand\" href=\"/\">
+                    <!-- Logo icon --><b>
+                        <!--You can put here icon as well // <i class=\"wi wi-sunset\"></i> //-->
+                        <!-- Dark Logo icon -->
                         <img src=\"/assets/Backend/images/logo-icon.png\" alt=\"homepage\" class=\"dark-logo\" />
+                        <!-- Light Logo icon -->
                         <img src=\"/assets/Backend/images/logo-light-icon.png\" alt=\"homepage\" class=\"light-logo\" />
-                        <span style=\"color:#fff;\">JAYBranding</span>
-                    </a>
+                    </b>
+                    <!--End Logo icon -->
+                    <!-- Logo text --><span>
+                     <!-- dark Logo text -->
+                     <img src=\"/assets/Backend/images/logo-text.png\" alt=\"homepage\" class=\"dark-logo\" />
+                     <!-- Light Logo text -->
+                     <img src=\"/assets/Backend/images/logo-light-text.png\" class=\"light-logo\" alt=\"homepage\" /></span> </a>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
@@ -87,6 +96,8 @@ class __TwigTemplate_31671761eca068a61edb4375dde5c4800ae3341fb3f1db873bb324704f8
                     <!-- toggle and nav items -->
                     <!-- ============================================================== -->
                     <ul class=\"navbar-nav mr-auto mt-md-0\">
+                      <li class=\"nav-item\"> <a class=\"nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark\" href=\"javascript:void(0)\"><i class=\"mdi mdi-menu\"></i></a> </li>
+                      <li class=\"nav-item m-l-10\"> <a class=\"nav-link sidebartoggler hidden-sm-down text-muted waves-effect waves-dark\" href=\"javascript:void(0)\"><i class=\"ti-menu\"></i></a> </li>
                     </ul>
                     <!-- ============================================================== -->
                     <!-- User profile and search -->
@@ -104,11 +115,11 @@ class __TwigTemplate_31671761eca068a61edb4375dde5c4800ae3341fb3f1db873bb324704f8
                                             <div class=\"u-img\"><img src=\"/assets/Backend/images/users/1.png\" alt=\"user\"></div>
                                             <div class=\"u-text\">
                                                 <h4>";
-        // line 78
+        // line 89
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["session"] ?? null), "fullname", array()), "html", null, true);
         echo "</h4>
                                                 <p class=\"text-muted\">";
-        // line 79
+        // line 90
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["session"] ?? null), "username", array()), "html", null, true);
         echo "</p><a href=\"thong-tin-tai-khoan\" class=\"btn btn-rounded btn-danger btn-sm\">Xem thông tin</a></div>
                                         </div>
@@ -116,14 +127,14 @@ class __TwigTemplate_31671761eca068a61edb4375dde5c4800ae3341fb3f1db873bb324704f8
                                     <li role=\"separator\" class=\"divider\"></li>
                                     <li><a href=\"/tai-khoan/profiles\"><i class=\"ti-user\"></i> Thông tin tài khoản</a></li>
                                     ";
-        // line 84
+        // line 95
         if (twig_in_filter("Admin", twig_get_attribute($this->env, $this->getSourceContext(), ($context["session"] ?? null), "roles", array()))) {
-            // line 85
+            // line 96
             echo "                                        <li role=\"separator\" class=\"divider\"></li>
                                         <li><a href=\"/tai-khoan\"><i class=\"mdi mdi-account-multiple\"></i> Danh sách tài khoản</a></li>
                                     ";
         }
-        // line 88
+        // line 99
         echo "
                                     <li role=\"separator\" class=\"divider\"></li>
                                     <li><a href=\"/tai-khoan/change-password\"><i class=\"ti-settings\"></i> Đổi mật khẩu</a></li>
@@ -142,7 +153,6 @@ class __TwigTemplate_31671761eca068a61edb4375dde5c4800ae3341fb3f1db873bb324704f8
                 <!-- Sidebar navigation-->
                 <nav class=\"sidebar-nav\">
                     <ul id=\"sidebarnav\">
-                        <li class=\"nav-small-cap\">PERSONAL</li>
                         <li> <a class=\"has-arrow waves-effect waves-dark\" href=\"#\" aria-expanded=\"false\"><i class=\"mdi mdi-apps\"></i><span class=\"hide-menu\">Quản lý chung</span></a>
                             <ul aria-expanded=\"false\" class=\"collapse\">
                                 <li><a href=\"/loai-san-pham\">Loại sản phẩm</a></li>
@@ -193,9 +203,9 @@ class __TwigTemplate_31671761eca068a61edb4375dde5c4800ae3341fb3f1db873bb324704f8
         <!-- ============================================================== -->
         <div class=\"page-wrapper\">
             ";
-        // line 156
+        // line 166
         $this->displayBlock('body', $context, $blocks);
-        // line 157
+        // line 167
         echo "            <footer class=\"footer\">
                 © 2017 JAYBranding
             </footer>
@@ -234,9 +244,9 @@ class __TwigTemplate_31671761eca068a61edb4375dde5c4800ae3341fb3f1db873bb324704f8
     <!-- ============================================================== -->
     <script src=\"/assets/Backend/plugins/styleswitcher/jQuery.style.switcher.js\"></script>
     ";
-        // line 194
+        // line 204
         $this->displayBlock('js', $context, $blocks);
-        // line 195
+        // line 205
         echo "</body>
 </html>
 ";
@@ -252,12 +262,12 @@ class __TwigTemplate_31671761eca068a61edb4375dde5c4800ae3341fb3f1db873bb324704f8
     {
     }
 
-    // line 156
+    // line 166
     public function block_body($context, array $blocks = array())
     {
     }
 
-    // line 194
+    // line 204
     public function block_js($context, array $blocks = array())
     {
     }
@@ -274,7 +284,7 @@ class __TwigTemplate_31671761eca068a61edb4375dde5c4800ae3341fb3f1db873bb324704f8
 
     public function getDebugInfo()
     {
-        return array (  261 => 194,  256 => 156,  251 => 25,  246 => 12,  240 => 195,  238 => 194,  199 => 157,  197 => 156,  127 => 88,  122 => 85,  120 => 84,  112 => 79,  108 => 78,  54 => 26,  52 => 25,  36 => 12,  23 => 1,);
+        return array (  271 => 204,  266 => 166,  261 => 25,  256 => 12,  250 => 205,  248 => 204,  209 => 167,  207 => 166,  138 => 99,  133 => 96,  131 => 95,  123 => 90,  119 => 89,  54 => 26,  52 => 25,  36 => 12,  23 => 1,);
     }
 
     public function getSourceContext()

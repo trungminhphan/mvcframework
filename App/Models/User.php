@@ -82,6 +82,10 @@ class User extends \Core\Model {
     public static function UserId(){
       return $_SESSION['user_id'];
     }
+
+    public static function Username(){
+      return $_SESSION['username'];
+    }
     public function logout(){
         unset($_SESSION['user_id']);unset($_SESSION['roles']);unset($_SESSION['username']);unset($_SESSION['fullname']);
         //session_destroy();

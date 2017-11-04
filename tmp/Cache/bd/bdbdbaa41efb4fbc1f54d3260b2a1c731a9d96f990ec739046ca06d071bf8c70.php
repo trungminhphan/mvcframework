@@ -151,16 +151,16 @@ class __TwigTemplate_d0ef0c90053009e56daf4c5dac04e867853615519666034e5c386e9cd72
     public function block_js($context, array $blocks = array())
     {
         // line 56
-        echo "    <script type=\"text/javascript\">
-         \$(document).ready(function() {
-            \$('.top').click(function(){
-              \$('html, body').animate({
-                scrollTop: \$( \$.attr(this, 'href') ).offset().top
-              }, 500);
-              return false;
-            });
+        echo "<script type=\"text/javascript\">
+     \$(document).ready(function() {
+        \$('.top').click(function(){
+          \$('html, body').animate({
+            scrollTop: \$( \$.attr(this, 'href') ).offset().top
+          }, 500);
+          return false;
         });
-    </script>
+    });
+</script>
 ";
     }
 

@@ -29,8 +29,9 @@
                                     <th>Hình</th>
                                     <th>Tên sản phẩm</th>
                                     <th>Số lượng</th>
-                                    <th>Date</th>
+                                    <th>Ngày cập nhật</th>
                                     <th>Tình trạng</th>
+                                    <th>Người bán</th>
                                     <th>Thao tác</th>
                                 </tr>
                             </thead>
@@ -50,21 +51,35 @@
                             <tbody>
                             {% if products %}
                               {% for product in products %}
+                                {% set tongsoluong = 0 %}
+                                  {% if product.thuoctinh|length > 0 %}
+                                    {% for tt in product.thuoctinh %}
+                                    {% set tongsoluong = tongsoluong + tt.soluong %}
+                                    {% endfor %}
+                                  {% endif %}
                                 <tr>
                                     <td>
                                     {% if product.hinhanh.0.aliasname %}
-                                      <img src="/uploads/images/thumb_300x200/{{product.hinhanh.0.aliasname}}" alt="{{product.ten}}" width="80">
+                                      <img src="/uploads/images/thumb_300x200/{{product.hinhanh.0.aliasname}}" alt="{{product.ten}}" width="40">
                                     {% else %}
-                                        <img src="/assets/Backend/images/gallery/chair.jpg" alt="iMac" width="80">
+                                        <img src="/assets/Backend/images/gallery/chair.jpg" alt="{{product.ten}}" width="40">
                                     {% endif %}
                                     </td>
-                                    <td>Steave Jobs</td>
-                                    <td>20</td>
-                                    <td>10-7-2017</td>
-                                    <td>
-                                        <span class="label label-success font-weight-100">Paid</span>
+                                    <td>{{product.ten}}</td>
+                                    <td><b>{{tongsoluong}}</b> sản phẩm trong <b>{{product.thuoctinh|length}}</b> nhóm</td>
+                                    <td>{{product.updateAt.sec|date('d/m/Y H:i')}}</td>
+                                    <td class="text-center">
+                                      {% if product.status == 1 %}
+                                        <span class="label label-info font-weight-100">On</span>
+                                      {% else %}
+                                        <span class="label label-danger font-weight-100">Off</span>
+                                      {% endif %}
                                     </td>
-                                    <td><a href="javascript:void(0)" class="text-inverse p-r-10" data-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a href="javascript:void(0)" class="text-inverse" title="" data-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
+                                    <td>{{product.username}}</td>
+                                    <td>
+                                      <a href="/san-pham/delete&id={{product._id}}" class="text-inverse" title="" data-toggle="tooltip" data-original-title="Xóa" onclick="return confirm('Chắc chắn xóa?')"><i class="ti-trash"></i></a>
+                                      <a href="/san-pham/edit&id={{product._id}}" class="text-inverse p-r-10" data-toggle="tooltip" title="" data-original-title="Sửa"><i class="ti-marker-alt"></i></a>
+                                    </td>
                                 </tr>
                               {% endfor %}
                             {% endif %}

@@ -10,6 +10,7 @@ use \App\Models\Producer;
 use \App\Models\ProductGroup;
 use \App\Models\Attribute;
 use \App\Models\Product;
+use \App\Models\Currency;
 use \App\Models\User;
 use \App\Controllers\ObjectController;
 use \App\Controllers\ImagesController;
@@ -61,6 +62,7 @@ class ProductController extends \Core\Controller {
     public function createAction(){
         $router = new Router(); $db = new Product();
         $ten = isset($_POST['ten']) ? $_POST['ten'] : '';
+        $id_producttype = isset($_POST['id_producttype']) ? $_POST['id_producttype'] : '';
         $mota = isset($_POST['mota']) ? $_POST['mota'] : '';
         $motachitiet = isset($_POST['motachitiet']) ? $_POST['motachitiet'] : '';
         $hinhanh_aliasname = isset($_POST['hinhanh_aliasname']) ? $_POST['hinhanh_aliasname'] : '';
@@ -75,6 +77,7 @@ class ProductController extends \Core\Controller {
         $id_attribute = isset($_POST['id_attribute']) ? $_POST['id_attribute'] : '';
         $gia = isset($_POST['gia']) ? $_POST['gia'] : '';
         $giaban = isset($_POST['giaban']) ? $_POST['giaban'] : '';
+        $soluong = isset($_POST['soluong']) ? $_POST['soluong'] : '';
         $hinhanh_name = isset($_FILES['hinhanh']['name']) ? $_FILES['hinhanh']['name'] : '';
         $hinhanh_tmp = isset($_FILES['hinhanh']['tmp_name']) ? $_FILES['hinhanh']['tmp_name'] : '';
 
@@ -93,16 +96,22 @@ class ProductController extends \Core\Controller {
                 'id_attribute' => ObjectController::ObjectId($value),
                 'gia' => $gia[$key],
                 'giaban' => $giaban[$key],
+                'soluong' => intval($soluong[$key]),
+                'hinhanh' => $hinhanh,
                 'id_user' => ObjectController::ObjectId(User::UserId()),
                 'createAt' => ObjectController::setDate()));
           }
         }
+        $status = isset($_POST['status']) ? $_POST['status'] : 0;
         $db->ten = $ten;
+        $db->id_producttype = $id_producttype;
         $db->mota = $mota;
         $db->motachitiet = $motachitiet;
         $db->hinhanh = $arr_hinhanh;
         $db->thuoctinh = $arr_thuoctinh;
+        $db->status = $status;
         $db->id_user = User::UserId();
+        $db->username = User::Username();
         if($db->insert()){
             $router->redirect('/san-pham');
         }
@@ -112,9 +121,26 @@ class ProductController extends \Core\Controller {
 
     public function editAction(){
         $id = isset($_GET['id']) ? $_GET['id'] : '';
-        $db = new Currency(); $router = new Router();
-        $db->id = $id; $currency = $db->getOne();
-        View::renderTemplate('Backend/Currency/edit.html.twig', ['currency' => $currency]);
+        $db = new Product(); $router = new Router();
+        $producttype = new ProductType();$attribute = new Attribute();
+        $attributes = $attribute->getAll();
+        $root_list = $producttype->getAllRoot();
+        $arr_type = array();
+        if($root_list){
+            foreach($root_list as $key => $value){
+                $arr_type[] = $value;
+                $arr_child = array();
+                $list_child = $producttype->getAllCondition(array('id_parent' => strval($value['_id'])));
+                if($list_child){
+                    foreach($list_child as $k => $v){
+                        array_push($arr_child, array('id' => $v['_id'], 'ten' => $v['ten']));
+                    }
+                }
+                $arr_type[$key]['childs'] = $arr_child;
+            }
+        }
+        $db->id = $id; $product = $db->getOne();
+        View::renderTemplate('Backend/Product/edit.html.twig', ['product' => $product, 'producttype' => $arr_type, 'attributes' => $attributes]);
     }
 
     public function updateAction(){
