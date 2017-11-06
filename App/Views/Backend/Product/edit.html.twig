@@ -15,7 +15,8 @@
         </div>
     </div>
 {% if session.user_id == product.id_user %}
-<form action="/san-pham/create" method="POST" id="dinhkemform" enctype="multipart/form-data">
+<form action="/san-pham/update" method="POST" id="dinhkemform" enctype="multipart/form-data">
+  <input type="hidden" name="id" id="id" value="{{product._id}}">
   <div class="container-fluid">
       <div class="row">
           <div class="col-12">
@@ -43,10 +44,18 @@
                                               <option value="">Chọn loại sản phẩm</option>
                                               {% if producttype %}
                                                   {% for item in producttype %}
-                                                      <option value="{{item._id}}">{{item.ten}}</option>
+                                                      <option value="{{item._id}}"
+                                                      {% for id in product.id_producttype %}
+                                                       {% if item._id == id %} selected {% endif %}
+                                                      {% endfor %}
+                                                      >{{item.ten}}</option>
                                                       {% if item.childs %}
                                                           {% for child in item.childs %}
-                                                              <option value="{{child.id}}">&nbsp;&nbsp;&nbsp;--- {{child.ten}}</option>
+                                                              <option value="{{child.id}}"
+                                                              {% for id in product.id_producttype %}
+                                                                {% if item._id == id %} selected {% endif %}
+                                                              {% endfor %}
+                                                              >&nbsp;&nbsp;&nbsp;--- {{child.ten}}</option>
                                                           {% endfor %}
                                                       {% endif %}
                                                   {% endfor %}
@@ -61,7 +70,7 @@
                                   <div class="form-group row">
                                       <label class="control-label col-md-3 text-right p-t-10">Mô tả</label>
                                       <div class="col-md-9">
-                                          <textarea class="mota form-control" id="mota" name="mota" rows="5" placeholder="Mô tả ..."></textarea>
+                                          <textarea class="mota form-control" id="mota" name="mota" rows="5" placeholder="Mô tả ...">{{product.mota}}</textarea>
                                       </div>
                                   </div>
                               </div>
@@ -71,7 +80,7 @@
                                   <div class="form-group row">
                                       <label class="control-label col-md-3 text-right p-t-10">Mô tả chi tiết</label>
                                       <div class="col-md-9">
-                                          <textarea name="motachitiet" id="motachitiet" class="form-control"></textarea>
+                                          <textarea name="motachitiet" id="motachitiet" class="form-control">{{product.motachitiet}}</textarea>
                                       </div>
                                   </div>
                               </div>
@@ -87,15 +96,80 @@
                                           </label>
                                       </div>
                                       <label class="control-label col-md-3 text-right p-t-10">
-                                        <input type="checkbox" id="md_checkbox_26" name="status" class="filled-in chk-col-blue" value="1" checked />
+                                        <input type="checkbox" id="md_checkbox_26" name="status" class="filled-in chk-col-blue" value="1" {% if product.status == 1 %} checked {% endif %}/>
                                         <label for="md_checkbox_26">Hiển thị</label>
                                       </label>
                                   </div>
                               </div>
                           </div>
-                          <div id="list_hinhanh" class="form-group row el-element-overlay"></div>
+                          <div id="list_hinhanh" class="form-group row el-element-overlay">
+                            {% if product.hinhanh %}
+                            {% for hinhanh in product.hinhanh %}
+                            <div class="col-lg-3 col-md-6 items">
+                                <input type="hidden" name="hinhanh_aliasname[]" value="{{hinhanh.aliasname}}" readonly/>
+                                <input type="hidden" name="hinhanh_filename[]" value="{{hinhanh.filename}}" class="form-control"/>
+                                <div class="card">
+                                    <div class="el-card-item">
+                                        <div class="el-card-avatar el-overlay-1"> <img src="/uploads/images/thumb_300x200/{{hinhanh.aliasname}}" alt="{{hinhanh.filename}}" />
+                                            <div class="el-overlay">
+                                                <ul class="el-info">
+                                                    <li><a class="btn default btn-outline image-popup-vertical-fit" href="/uploads/images/{{hinhanh.aliasname}}"><i class="mdi mdi-camera"></i></a></li>
+                                                    <li><a class="btn default btn-outline delete_file" href="/image/delete?file={{hinhanh.aliasname}}" onclick="return false;"><i class="ti ti-trash"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="el-card-content">
+                                            <h3 class="box-title">{{hinhanh.filename}}</h3><br/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+                          </div>
                           <h3 class="card-title">Thuộc tính sản phẩm</h3><hr>
                           <div id="attributes_list">
+                            {% if product.thuoctinh %}
+                            {% for tt in product.thuoctinh %}
+                            <div class="row items">
+                                <div class="form-group col-md-4">
+                                    <select name="id_attribute[]" class="form-control custom-select select2" style="width: 100%; height:36px;">
+                                      {% if attributes %}
+                                        {% for att in attributes %}
+                                          <option value="{{att._id}}" {% if att._id == tt.id_attribute %} selected {% endif %}>{{att.ten}}</option>
+                                        {% endfor %}
+                                      {% endif %}
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <input type="number" name="gia[]" class="form-control" placeholder="Giá" required value="{{tt.gia}}">
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <input type="number" name="giaban[]" class="form-control" placeholder="Giá bán" required value="{{tt.giaban}}">
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <input type="number" name="soluong[]" class="form-control" placeholder="Số lượng" required value="{{tt.soluong}}">
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <div style="width:40px;height:40px;float:left;margin-right:5px;background:#ccc;" class="img_icon">
+                                      {% if tt.hinhanh %}
+                                        <img src="/uploads/images/thumb_100x100/{{tt.hinhanh}}" style="width:40px;height:40px;" class="icon"/>
+                                        <a href="#" onclick="return false;" class="delete_icon"><i class="fa fa-trash"></i></a>
+                                        <input type="hidden" name="old_hinhanh[]" value="{{tt.hinhanh}}" class="old_hianhanh">
+                                      {% else %}
+                                        <img src="/assets/Backend/images/logo-icon.png" style="width:40px;height:40px;" class="icon"/>
+                                      {% endif %}
+                                    </div>
+                                    <label class="file"> <!--btn btn-info btn-circle btn-sm-->
+                                        <input type="file" name="hinhanh[]"  accept="image/*" class="image-icon"/>
+                                        <!--<i class="fa fa-file-photo-o"></i>-->
+                                    </label>
+
+                                    <a href="#" onclick="return false;" class="btn btn-danger btn-circle btn-sm delete-attribute"><i class="fa fa-trash"></i></a>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            {% else %}
                               <div class="row items">
                                   <div class="form-group col-md-4">
                                       <select name="id_attribute[]" class="form-control custom-select select2" style="width: 100%; height:36px;">
@@ -118,7 +192,6 @@
                                   <div class="form-group col-md-2">
                                       <div style="width:40px;height:40px;float:left;margin-right:5px;background:#ccc;" class="img_icon">
                                           <img src="/assets/Backend/images/logo-icon.png" style="width:40px;height:40px;" class="icon"/>
-                                          <!--<a href="#" onclick="return false;" class="delete-icon"><i class="fa fa-trash"></i></a>-->
                                       </div>
                                       <label class="file btn btn-info btn-circle btn-sm">
                                           <input type="file" name="hinhanh[]" style="display:none;" accept="image/*" class="image-icon"/>
@@ -127,11 +200,12 @@
                                       <a href="#" onclick="return false;" class="btn btn-primary btn-circle btn-sm add-attribute"><i class="fa fa-plus"></i></a>
                                   </div>
                               </div>
+                              {% endif %}
                           </div>
                       </div>
                       <div class="form-actions">
                           <button type="submit" class="btn btn-info"> <i class="fa fa-check"></i> Cập nhật</button>
-                          <a href="/loai-san-pham" class="btn btn-inverse"><i class="mdi mdi-reply-all"></i> Trở về</a>
+                          <a href="/san-pham" class="btn btn-inverse"><i class="mdi mdi-reply-all"></i> Trở về</a>
                           <a href="#" class="btn btn-primary add-attribute" onclick="return false;" id="add-attribute"><i class="fa fa-plus"></i> Thêm thuộc tính</a>
                       </div>
                  </div>

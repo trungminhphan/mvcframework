@@ -22,7 +22,6 @@ class ImagesController extends \Core\Controller {
                         echo 'Failed';
                         continue; // Skip file if any error found
                     }
-
                     if($_FILES['dinhkem']['error'][$f] == 0) {
                         if ($_FILES['dinhkem']['size'][$f] > Config::MAX_FILE_SIZE) {
                             echo 'Failed';
@@ -54,7 +53,7 @@ class ImagesController extends \Core\Controller {
                                                 </div>
                                             </div>
                                             <div class="el-card-content">
-                                                <h3 class="box-title">'.$name.'e</h3><br/>
+                                                <h3 class="box-title">'.$name.'</h3><br/>
                                             </div>
                                         </div>
                                     </div>
@@ -181,4 +180,3 @@ class ImagesController extends \Core\Controller {
         return true;
     }
 }
-

@@ -16,6 +16,9 @@ function delete_icon(){
   $(".delete_icon").click(function(){
     var _this = $(this);
     _this.parent(".img_icon").html('<img src="/assets/Backend/images/logo-icon.png" style="width:40px;height:40px;" class="icon"/>');
+    _this.next(".old_hinhanh").val("");
+    _this.next().filter('.image-icon').val("");
+    //$(".image-icon").val("");
   });
 }
 

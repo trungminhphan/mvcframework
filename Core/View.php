@@ -40,9 +40,10 @@ class View {
         static $twig = null;
         if ($twig === null) {
             $loader = new \Twig_Loader_Filesystem(dirname(__DIR__) . '/App/Views');
-            $twig = new \Twig_Environment($loader, array('cache' => dirname(__DIR__) .'/tmp/Cache', 'auto_reload' => true));
+            $twig = new \Twig_Environment($loader, array('cache' => dirname(__DIR__) .'/tmp/Cache', 'auto_reload' => true, 'debug' => true));
             //$twig = new \Twig_Environment($loader, array('cache' => false));
         }
+
         $twig->addGlobal("session", $_SESSION);
         $translator = new \Symfony\Component\Translation\Translator($locale, new \Symfony\Component\Translation\MessageSelector());
         $translator->setFallbackLocales(['en']);
@@ -50,6 +51,7 @@ class View {
         $translator->addResource('yaml', dirname(__DIR__) . '/Locale/en.yml', 'en');
         $translator->addResource('yaml',  dirname(__DIR__) .'/Locale/vi.yml', 'vi');
         $twig->addExtension(new \Symfony\Bridge\Twig\Extension\TranslationExtension($translator));
+        $twig->addExtension(new \Twig_Extension_Debug());
         echo $twig->render($template, $args);
     }
 }
