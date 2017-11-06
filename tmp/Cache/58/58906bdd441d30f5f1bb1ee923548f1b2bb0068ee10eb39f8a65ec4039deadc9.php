@@ -143,7 +143,7 @@ class __TwigTemplate_9f1d2a758db1af38418a1427af67336c2427b6afde31112f281abed6237
                             foreach ($context['_seq'] as $context["_key"] => $context["id"]) {
                                 // line 56
                                 echo "                                                                ";
-                                if ((twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()) == $context["id"])) {
+                                if ((twig_get_attribute($this->env, $this->getSourceContext(), $context["child"], "id", array()) == $context["id"])) {
                                     echo " selected ";
                                 }
                                 // line 57
@@ -369,11 +369,9 @@ class __TwigTemplate_9f1d2a758db1af38418a1427af67336c2427b6afde31112f281abed6237
                     }
                     // line 162
                     echo "                                    </div>
-                                    <label class=\"file\"> <!--btn btn-info btn-circle btn-sm-->
-                                        <input type=\"file\" name=\"hinhanh[]\"  accept=\"image/*\" class=\"image-icon\"/>
-                                        <!--<i class=\"fa fa-file-photo-o\"></i>-->
+                                    <label class=\"file btn btn-info btn-circle btn-sm\">
+                                        <input type=\"file\" name=\"hinhanh[]\"  accept=\"image/*\" class=\"image-icon\" style=\"display:none;\"/><i class=\"fa fa-file-photo-o\"></i>
                                     </label>
-
                                     <a href=\"#\" onclick=\"return false;\" class=\"btn btn-danger btn-circle btn-sm delete-attribute\"><i class=\"fa fa-trash\"></i></a>
                                 </div>
                             </div>
@@ -382,22 +380,22 @@ class __TwigTemplate_9f1d2a758db1af38418a1427af67336c2427b6afde31112f281abed6237
                 $_parent = $context['_parent'];
                 unset($context['_seq'], $context['_iterated'], $context['_key'], $context['tt'], $context['_parent'], $context['loop']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 172
+                // line 170
                 echo "                            ";
             } else {
-                // line 173
+                // line 171
                 echo "                              <div class=\"row items\">
                                   <div class=\"form-group col-md-4\">
                                       <select name=\"id_attribute[]\" class=\"form-control custom-select select2\" style=\"width: 100%; height:36px;\">
                                       ";
-                // line 176
+                // line 174
                 if (($context["attributes"] ?? null)) {
-                    // line 177
+                    // line 175
                     echo "                                          ";
                     $context['_parent'] = $context;
                     $context['_seq'] = twig_ensure_traversable(($context["attributes"] ?? null));
                     foreach ($context['_seq'] as $context["_key"] => $context["attribute"]) {
-                        // line 178
+                        // line 176
                         echo "                                              <option value=\"";
                         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["attribute"], "_id", array()), "html", null, true);
                         echo "\">";
@@ -408,10 +406,10 @@ class __TwigTemplate_9f1d2a758db1af38418a1427af67336c2427b6afde31112f281abed6237
                     $_parent = $context['_parent'];
                     unset($context['_seq'], $context['_iterated'], $context['_key'], $context['attribute'], $context['_parent'], $context['loop']);
                     $context = array_intersect_key($context, $_parent) + $_parent;
-                    // line 180
+                    // line 178
                     echo "                                      ";
                 }
-                // line 181
+                // line 179
                 echo "                                      </select>
                                   </div>
                                   <div class=\"form-group col-md-2\">
@@ -436,7 +434,7 @@ class __TwigTemplate_9f1d2a758db1af38418a1427af67336c2427b6afde31112f281abed6237
                               </div>
                               ";
             }
-            // line 204
+            // line 202
             echo "                          </div>
                       </div>
                       <div class=\"form-actions\">
@@ -452,7 +450,7 @@ class __TwigTemplate_9f1d2a758db1af38418a1427af67336c2427b6afde31112f281abed6237
 </form>
 ";
         } else {
-            // line 218
+            // line 216
             echo "<div class=\"container-fluid\">
     <div class=\"row\">
         <div class=\"col-12\">
@@ -471,10 +469,10 @@ class __TwigTemplate_9f1d2a758db1af38418a1427af67336c2427b6afde31112f281abed6237
         }
     }
 
-    // line 235
+    // line 233
     public function block_js($context, array $blocks = array())
     {
-        // line 236
+        // line 234
         echo "    <script src=\"/assets/Backend/plugins/select2/dist/js/select2.full.min.js\" type=\"text/javascript\"></script>
     <script src=\"/assets/Backend/plugins/Magnific-Popup-master/dist/jquery.magnific-popup.min.js\"></script>
     <script src=\"/assets/Backend/js/themsanpham.js\" type=\"text/javascript\"></script>
@@ -495,15 +493,15 @@ class __TwigTemplate_9f1d2a758db1af38418a1427af67336c2427b6afde31112f281abed6237
             });
             CKEDITOR.replace('motachitiet' ,{
                 filebrowserBrowseUrl : '/assets/Backend/plugins/filemanager/filemanager/dialog.php?type=2&editor=ckeditor&subfolder=";
-        // line 255
+        // line 253
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["session"] ?? null), "user_id", array()), "html", null, true);
         echo "',
                 filebrowserUploadUrl : '/assets/Backend/plugins/filemanager/filemanager/dialog.php?type=2&editor=ckeditor&subfolder=";
-        // line 256
+        // line 254
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["session"] ?? null), "user_id", array()), "html", null, true);
         echo "',
                 filebrowserImageBrowseUrl : '/assets/Backend/plugins/filemanager/filemanager/dialog.php?type=1&editor=ckeditor&subfolder=";
-        // line 257
+        // line 255
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["session"] ?? null), "user_id", array()), "html", null, true);
         echo "'
             });
@@ -524,7 +522,7 @@ class __TwigTemplate_9f1d2a758db1af38418a1427af67336c2427b6afde31112f281abed6237
 
     public function getDebugInfo()
     {
-        return array (  507 => 257,  503 => 256,  499 => 255,  478 => 236,  475 => 235,  456 => 218,  440 => 204,  415 => 181,  412 => 180,  401 => 178,  396 => 177,  394 => 176,  389 => 173,  386 => 172,  371 => 162,  367 => 160,  362 => 158,  356 => 156,  354 => 155,  347 => 151,  341 => 148,  335 => 145,  330 => 142,  327 => 141,  312 => 139,  307 => 138,  305 => 137,  300 => 134,  295 => 133,  293 => 132,  288 => 129,  285 => 128,  273 => 122,  265 => 117,  261 => 116,  253 => 113,  247 => 110,  243 => 109,  240 => 108,  235 => 107,  233 => 106,  221 => 99,  202 => 83,  189 => 73,  177 => 63,  174 => 62,  168 => 61,  165 => 60,  156 => 58,  150 => 57,  145 => 56,  141 => 55,  136 => 54,  131 => 53,  129 => 52,  124 => 51,  118 => 50,  113 => 49,  109 => 48,  104 => 47,  99 => 46,  97 => 45,  82 => 33,  65 => 19,  62 => 18,  60 => 17,  50 => 9,  47 => 8,  40 => 4,  37 => 3,  31 => 2,  11 => 1,);
+        return array (  505 => 255,  501 => 254,  497 => 253,  476 => 234,  473 => 233,  454 => 216,  438 => 202,  413 => 179,  410 => 178,  399 => 176,  394 => 175,  392 => 174,  387 => 171,  384 => 170,  371 => 162,  367 => 160,  362 => 158,  356 => 156,  354 => 155,  347 => 151,  341 => 148,  335 => 145,  330 => 142,  327 => 141,  312 => 139,  307 => 138,  305 => 137,  300 => 134,  295 => 133,  293 => 132,  288 => 129,  285 => 128,  273 => 122,  265 => 117,  261 => 116,  253 => 113,  247 => 110,  243 => 109,  240 => 108,  235 => 107,  233 => 106,  221 => 99,  202 => 83,  189 => 73,  177 => 63,  174 => 62,  168 => 61,  165 => 60,  156 => 58,  150 => 57,  145 => 56,  141 => 55,  136 => 54,  131 => 53,  129 => 52,  124 => 51,  118 => 50,  113 => 49,  109 => 48,  104 => 47,  99 => 46,  97 => 45,  82 => 33,  65 => 19,  62 => 18,  60 => 17,  50 => 9,  47 => 8,  40 => 4,  37 => 3,  31 => 2,  11 => 1,);
     }
 
     public function getSourceContext()
@@ -584,7 +582,7 @@ class __TwigTemplate_9f1d2a758db1af38418a1427af67336c2427b6afde31112f281abed6237
                                                           {% for child in item.childs %}
                                                               <option value=\"{{child.id}}\"
                                                               {% for id in product.id_producttype %}
-                                                                {% if item._id == id %} selected {% endif %}
+                                                                {% if child.id == id %} selected {% endif %}
                                                               {% endfor %}
                                                               >&nbsp;&nbsp;&nbsp;--- {{child.ten}}</option>
                                                           {% endfor %}
@@ -691,11 +689,9 @@ class __TwigTemplate_9f1d2a758db1af38418a1427af67336c2427b6afde31112f281abed6237
                                         <img src=\"/assets/Backend/images/logo-icon.png\" style=\"width:40px;height:40px;\" class=\"icon\"/>
                                       {% endif %}
                                     </div>
-                                    <label class=\"file\"> <!--btn btn-info btn-circle btn-sm-->
-                                        <input type=\"file\" name=\"hinhanh[]\"  accept=\"image/*\" class=\"image-icon\"/>
-                                        <!--<i class=\"fa fa-file-photo-o\"></i>-->
+                                    <label class=\"file btn btn-info btn-circle btn-sm\">
+                                        <input type=\"file\" name=\"hinhanh[]\"  accept=\"image/*\" class=\"image-icon\" style=\"display:none;\"/><i class=\"fa fa-file-photo-o\"></i>
                                     </label>
-
                                     <a href=\"#\" onclick=\"return false;\" class=\"btn btn-danger btn-circle btn-sm delete-attribute\"><i class=\"fa fa-trash\"></i></a>
                                 </div>
                             </div>

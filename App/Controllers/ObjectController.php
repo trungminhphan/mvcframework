@@ -54,12 +54,12 @@ class ObjectController extends \Core\Controller {
     public static function checkPermis($permis){
         $router = new Router();
         if(ObjectController::checkAuth()) {
-            if(in_array($permis, $_SESSION['roles'])){
+          foreach($permis as $key => $value){
+            if(in_array($value, $_SESSION['roles'])){
                 return true;
-            } else {
-                $router->redirect('/admin/forbidden');
-                //throw new \Exception('Not permission access');
             }
+          }
+          $router->redirect('/admin/forbidden');
         }  else {
             $router->redirect('/admin/login');
         }

@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use \Core\View;
 use \Core\Router;
+use \Core\Csrf;
 use \App\Config;
 use \App\Models\Currency;
 use \App\Controllers\ObjectController;
@@ -13,6 +14,11 @@ use \App\Controllers\ObjectController;
  * PHP version 7.0
  */
 class CurrencyController extends \Core\Controller {
+  private $_csrf;
+  public function __construct(){
+      ObjectController::checkPermis(array('Admin'));
+      $this->csrf = new Csrf();
+  }
     /**
      * Show the index page
      *
@@ -29,6 +35,7 @@ class CurrencyController extends \Core\Controller {
     }
 
     public function createAction(){
+      $this->csrf->verifyRequest();
     	$db = new Currency(); $router = new Router();
         $_POST['quydoisang_usd'] = intval($_POST['quydoisang_usd']);
         $_POST['createAt'] = ObjectController::setDate();
@@ -46,6 +53,7 @@ class CurrencyController extends \Core\Controller {
     }
 
     public function updateAction(){
+      $this->csrf->verifyRequest();
     	$db = new Currency(); $router = new Router();
         $id = $_POST['id'];
         $_POST['quydoisang_usd'] = intval($_POST['quydoisang_usd']);
@@ -57,6 +65,7 @@ class CurrencyController extends \Core\Controller {
         }
     }
     public function deleteAction(){
+      $this->csrf->verifyRequest();
         $id = isset($_GET['id']) ? $_GET['id'] : '';
         $db = new Currency();$router = new Router();
         $db->id = $id;

@@ -24,7 +24,7 @@
                                     <h5 class="mb-0">
                                         <a href="/loai-san-pham/add?id_parent={{item._id}}" class="btn btn-sm btn-success"><i class="mdi mdi-plus"></i></a>
                                         <a href="/loai-san-pham/edit&id={{item._id}}" class="btn btn-sm btn-info"><i class="mdi mdi-pencil-circle"></i></a>
-                                        <a href="/loai-san-pham/delete&id={{item._id}}" onclick="return confirm('Chắc chắn xóa?');" class="btn btn-sm btn-danger"><i class="mdi mdi-delete-circle"></i></a>
+                                        <a href="/loai-san-pham/delete&id={{item._id}}&_token={{_token}}" onclick="return confirm('Chắc chắn xóa?');" class="btn btn-sm btn-danger"><i class="mdi mdi-delete-circle"></i></a>
                                         <a data-toggle="collapse" data-parent="#accordion2" href="#collapse_{{item._id}}" aria-expanded="true" aria-controls="collapse_{{item._id}}"> {{item.ten}} </a>
                                   </h5>
                                 </div>
@@ -34,7 +34,7 @@
                                         {% for child in item.childs %}
                                             <span class="btn btn-info m-t-10">
                                                 <a href="/loai-san-pham/edit&id={{child.id}}" class="text-white"><i class="mdi mdi-pencil-circle"></i></a>
-                                                <a href="/loai-san-pham/delete&id={{child.id}}" class="text-white" onclick="return confirm('Chắc chắn xóa?');"><i class="mdi mdi-delete-circle"></i></a>
+                                                <a href="/loai-san-pham/delete&id={{child.id}}&_token={{_token}}" class="text-white" onclick="return confirm('Chắc chắn xóa?');"><i class="mdi mdi-delete-circle"></i></a>
                                                 {{child.ten}}
                                             </span>
                                         {% endfor %}

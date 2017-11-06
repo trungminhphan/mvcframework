@@ -21,9 +21,8 @@ use \App\Controllers\ImagesController;
  * PHP version 7.0
  */
 class ProductController extends \Core\Controller {
-
     public function __construct(){
-        return ObjectController::checkPermis('Admin');
+        return ObjectController::checkPermis(array('Admin', 'Manager', 'Seller'));
     }
     /**
      * Show the index page
@@ -32,7 +31,12 @@ class ProductController extends \Core\Controller {
      */
     public function indexAction(){
         $db = new Product();
-        $products = $db->getAll();
+        if(User::isAdmin()){
+          $products = $db->getAll();
+        } else {
+          $db->id_user = User::UserId();
+          $products = $db->getAllToUser();
+        }
         View::renderTemplate('Backend/Product/list.html.twig', ['products' => $products]);
     }
 
@@ -124,7 +128,7 @@ class ProductController extends \Core\Controller {
         $db = new Product(); $router = new Router();
         $producttype = new ProductType();$attribute = new Attribute();
         $attributes = iterator_to_array($attribute->getAll());
-        $root_list = $producttype->getAllRoot();
+        $root_list = iterator_to_array($producttype->getAllRoot());
         $arr_type = array();
         if($root_list){
             foreach($root_list as $key => $value){
@@ -139,7 +143,7 @@ class ProductController extends \Core\Controller {
                 $arr_type[$key]['childs'] = $arr_child;
             }
         }
-        $db->id = $id; $product = $db->getOne();
+        $db->id = $id; $product = iterator_to_array($db->getOne());
         View::renderTemplate('Backend/Product/edit.html.twig', ['product' => $product, 'producttype' => $arr_type, 'attributes' => $attributes]);
     }
 
@@ -165,7 +169,7 @@ class ProductController extends \Core\Controller {
       $soluong = isset($_POST['soluong']) ? $_POST['soluong'] : '';
       $hinhanh_name = isset($_FILES['hinhanh']['name']) ? $_FILES['hinhanh']['name'] : '';
       $hinhanh_tmp = isset($_FILES['hinhanh']['tmp_name']) ? $_FILES['hinhanh']['tmp_name'] : '';
-
+      $old_hinhanh = isset($_POST['old_hinhanh']) ? $_POST['old_hinhanh'] : '';
       if($id_attribute){
         foreach($id_attribute as $key => $value){
           $f = explode('.', $hinhanh_name[$key]); $ext = end($f);
@@ -175,7 +179,13 @@ class ProductController extends \Core\Controller {
             $file = $_SERVER['DOCUMENT_ROOT'].Config::IMAGES_DIR.$filename;
             $thumb = $_SERVER['DOCUMENT_ROOT'].Config::IMAGES_DIR.'thumb_100x100/'.$filename;
             ImagesController::resizeAction($file, null, 100, 100, true, $thumb, false, false, 100);
-          } else { $hinhanh = ''; }
+
+            @unlink($_SERVER['DOCUMENT_ROOT'].Config::IMAGES_DIR.$old_hinhanh[$key]);
+            @unlink($_SERVER['DOCUMENT_ROOT'].Config::IMAGES_DIR.'thumb_100x100/'.$old_hinhanh[$key]);
+          } else {
+            $hinhanh = isset($old_hinhanh[$key]) ? $old_hinhanh[$key] : '';
+          }
+
           array_push($arr_thuoctinh, array(
               '_id' => ObjectController::Id(),
               'id_attribute' => ObjectController::ObjectId($value),

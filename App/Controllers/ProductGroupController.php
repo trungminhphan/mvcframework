@@ -14,6 +14,9 @@ use \App\Controllers\ObjectController;
  * PHP version 7.0
  */
 class ProductGroupController extends \Core\Controller {
+    public function __construct(){
+        ObjectController::checkPermis(array('Admin'));
+    }
     /**
      * Show the index page
      *

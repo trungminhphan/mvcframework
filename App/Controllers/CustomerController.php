@@ -18,7 +18,7 @@ class CustomerController extends \Core\Controller {
      * @return void
      */
     public function indexAction(){
-        View::renderTemplate('Backend/Customer/list.html.twig');
+      View::renderTemplate('Backend/Customer/list.html.twig');
     }
 
     /*public function addAction(){

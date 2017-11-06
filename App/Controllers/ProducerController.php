@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use \Core\View;
 use \Core\Router;
+use \Core\Csrf;
 use \App\Config;
 use \App\Models\ProductType;
 use \App\Models\Producer;
@@ -14,6 +15,11 @@ use \App\Controllers\ObjectController;
  * PHP version 7.0
  */
 class ProducerController extends \Core\Controller {
+  private $_csrf;
+    public function __construct(){
+        ObjectController::checkPermis(array('Admin'));
+        $this->csrf = new Csrf();
+    }
     /**
      * Show the index page
      *
@@ -31,12 +37,13 @@ class ProducerController extends \Core\Controller {
     }
 
     public function createAction(){
+      $this->csrf->verifyRequest();
     	$db = new Producer(); $router = new Router();
-        $_POST['createAt'] = ObjectController::setDate();
-        $_POST['updateAt'] = ObjectController::setDate();
-        if($db->insertQuery($_POST)){
-            $router->redirect('/nha-san-xuat');
-        }
+      $_POST['createAt'] = ObjectController::setDate();
+      $_POST['updateAt'] = ObjectController::setDate();
+      if($db->insertQuery($_POST)){
+          $router->redirect('/nha-san-xuat');
+      }
     }
 
     public function editAction(){
@@ -48,32 +55,34 @@ class ProducerController extends \Core\Controller {
     }
 
     public function updateAction(){
+      $this->csrf->verifyRequest();
     	$db = new Producer(); $router = new Router();
-        $id = $_POST['id'];
-        $condition = array('_id' => ObjectController::ObjectId($id));
-        if(!isset($_POST['hinhanh_aliasname'])){
-            $_POST['hinhanh_aliasname'] = [];
-            $_POST['hinhanh_filename'] = [];
-        }
-        $_POST['updateAt'] = ObjectController::setDate();
-        $query = array('$set' => $_POST);
-        if($db->editQuery($condition, $query)){
-            $router->redirect('/nha-san-xuat');
-        }
+      $id = $_POST['id'];
+      $condition = array('_id' => ObjectController::ObjectId($id));
+      if(!isset($_POST['hinhanh_aliasname'])){
+          $_POST['hinhanh_aliasname'] = [];
+          $_POST['hinhanh_filename'] = [];
+      }
+      $_POST['updateAt'] = ObjectController::setDate();
+      $query = array('$set' => $_POST);
+      if($db->editQuery($condition, $query)){
+          $router->redirect('/nha-san-xuat');
+      }
     }
 
     public function deleteAction(){
-        $id = isset($_GET['id']) ? $_GET['id'] : '';
-        $db = new Producer();$router = new Router();
-        $db->id = $id;$producer = $db->getOne();
-        if(isset($producer['hinhanh_aliasname']) && $producer['hinhanh_aliasname']){
-            foreach($producer['hinhanh_aliasname'] as $hinhanh){
-                $filename = $_SERVER['DOCUMENT_ROOT'].Config::IMAGES_DIR . $hinhanh;
-                $filename_thumb = $_SERVER['DOCUMENT_ROOT'].Config::IMAGES_DIR.'thumb_300x200/'.$hinhanh;
-                @unlink($filename); @unlink($filename_thumb);
-            }
-        }
-        if($db->delete()) $router->redirect('/nha-san-xuat');
+      $this->csrf->verifyRequest();
+      $id = isset($_GET['id']) ? $_GET['id'] : '';
+      $db = new Producer();$router = new Router();
+      $db->id = $id;$producer = $db->getOne();
+      if(isset($producer['hinhanh_aliasname']) && $producer['hinhanh_aliasname']){
+          foreach($producer['hinhanh_aliasname'] as $hinhanh){
+              $filename = $_SERVER['DOCUMENT_ROOT'].Config::IMAGES_DIR . $hinhanh;
+              $filename_thumb = $_SERVER['DOCUMENT_ROOT'].Config::IMAGES_DIR.'thumb_300x200/'.$hinhanh;
+              @unlink($filename); @unlink($filename_thumb);
+          }
+      }
+      if($db->delete()) $router->redirect('/nha-san-xuat');
     }
 
 

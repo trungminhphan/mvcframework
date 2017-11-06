@@ -1,6 +1,5 @@
 <?php
 namespace Core;
-
 class Sessions extends Model{
     //name of collection where sessions will be stored
     const COLLECTION = 'sessions';

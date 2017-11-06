@@ -83,6 +83,22 @@ class User extends \Core\Model {
       return $_SESSION['user_id'];
     }
 
+    public static function isAdmin(){
+        return in_array('Admin', $_SESSION['roles']);
+    }
+
+    public static function isManager(){
+      return in_array('Manager', $_SESSION['roles']);
+    }
+
+    public static function isSeller(){
+      return in_array('Seller', $_SESSION['roles']);
+    }
+
+    public static function isDelivery(){
+      return in_array('Delivery', $_SESSION['roles']);
+    }
+    
     public static function Username(){
       return $_SESSION['username'];
     }

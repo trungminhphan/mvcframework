@@ -110,3 +110,4 @@ class TranslationExtension extends AbstractExtension
         return 'translator';
     }
 }
+?>

@@ -53,7 +53,7 @@
                                                           {% for child in item.childs %}
                                                               <option value="{{child.id}}"
                                                               {% for id in product.id_producttype %}
-                                                                {% if item._id == id %} selected {% endif %}
+                                                                {% if child.id == id %} selected {% endif %}
                                                               {% endfor %}
                                                               >&nbsp;&nbsp;&nbsp;--- {{child.ten}}</option>
                                                           {% endfor %}
@@ -160,11 +160,9 @@
                                         <img src="/assets/Backend/images/logo-icon.png" style="width:40px;height:40px;" class="icon"/>
                                       {% endif %}
                                     </div>
-                                    <label class="file"> <!--btn btn-info btn-circle btn-sm-->
-                                        <input type="file" name="hinhanh[]"  accept="image/*" class="image-icon"/>
-                                        <!--<i class="fa fa-file-photo-o"></i>-->
+                                    <label class="file btn btn-info btn-circle btn-sm">
+                                        <input type="file" name="hinhanh[]"  accept="image/*" class="image-icon" style="display:none;"/><i class="fa fa-file-photo-o"></i>
                                     </label>
-
                                     <a href="#" onclick="return false;" class="btn btn-danger btn-circle btn-sm delete-attribute"><i class="fa fa-trash"></i></a>
                                 </div>
                             </div>

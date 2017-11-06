@@ -19,6 +19,7 @@
                 <div class="card">
                     <div class="card-body">
                         <form action="/nhom-san-pham/update" method="POST" id="dinhkemform" enctype="multipart/form-data">
+                            <input type="hidden" name="_token" id="_token" value="{{_token}}" />
                             <input type="hidden" name="id" id="id" value="{{ group._id }}">
                             <div class="form-body">
                                 <h3 class="card-title">Thông tin nhóm sản phẩm</h3>
@@ -115,4 +116,3 @@
         });
     </script>
 {% endblock %}
-

@@ -76,6 +76,8 @@ class __TwigTemplate_c97490c7714195d1f085d92234839a80959818999f0ba367837b5f90d5d
                                         <a href=\"/loai-san-pham/delete&id=";
                 // line 27
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["item"], "_id", array()), "html", null, true);
+                echo "&_token=";
+                echo twig_escape_filter($this->env, ($context["_token"] ?? null), "html", null, true);
                 echo "\" onclick=\"return confirm('Chắc chắn xóa?');\" class=\"btn btn-sm btn-danger\"><i class=\"mdi mdi-delete-circle\"></i></a>
                                         <a data-toggle=\"collapse\" data-parent=\"#accordion2\" href=\"#collapse_";
                 // line 28
@@ -111,6 +113,8 @@ class __TwigTemplate_c97490c7714195d1f085d92234839a80959818999f0ba367837b5f90d5d
                                                 <a href=\"/loai-san-pham/delete&id=";
                         // line 37
                         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["child"], "id", array()), "html", null, true);
+                        echo "&_token=";
+                        echo twig_escape_filter($this->env, ($context["_token"] ?? null), "html", null, true);
                         echo "\" class=\"text-white\" onclick=\"return confirm('Chắc chắn xóa?');\"><i class=\"mdi mdi-delete-circle\"></i></a>
                                                 ";
                         // line 38
@@ -176,7 +180,7 @@ class __TwigTemplate_c97490c7714195d1f085d92234839a80959818999f0ba367837b5f90d5d
 
     public function getDebugInfo()
     {
-        return array (  154 => 56,  151 => 55,  141 => 47,  138 => 46,  129 => 42,  126 => 41,  117 => 38,  113 => 37,  109 => 36,  106 => 35,  101 => 34,  99 => 33,  92 => 31,  82 => 28,  78 => 27,  74 => 26,  70 => 25,  65 => 23,  62 => 22,  57 => 21,  55 => 20,  39 => 6,  36 => 5,  30 => 3,  11 => 1,);
+        return array (  158 => 56,  155 => 55,  145 => 47,  142 => 46,  133 => 42,  130 => 41,  121 => 38,  115 => 37,  111 => 36,  108 => 35,  103 => 34,  101 => 33,  94 => 31,  84 => 28,  78 => 27,  74 => 26,  70 => 25,  65 => 23,  62 => 22,  57 => 21,  55 => 20,  39 => 6,  36 => 5,  30 => 3,  11 => 1,);
     }
 
     public function getSourceContext()
@@ -207,7 +211,7 @@ class __TwigTemplate_c97490c7714195d1f085d92234839a80959818999f0ba367837b5f90d5d
                                     <h5 class=\"mb-0\">
                                         <a href=\"/loai-san-pham/add?id_parent={{item._id}}\" class=\"btn btn-sm btn-success\"><i class=\"mdi mdi-plus\"></i></a>
                                         <a href=\"/loai-san-pham/edit&id={{item._id}}\" class=\"btn btn-sm btn-info\"><i class=\"mdi mdi-pencil-circle\"></i></a>
-                                        <a href=\"/loai-san-pham/delete&id={{item._id}}\" onclick=\"return confirm('Chắc chắn xóa?');\" class=\"btn btn-sm btn-danger\"><i class=\"mdi mdi-delete-circle\"></i></a>
+                                        <a href=\"/loai-san-pham/delete&id={{item._id}}&_token={{_token}}\" onclick=\"return confirm('Chắc chắn xóa?');\" class=\"btn btn-sm btn-danger\"><i class=\"mdi mdi-delete-circle\"></i></a>
                                         <a data-toggle=\"collapse\" data-parent=\"#accordion2\" href=\"#collapse_{{item._id}}\" aria-expanded=\"true\" aria-controls=\"collapse_{{item._id}}\"> {{item.ten}} </a>
                                   </h5>
                                 </div>
@@ -217,7 +221,7 @@ class __TwigTemplate_c97490c7714195d1f085d92234839a80959818999f0ba367837b5f90d5d
                                         {% for child in item.childs %}
                                             <span class=\"btn btn-info m-t-10\">
                                                 <a href=\"/loai-san-pham/edit&id={{child.id}}\" class=\"text-white\"><i class=\"mdi mdi-pencil-circle\"></i></a>
-                                                <a href=\"/loai-san-pham/delete&id={{child.id}}\" class=\"text-white\" onclick=\"return confirm('Chắc chắn xóa?');\"><i class=\"mdi mdi-delete-circle\"></i></a>
+                                                <a href=\"/loai-san-pham/delete&id={{child.id}}&_token={{_token}}\" class=\"text-white\" onclick=\"return confirm('Chắc chắn xóa?');\"><i class=\"mdi mdi-delete-circle\"></i></a>
                                                 {{child.ten}}
                                             </span>
                                         {% endfor %}

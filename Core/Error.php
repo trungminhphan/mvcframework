@@ -25,7 +25,6 @@ class Error {
             throw new \ErrorException($message, 0, $level, $file, $line);
         }
     }
-
     /**
      * Exception handler.
      *

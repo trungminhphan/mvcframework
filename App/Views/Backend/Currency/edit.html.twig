@@ -20,6 +20,7 @@
                     <div class="card-body">
                         <form action="/don-vi-tien-te/update" method="POST" id="dinhkemform" enctype="multipart/form-data">
                             <input type="hidden" name="id" id="id" value="{{currency._id}}">
+                            <input type="hidden" name="_token" id="_token" value="{{_token}}" />
                             <div class="form-body">
                                 <h3 class="card-title">Thông tin đơn vị tiền tệ</h3>
                                 <hr>
@@ -86,4 +87,3 @@
         });
     </script>
 {% endblock %}
-

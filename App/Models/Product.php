@@ -30,6 +30,11 @@ class Product extends \Core\Model {
     return $this->_collection->find();
   }
 
+  public function getAllToUser(){
+    $query = array('id_user' => ObjectController::ObjectId($this->id_user));
+    return $this->_collection->find();
+  }
+
   public function getAllCondition($condition){
     return $this->_collection->find($condition);
   }

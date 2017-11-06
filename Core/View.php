@@ -16,9 +16,7 @@ class View {
      */
     public static function render($view, $args = []){
         extract($args, EXTR_SKIP);
-
         $file = dirname(__DIR__) . "/App/Views/$view";  // relative to Core directory
-
         if (is_readable($file)) {
             require $file;
         } else {
@@ -35,7 +33,7 @@ class View {
      * @return void
      */
     public static function renderTemplate($template, $args = []){
-        $router = new Router();
+        $router = new Router();$csrf = new Csrf();
         $locale = $router->getLang($_SERVER['REQUEST_URI']);
         static $twig = null;
         if ($twig === null) {
@@ -43,8 +41,8 @@ class View {
             $twig = new \Twig_Environment($loader, array('cache' => dirname(__DIR__) .'/tmp/Cache', 'auto_reload' => true, 'debug' => true));
             //$twig = new \Twig_Environment($loader, array('cache' => false));
         }
-
         $twig->addGlobal("session", $_SESSION);
+        $twig->addGlobal("_token", $csrf->getToken());
         $translator = new \Symfony\Component\Translation\Translator($locale, new \Symfony\Component\Translation\MessageSelector());
         $translator->setFallbackLocales(['en']);
         $translator->addLoader('yaml', new \Symfony\Component\Translation\Loader\YamlFileLoader());
