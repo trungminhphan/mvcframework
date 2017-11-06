@@ -35,6 +35,6 @@ function get_attribute(){
 function delete_attribute(){
   $(".delete-attribute").click(function(){
       var _this = $(this);
-      _this.parents(".items").fadeOut();
+      _this.parents(".items").remove();
   });
 }

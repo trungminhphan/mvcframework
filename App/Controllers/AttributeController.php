@@ -14,7 +14,7 @@ use \App\Controllers\ObjectController;
  * PHP version 7.0
  */
 class AttributeController extends \Core\Controller {
-    private $_csrf;
+    private $csrf;
     public function __construct(){
         ObjectController::checkPermis(array('Admin'));
         $this->csrf = new Csrf();
@@ -31,7 +31,7 @@ class AttributeController extends \Core\Controller {
     }
 
     public function addAction(){
-    	View::renderTemplate('Backend/Attribute/add.html.twig', ['_csrf' => $this->_csrf]);
+    	View::renderTemplate('Backend/Attribute/add.html.twig');
     }
 
     public function createAction(){

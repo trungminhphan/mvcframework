@@ -60,7 +60,7 @@ class Csrf {
 	 * Verifies whether the post token was set, else dies with error
 	 */
 	public function verifyGet(){
-		if (!$this->isTokenValid(isset($_GET[$this->namespace])? $_GET[$this->namespace] : '')){
+		if (!$this->isTokenValid(isset($_GET[$this->namespace]) ? $_GET[$this->namespace] : '')){
 			die("CSRF validation failed.");
 		}
 	}

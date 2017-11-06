@@ -20,6 +20,7 @@
                     <div class="card-body">
                         <form action="/nha-san-xuat/update" method="POST" id="dinhkemform" enctype="multipart/form-data">
                             <input type="hidden" name="id" id="id" value="{{ producer._id }}">
+                            <input type="hidden" name="_token" id="_token" value="{{_token}}" />
                             <div class="form-body">
                                 <h3 class="card-title">Thông tin nhà sản xuất</h3>
                                 <hr>
@@ -56,11 +57,11 @@
                                                     <option value="">Chọn loại sản </option>}
                                                     {% if list %}
                                                         {% for item in list %}
-                                                            <option value="{{item._id}}" 
+                                                            <option value="{{item._id}}"
                                                             {% if producer.id_product_type %}
                                                               {% for p in producer.id_product_type %}
                                                                     {% if p == item._id %}
-                                                                        selected 
+                                                                        selected
                                                                     {% endif %}
                                                               {% endfor %}
                                                             {% endif %}>{{item.ten}}</option>
@@ -139,4 +140,3 @@
         });
     </script>
 {% endblock %}
-

@@ -20,7 +20,7 @@ class UserController extends \Core\Controller {
      * @return void
      */
     public function indexAction() {
-        ObjectController::checkPermis('Admin');
+        ObjectController::checkPermis(array('Admin'));
     	$db = new User();
         $list = $db->getAll();
     	View::renderTemplate('Backend/Users/list.html.twig', ['users' => $list]);

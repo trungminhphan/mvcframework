@@ -5,6 +5,7 @@ namespace App\Controllers;
 use \Core\View;
 use \Core\Router;
 use \App\Config;
+use \Core\Csrf;
 use \App\Models\ProductType;
 use \App\Models\ProductGroup;
 use \App\Controllers\ObjectController;
@@ -14,8 +15,10 @@ use \App\Controllers\ObjectController;
  * PHP version 7.0
  */
 class ProductGroupController extends \Core\Controller {
+    private $csrf;
     public function __construct(){
         ObjectController::checkPermis(array('Admin'));
+        $this->csrf new Csrf();
     }
     /**
      * Show the index page
@@ -74,6 +77,7 @@ class ProductGroupController extends \Core\Controller {
                 @unlink($filename); @unlink($filename_thumb);
             }
         }
+
         if($db->delete()) $router->redirect('/nhom-san-pham');
     }
 

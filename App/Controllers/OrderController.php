@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use \Core\View;
 use \Core\Router;
+use \Core\Csrf;
 use \App\Config;
 use \App\Models\Order;
 use \App\Controllers\ObjectController;
@@ -13,19 +14,20 @@ use \App\Controllers\ObjectController;
  * PHP version 7.0
  */
 class OrderController extends \Core\Controller {
-    /**
-     * Show the index page
-     *
-     * @return void
-     */
+    private $csrf;
+
+    public function __construct(){
+      ObjectController::checkPermis(array('Admin', 'Manager', 'Seller', 'Delivery'));
+      $this->csrf = new Csrf();
+    }
     public function indexAction(){
         $db = new Order();
         $list = $db->getAll();
         View::renderTemplate('Backend/Order/list.html.twig', ['list' => $list]);
     }
 
-    /*public function addAction(){
-        View::renderTemplate('Backend/Currency/add.html.twig');
+    public function addAction(){
+        View::renderTemplate('Backend/Order/add.html.twig');
     }
 
     public function createAction(){
@@ -34,9 +36,15 @@ class OrderController extends \Core\Controller {
         $_POST['createAt'] = ObjectController::setDate();
         $_POST['updateAt'] = ObjectController::setDate();
         if($db->insertQuery($_POST)){
-            $router->redirect('/don-vi-tien-te');
+            $router->redirect('/don-hang');
         }
     }
+
+    public function printAction(){
+      View::renderTemplate('Backend/Order/print.html.twig');
+    }
+    /*
+
 
     public function editAction(){
         $id = isset($_GET['id']) ? $_GET['id'] : '';
