@@ -70,4 +70,10 @@ class ObjectController extends \Core\Controller {
         $attributes = $attribute->getAll();
         View::renderTemplate('Backend/Get/attributes.html.twig', ['attributes' => $attributes]);
     }
+
+    public function getAttributeListAction(){
+      $attribute = new Attribute();
+      $attributes = $attribute->getAll();
+      View::renderTemplate('Backend/Get/attribute_list.html.twig', ['attributes' => $attributes]);
+    }
 }
