@@ -7,6 +7,8 @@ use \Core\Router;
 use \Core\Csrf;
 use \App\Config;
 use \App\Models\Order;
+use \App\Models\Product;
+use \App\Models\User;
 use \App\Controllers\ObjectController;
 /**
  * Home controller
@@ -27,15 +29,22 @@ class OrderController extends \Core\Controller {
     }
 
     public function addAction(){
-        View::renderTemplate('Backend/Order/add.html.twig');
+      $product = new Product();
+      if(User::isAdmin()){
+         $products = $product->getAll();
+      } else {
+        $product->id_user = User::UserId();
+        $products = $product->getAllToUser();
+      }
+      View::renderTemplate('Backend/Order/add.html.twig', ['products' => $products]);
     }
 
     public function createAction(){
-        $db = new Currency(); $router = new Router();
-        $_POST['quydoisang_usd'] = intval($_POST['quydoisang_usd']);
+        $db = new Order(); $router = new Router();
+
         $_POST['createAt'] = ObjectController::setDate();
         $_POST['updateAt'] = ObjectController::setDate();
-        if($db->insertQuery($_POST)){
+        if($db->insert($_POST)){
             $router->redirect('/don-hang');
         }
     }
@@ -44,8 +53,6 @@ class OrderController extends \Core\Controller {
       View::renderTemplate('Backend/Order/print.html.twig');
     }
     /*
-
-
     public function editAction(){
         $id = isset($_GET['id']) ? $_GET['id'] : '';
         $db = new Currency(); $router = new Router();

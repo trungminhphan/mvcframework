@@ -102,4 +102,5 @@ $router->add('', ['controller' => 'HomeController', 'action' => 'index']);
 $router->add('chi-tiet-san-pham', ['controller' => 'HomeController', 'action' => 'ProductDetail']);
 
 $router->add('get/attributes', ['controller' => 'ObjectController', 'action' => 'getAttributes']);
+$router->add('get/attribute/list', ['controller' => 'ObjectController', 'action' => 'getAttributeList']);
 $router->dispatch($_SERVER['QUERY_STRING']);
