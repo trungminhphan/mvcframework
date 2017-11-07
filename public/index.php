@@ -71,6 +71,7 @@ $router->add('don-vi-tien-te/delete', ['controller' => 'CurrencyController', 'ac
 
 $router->add('don-hang', ['controller' => 'OrderController', 'action' => 'index']);
 $router->add('don-hang/print', ['controller' => 'OrderController', 'action' => 'print']);
+$router->add('don-hang/detail', ['controller' => 'OrderController', 'action' => 'detail']);
 $router->add('don-hang/add', ['controller' => 'OrderController', 'action' => 'add']);
 $router->add('don-hang/create', ['controller' => 'OrderController', 'action' => 'create']);
 $router->add('don-hang/edit', ['controller' => 'OrderController', 'action' => 'edit']);
@@ -103,4 +104,7 @@ $router->add('chi-tiet-san-pham', ['controller' => 'HomeController', 'action' =>
 
 $router->add('get/attributes', ['controller' => 'ObjectController', 'action' => 'getAttributes']);
 $router->add('get/attribute/list', ['controller' => 'ObjectController', 'action' => 'getAttributeList']);
+$router->add('get/product/add', ['controller' => 'ObjectController', 'action' => 'getProductAdd']);
+$router->add('get/tinhtrang/add', ['controller' => 'ObjectController', 'action' => 'getStatusAdd']);
+
 $router->dispatch($_SERVER['QUERY_STRING']);

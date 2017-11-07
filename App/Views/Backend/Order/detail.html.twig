@@ -1,0 +1,126 @@
+{% extends "Backend/layout.html.twig" %}
+{% block title %}Thông tin đơn hàng{% endblock %}
+{% block css %}
+  <link href="/assets/Backend/plugins/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css" />
+  <link href="/assets/Backend/plugins/Magnific-Popup-master/dist/magnific-popup.css" rel="stylesheet">
+{% endblock %}
+{% block body %}
+<div class="row page-titles">
+    <div class="col-md-12 align-self-center">
+        <h3 class="text-themecolor"><i class="mdi mdi-cart-plus"></i> Thông tin đơn hàng</h3>
+    </div>
+    <div>
+        <a href="#top" class="right-side-toggle waves-effect top waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-arrow-circle-up text-white"></i></a>
+    </div>
+</div>
+<div class="container-fluid">
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-body printableArea">
+                <h3><b>ĐƠN HÀNG</b> <span class="pull-right">{{order.madonhang}}</span></h3>
+                {% set tongthanhtien = 0 %}
+                <hr>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="pull-left">
+                            <address>
+                                <h3> &nbsp;<b class="text-danger">{{session.fullname}}</b></h3>
+                                <p class="text-muted m-l-5">{{session.username}}</p>
+                            </address>
+                        </div>
+                        <div class="pull-right text-right">
+                            <address>
+                                <h3>Thông tin khách hàng,</h3>
+                                <h4 class="font-bold">{{order.hoten}},</h4>
+                                <p class="text-muted m-l-30">Điện thoại: {{order.dienthoai}},
+                                    <br/> Email: {{order.email}},
+                                    <br/> Địa chỉ: {{order.diachi}}</p>
+                                <p class="m-t-30"><b>Ngày mua :</b> <i class="fa fa-calendar"></i> {{order.createAt.sec|date("d/m/Y H:i")}}</p>
+                            </address>
+                        </div>
+                    </div>
+                    {% if order.sanpham %}
+                    <div class="col-md-12">
+                      <div class="card-body">
+                        <div class="profiletimeline">
+                          {% for sp in order.sanpham %}
+                            <div class="sl-item">
+                                <div class="sl-left"><img src="/uploads/images/thumb_100x100/{{sp.thumb}}" alt="" class="img-circle" /> </div>
+                                <div class="sl-right">
+                                    <div>
+                                        <h3>Tên sản phẩm</h3>
+                                        <div class="row p-b-10">
+                                          <div class="col-md-4">Số lượng: {{sp.soluong}}</div>
+                                          <div class="col-md-4">Đơn giá: {{sp.giaban}}</div>
+                                          <div class="col-md-4">Thành tiền: {{sp.thanhtien}}</div>
+                                          {% set tongthanhtien = tongthanhtien + sp.thanhtien %}
+                                        </div>
+                                        {% if sp.hinhanh %}
+                                        <div class="row">
+                                          {% for ha in sp.hinhanh %}
+                                            <div class="col-lg-3 col-md-6"><img src="/uploads/images/{{ha.aliasname}}" class="img-responsive radius" /></div>
+                                          {% endfor %}
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-12">
+                                <h4 class="card-title">Tình trạng giao hàng </h4>
+                                <ul class="list-icons" id="{{sp._id}}">
+                                    <li><i class="ti-alarm-clock"></i> 10/10/2017 10:30 <span class="label label-info font-weight-100">Giao hàng</span> Lorem ipsum dolor sit amet {{sp._id}} <a href="#" onclick="return false;" class="delete_tinhtrang"><i class="mdi mdi-delete"></i></a></li>
+                                </ul>
+                              </div>
+                            </div>
+                            <h4>Cập nhật tình trạng giao hàng</h4>
+                            <div class="row">
+                              <div class="col-md-6">
+                              <div class="form-group">
+                                  <input type="text" name="noidung" id="noidung_{{sp._id}}" value="" class="form-control" placeholder="Nội dung">
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <select name="id_tinhtrang" id="id_tinhtrang_{{sp._id}}" class="select2" style="width:100%;">
+                                  {% for key, tt in tinhtrang %}
+                                    <option value="{{key}}">{{tt}}</option>
+                                  {% endfor %}
+                                </select>
+                              </div>
+                              <div class="col-md-2">
+                                <a href="#" class="btn btn-info add_tinhtrang" name="{{sp._id}}" onclick="return false;"><i class="mdi mdi-pencil"></i></a>
+                              </div>
+                            </div>
+                            <hr>
+                        {% endfor %}
+                        </div>
+                    </div>
+                  </div>
+                  {% endif %}
+                    <div class="col-md-12">
+                        <div class="pull-right m-t-30 text-right">
+                            <hr>
+                            <h3><b>Tổng cộng :</b> {{tongthanhtien}}</h3>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+<script src="/assets/Backend/plugins/select2/dist/js/select2.full.min.js" type="text/javascript"></script>
+<script src="/assets/Backend/plugins/Magnific-Popup-master/dist/jquery.magnific-popup.min.js"></script>
+<script src="/assets/Backend/js/order.js" type="text/javascript">
+</script>
+    <script>
+    $(document).ready(function() {
+        $(".select2").select2();add_tinhtrang();delete_tinhtrang();
+    });
+    </script>
+
+{% endblock %}

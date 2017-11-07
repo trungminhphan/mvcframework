@@ -14,8 +14,11 @@ class Order extends \Core\Model {
 
     public $id = '';
     public $madonhang = '';
-    public $khachhang = array(); //array('hoten, sodienthoai, email, diachi')
-    public $donhang  = array(); //array(_id, id_sanpham, id_thuoctinh, tensanpham, thuoctinh, dongia, soluong, id_seller, createAt, tinhtrang) //tinhtrang = array('id_tinhtrang', noidung, id_user, createAt)
+    public $hoten = '';
+    public $dienthoai = '';
+    public $email = '';
+    public $diachi = '';
+    public $sanpham  = array(); //array(_id, id_sanpham, id_thuoctinh, tensanpham, thuoctinh, dongia, soluong, id_seller, createAt, tinhtrang) //tinhtrang = array(_id, 'id_tinhtrang', noidung, id_user, createAt)
     public $id_delivery = '';
     public $id_user = '';
     public $createAt = '';
@@ -36,9 +39,12 @@ class Order extends \Core\Model {
 
     public function insert(){
         $query = array(
-            'madonhang' => $this->madohang,
-            'khachhang' => $this->khachhang,
-            'donhang' => $this->donhang,
+            'madonhang' => $this->madonhang,
+            'hoten' => $this->hoten,
+            'dienthoai' => $this->dienthoai,
+            'email' => $this->email,
+            'diachi' => $this->diachi,
+            'sanpham' => $this->sanpham,
             'id_user' => $this->id_user ? ObjectController::ObjectId($this->id_user) : '',
             'id_delivery' => $this->id_delivery ? ObjectController::ObjectId($this->id_delivery): '',
             'createAt' => ObjectController::setDate(),
@@ -61,8 +67,8 @@ class Order extends \Core\Model {
 
     public function edit(){
         $query = array('$set' => array(
-            'khachhang' => $this->khachhang,
-            'donhang' => $this->donhang,
+            'hoten' => $this->hoten,
+            'sanpham' => $this->sanpham,
             'id_user' => $this->id_user ? ObjectController::ObjectId($this->id_user) : '',
             'id_delivery' => $this->id_delivery ? ObjectController::ObjectId($this->id_delivery): '',
             'updateAt' => ObjectController::setDate()

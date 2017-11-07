@@ -4,6 +4,8 @@ use \Core\View;
 use \Core\Router;
 use \App\Models\User;
 use \App\Models\Attribute;
+use \App\Models\Product;
+use \App\Config;
 /**
  * Home controller
  *
@@ -15,7 +17,6 @@ class ObjectController extends \Core\Controller {
      *
      * @return void
      */
-
     public static function setDate(){
         $tz = new \DateTimeZone('Asia/Ho_Chi_minh'); //Change your timezone
         $date = date("Y-m-d h:i:sa");
@@ -73,7 +74,43 @@ class ObjectController extends \Core\Controller {
 
     public function getAttributeListAction(){
       $attribute = new Attribute();
-      $attributes = $attribute->getAll();
-      View::renderTemplate('Backend/Get/attribute_list.html.twig', ['attributes' => $attributes]);
+      $id_product = isset($_GET['id_product']) ? $_GET['id_product'] : '';
+      $product = new Product(); $product->id = $id_product; $p = $product->getOne();
+      if($p['thuoctinh']){
+        foreach($p['thuoctinh'] as $key => $value){
+          $attribute->id = $value['id_attribute']; $a = $attribute->getOne();
+            $p['thuoctinh'][$key]['tenthuoctinh'] = $a['ten'];
+        }
+      }
+      View::renderTemplate('Backend/Get/attribute_list.html.twig', ['product' => $p]);
+    }
+
+    public function getProductAddAction(){
+      $attribute = new Attribute();
+      $id_product = isset($_GET['id_product']) ? $_GET['id_product'] : '';
+      $id_attribute = isset($_GET['id_attribute']) ? $_GET['id_attribute'] : '';
+      $soluong = isset($_GET['soluong']) ? $_GET['soluong'] : 1;
+      $product = new Product(); $product->id = $id_product; $p = $product->getOne();
+      $k = 0;
+      if($p['thuoctinh']){
+        foreach($p['thuoctinh'] as $key => $value){
+          if(strval($value['_id']) == $id_attribute){
+            $attribute->id = $value['id_attribute']; $a = $attribute->getOne();
+            $p['thuoctinh'][$key]['tenthuoctinh'] = $a['ten']; $k = $key;
+          }
+        }
+      }
+      View::renderTemplate('Backend/Get/product_add.html.twig', ['product' => $p, 'soluong' => $soluong, 'k' => $k]);
+    }
+
+    public function getStatusAdd(){
+      $_id = ObjectController::Id();
+      $noidung = isset($_GET['noidung']) ? $_GET['noidung'] : '';
+      $id_tinhtrang = isset($_GET['id_tinhtrang']) ? $_GET['id_tinhtrang'] : 0;
+      $createAt = ObjectController::setDate();
+      if(!$noidung){ echo 'NO'; } else {
+      //  View::renderTemplate('Backend/Get/status_add.html.twig', ['_id' => $_id, 'noidung' => $]);
+        echo '<li><i class="ti-alarm-clock"></i> '.date("d/m/Y H:i").' <span class="label label-info font-weight-100">'.Config::ARR_STATUS[$id_tinhtrang].'</span> '.$noidung.' <a href="#" onclick="return false;" class="delete_tinhtrang"><i class="mdi mdi-delete"></i></a></li>';
+      }
     }
 }

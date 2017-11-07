@@ -23,21 +23,25 @@
                                       <th>Khách hàng</th>
                                       <th>Ngày mua</th>
                                       <th>Tổng đơn hàng</th>
-                                      <th>Tình trạng</th>
                                       <th><i class="mdi mdi-printer"></i></th>
                                   </tr>
                               </thead>
                               <tbody>
+                              {% if orders %}
+                              {% for order in orders %}
+                                {% set tongthanhtien = 0 %}
+                                {% for sp in order.sanpham %}
+                                  {% set tongthanhtien = tongthanhtien + sp.thanhtien %}
+                                {% endfor %}
                                   <tr>
-                                      <td><a href="javascript:void(0)">Order #26589</a></td>
-                                      <td>Herman Beck</td>
-                                      <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 16, 2017</span> </td>
-                                      <td>$45.00</td>
-                                      <td>
-                                          <div class="label label-table label-success">Paid</div>
-                                      </td>
+                                      <td><a href="/don-hang/detail?id={{order._id}}">{{order.madonhang}}</a></td>
+                                      <td>{{order.hoten}}</td>
+                                      <td><span class="text-muted">{{oder.createAt.sec|date("d/m/Y H:i")}}</span> </td>
+                                      <td class="text-right">{{tongthanhtien}}</td>
                                       <td><a href="/don-hang/print"><i class="mdi mdi-printer"></i></a></td>
                                   </tr>
+                                {% endfor %}
+                                {% endif %}
                               </tbody>
                           </table>
                       </div>

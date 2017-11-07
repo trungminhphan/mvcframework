@@ -17,6 +17,9 @@
       <div class="col-12">
         <div class="card">
           <div class="card-body">
+            {% if msg %}
+                <div class="alert alert-danger">{{ msg }}</div>
+            {% endif %}
             <h3 class="card-title">Thông tin khách hàng</h3>
             <hr>
             <div class="row">
@@ -24,11 +27,11 @@
                     <div class="form-group row">
                         <label class="control-label col-md-2 text-right p-t-10">Họ tên</label>
                         <div class="col-md-4">
-                            <input type="text" id="hoten" name="hoten" class="form-control" placeholder="Họ tên" required>
+                            <input type="text" id="hoten" name="hoten" class="form-control" placeholder="Họ tên" required value="{{hoten}}">
                         </div>
                         <label class="control-label col-md-2 text-right p-t-10">Điện thoại</label>
                         <div class="col-md-4">
-                            <input type="text" id="dienthoai" name="dienthoai" class="form-control" placeholder="Điện thoại" required>
+                            <input type="text" id="dienthoai" name="dienthoai" class="form-control" placeholder="Điện thoại" required value="{{dienthoai}}">
                         </div>
                     </div>
                 </div>
@@ -38,18 +41,31 @@
                     <div class="form-group row">
                         <label class="control-label col-md-2 text-right p-t-10">Email</label>
                         <div class="col-md-4">
-                            <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Email" required value="{{email}}">
                         </div>
                         <label class="control-label col-md-2 text-right p-t-10">Địa chỉ</label>
                         <div class="col-md-4">
-                            <input type="text" id="diachi" name="diachi" class="form-control" placeholder="Địa chỉ" required>
+                            <input type="text" id="diachi" name="diachi" class="form-control" placeholder="Địa chỉ" required value="{{diachi}}">
                         </div>
                     </div>
                 </div>
             </div>
             <h3 class="card-title">Thông tin đơn hàng</h3>
             <hr>
-            <div id="donhang_list"> </div>
+            <div id="donhang_list">
+              <table class="table table-hover" id="sanpham_list">
+                  <thead>
+                      <tr>
+                          <th>Sản phẩm</th>
+                          <th class="text-right">Số lượng</th>
+                          <th class="text-right">Đơn giá</th>
+                          <th class="text-right">Thành tiền</th>
+                          <th>#</th>
+                      </tr>
+                  </thead>
+                  <tbody></tbody>
+              </table>
+            </div>
             <div class="row">
               <div class="col-md-4">
                 <div class="form-group">
@@ -73,7 +89,7 @@
               <div class="col-md-4">
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="number" name="quantity" value="1" class="form-control" placeholder="Số lượng"/>
+                    <input type="number" name="quantity" id="quantity" value="1" class="form-control" placeholder="Số lượng"/>
                     <a href="#" onclick="return false;" class="btn btn-info btn-circle" id="add_product"><i class="mdi mdi-plus"></i></a>
                   </div>
                 </div>
@@ -91,18 +107,18 @@
 </form>
 {% endblock %}
 {% block js %}
-  <script src="/assets/Backend/plugins/select2/dist/js/select2.full.min.js" type="text/javascript"></script>
-  <script src="/assets/Backend/js/order.js" type="text/javascript"></script>
-  <script type="text/javascript">
-     $(document).ready(function() {
-        $(".select2").select2();
-        sanpham();
-        $('.top').click(function(){
-          $('html, body').animate({
-            scrollTop: $( $.attr(this, 'href') ).offset().top
-          }, 500);
-          return false;
-        });
-    });
-  </script>
+<script src="/assets/Backend/plugins/select2/dist/js/select2.full.min.js" type="text/javascript"></script>
+<script src="/assets/Backend/js/order.js" type="text/javascript"></script>
+<script type="text/javascript">
+   $(document).ready(function() {
+      $(".select2").select2();
+      sanpham();delete_sanpham();add_sanpham();
+      $('.top').click(function(){
+        $('html, body').animate({
+          scrollTop: $( $.attr(this, 'href') ).offset().top
+        }, 500);
+        return false;
+      });
+  });
+</script>
 {% endblock %}

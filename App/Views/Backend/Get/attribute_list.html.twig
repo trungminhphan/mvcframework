@@ -1,1 +1,5 @@
-sdfss
+{% if product.thuoctinh %}
+  {% for tt in product.thuoctinh %}
+    <option value="{{tt._id}}">{{tt.tenthuoctinh}}</option>
+  {% endfor %}
+{% endif %}

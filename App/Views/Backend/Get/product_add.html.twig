@@ -1,0 +1,25 @@
+{% if product  %}
+<tr class="items">
+    <td>
+      {{product.ten}} {{product.thuoctinh[k].tenthuoctinh}}
+      <input type="hidden" name="tensanpham[]" value="{{product.ten}}" />
+      <input type="hidden" name="tenthuoctinh[]" value="{{product.thuoctinh[k].tenthuoctinh}}" />
+      <input type="hidden" name="id_sanpham[]" value="{{product._id}}" />
+      <input type="hidden" name="id_thuoctinh[]" value="{{product.thuoctinh[k]._id}}" />
+      <input type="hidden" name="id_seller[]" value="{{product.id_user}}" />
+    </td>
+    <td class="text-right">
+      <input type="hidden" name="soluong[]" value="{{soluong}}">
+      {{soluong}}
+    </td>
+    <td class="text-right">
+        <input type="hidden" name="giaban[]" value="{{product.thuoctinh[k].giaban}}">
+        {{product.thuoctinh[k].giaban}}
+    </td>
+    <td class="text-right">
+      <input type="hidden" name="thanhtien[]" value="{{product.thuoctinh[k].giaban * soluong}}">
+      {{product.thuoctinh[k].giaban * soluong}}
+    </td>
+    <td><a href="#" onclick="return false;" class="delete-item"><i class="mdi mdi-delete"></i></a></td>
+</tr>
+{% endif %}
