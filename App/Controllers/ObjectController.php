@@ -5,6 +5,7 @@ use \Core\Router;
 use \App\Models\User;
 use \App\Models\Attribute;
 use \App\Models\Product;
+use \App\Models\Order;
 use \App\Config;
 /**
  * Home controller
@@ -104,13 +105,34 @@ class ObjectController extends \Core\Controller {
     }
 
     public function getStatusAdd(){
+      $id = isset($_GET['id']) ? $_GET['id'] : '';
+      $id_sanpham = isset($_GET['id_sanpham']) ? $_GET['id_sanpham'] : '';
       $_id = ObjectController::Id();
       $noidung = isset($_GET['noidung']) ? $_GET['noidung'] : '';
       $id_tinhtrang = isset($_GET['id_tinhtrang']) ? $_GET['id_tinhtrang'] : 0;
       $createAt = ObjectController::setDate();
+      $arr_tinhtrang = array(
+        '_id' => $_id, 'id_tinhtrang' => intval($id_tinhtrang),
+        'noidung' => $noidung, 'id_user' => User::UserId(),'createAt' => $createAt
+      );
+      $order = new Order();
+      $order->id = $id;
+      $order->tinhtrang = $arr_tinhtrang;
+      $order->push_tinhtrang($id_sanpham);
+
       if(!$noidung){ echo 'NO'; } else {
+        if($id_tinhtrang == 0){
+          $label = 'label-warning';
+        } else if($id_tinhtrang == 1){
+          $label = 'label-info';
+        } else if($id_tinhtrang == 2) {
+          $label = 'label-success';
+        } else {
+          $label = 'label-danger';
+        }
+
       //  View::renderTemplate('Backend/Get/status_add.html.twig', ['_id' => $_id, 'noidung' => $]);
-        echo '<li><i class="ti-alarm-clock"></i> '.date("d/m/Y H:i").' <span class="label label-info font-weight-100">'.Config::ARR_STATUS[$id_tinhtrang].'</span> '.$noidung.' <a href="#" onclick="return false;" class="delete_tinhtrang"><i class="mdi mdi-delete"></i></a></li>';
+        echo '<li><i class="ti-alarm-clock"></i> '.date("d/m/Y H:i").' <span class="label '.$label.' font-weight-100">'.Config::ARR_STATUS[$id_tinhtrang].'</span> '.$noidung.' <a href="#" onclick="return false;" class="delete_tinhtrang"><i class="mdi mdi-delete"></i></a></li>';
       }
     }
 }

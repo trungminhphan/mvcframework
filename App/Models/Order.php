@@ -24,6 +24,8 @@ class Order extends \Core\Model {
     public $createAt = '';
     public $updateAt = '';
 
+    public $tinhtrang = '';
+
     public function __construct(){
         $this->db = static::getDB();
         $this->_collection = $this->db->orders;
@@ -83,6 +85,18 @@ class Order extends \Core\Model {
 
     public function delete(){
         return $this->_collection->deleteOne(array('_id' => ObjectController::ObjectId($this->id)));
+    }
+
+    public function push_tinhtrang($id_sanpham){
+      $query = array('$push' => array('sanpham.$.trinhtrang' => array($this->tinhtrang)));
+      $condition = array('_id' => ObjectController::ObjectId($this->id), 'sanpham._id' => ObjectController::ObjectId($id_sanpham));
+      return $this->_collection->updateOne($condition, $query);
+    }
+
+    public function pull_tinhtrang($id_sanpham, $id_tinhtrang){
+      $query = array('$pull' => array('sanpham.tinhtrang._id' => ObjectController::ObjectId($id_tinhtrang)));
+      $condition = array('_id' => ObjectController::ObjectId($this->id), 'sanpham._id' => ObjectController::ObjectId($id_sanpham), 'sanpham.tinhtrang._id' => ObjectController::ObjectId($id_tinhtrang));
+      return $this->_collection->updateOne($condition, $query);
     }
 }
 ?>

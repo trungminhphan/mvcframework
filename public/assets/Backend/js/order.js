@@ -27,12 +27,14 @@ function add_tinhtrang(){
     var _id = $(this).attr("name");
     var noidung = $("#noidung_"+_id).val();
     var id_tinhtrang = $("#id_tinhtrang_"+_id).val();
-    $.get('/get/tinhtrang/add?noidung='+noidung+"&id_tinhtrang="+id_tinhtrang, function(data){
+    var id_sanpham = $("#id_"+_id).val();
+    var id = $("#id").val();
+    $.get('/get/tinhtrang/add?id='+id+'&id_sanpham='+id_sanpham+'&noidung='+noidung+"&id_tinhtrang="+id_tinhtrang, function(data){
         //$("#"+_id).append('<li><i class="ti-alarm-clock"></i> 1111111</li>');
         if(data == 'NO'){
           alert('Vui lòng thêm nội dung');
         } else {
-          $("#"+_id).append(data);
+          $("#"+_id).append(data);delete_tinhtrang();
         }
     });
   });

@@ -38,7 +38,7 @@ class __TwigTemplate_63f02e01679e7c7a491e94adfda79ed0f2ff76d31e338ef5b4a96afbad2
         // line 5
         echo "    <div class=\"row page-titles\">
         <div class=\"col-md-12 align-self-center\">
-            <h3 class=\"text-themecolor\"><a href=\"/don-vi-tien-te/add\" class=\"btn btn-info\"><i class=\"mdi mdi-folder-plus\"></i></a> Danh sách đơn hàng</h3>
+            <h3 class=\"text-themecolor\"><a href=\"/don-hang/add\" class=\"btn btn-info\"><i class=\"mdi mdi-folder-plus\"></i></a> Danh sách đơn hàng</h3>
         </div>
         <div>
             <a href=\"#top\" class=\"right-side-toggle waves-effect top waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10\"><i class=\"ti-arrow-circle-up text-white\"></i></a>
@@ -50,62 +50,76 @@ class __TwigTemplate_63f02e01679e7c7a491e94adfda79ed0f2ff76d31e338ef5b4a96afbad2
                 <div class=\"card\">
                     <div class=\"card-body\">
                        <div class=\"table-responsive\">
-                                    <table class=\"table\">
-                                        <thead>
-                                            <tr>
-                                                <th>Invoice</th>
-                                                <th>User</th>
-                                                <th>Date</th>
-                                                <th>Amount</th>
-                                                <th>Status</th>
-                                                <th>Country</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><a href=\"javascript:void(0)\">Order #26589</a></td>
-                                                <td>Herman Beck</td>
-                                                <td><span class=\"text-muted\"><i class=\"fa fa-clock-o\"></i> Oct 16, 2017</span> </td>
-                                                <td>\$45.00</td>
-                                                <td>
-                                                    <div class=\"label label-table label-success\">Paid</div>
-                                                </td>
-                                                <td>EN</td>
-                                            </tr>
-                                            <tr>
-                                                <td><a href=\"javascript:void(0)\">Order #58746</a></td>
-                                                <td>Mary Adams</td>
-                                                <td><span class=\"text-muted\"><i class=\"fa fa-clock-o\"></i> Oct 12, 2017</span> </td>
-                                                <td>\$245.30</td>
-                                                <td>
-                                                    <div class=\"label label-table label-danger\">Shipped</div>
-                                                </td>
-                                                <td>CN</td>
-                                            </tr>
-                                            <tr>
-                                                <td><a href=\"javascript:void(0)\">Order #98458</a></td>
-                                                <td>Caleb Richards</td>
-                                                <td><span class=\"text-muted\"><i class=\"fa fa-clock-o\"></i> May 18, 2017</span> </td>
-                                                <td>\$38.00</td>
-                                                <td>
-                                                    <div class=\"label label-table label-info\">Shipped</div>
-                                                </td>
-                                                <td>AU</td>
-                                            </tr>
-                                            <tr>
-                                                <td><a href=\"javascript:void(0)\">Order #32658</a></td>
-                                                <td>June Lane</td>
-                                                <td><span class=\"text-muted\"><i class=\"fa fa-clock-o\"></i> Apr 28, 2017</span> </td>
-                                                <td>\$77.99</td>
-                                                <td>
-                                                    <div class=\"label label-table label-success\">Paid</div>
-                                                </td>
-                                                <td>FR</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
+                          <table class=\"table\">
+                              <thead>
+                                  <tr>
+                                      <th>Mã đơn hàng</th>
+                                      <th>Khách hàng</th>
+                                      <th>Ngày mua</th>
+                                      <th>Tổng đơn hàng</th>
+                                      <th><i class=\"mdi mdi-printer\"></i></th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                              ";
+        // line 30
+        if (($context["orders"] ?? null)) {
+            // line 31
+            echo "                              ";
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable(($context["orders"] ?? null));
+            foreach ($context['_seq'] as $context["_key"] => $context["order"]) {
+                // line 32
+                echo "                                ";
+                $context["tongthanhtien"] = 0;
+                // line 33
+                echo "                                ";
+                $context['_parent'] = $context;
+                $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->getSourceContext(), $context["order"], "sanpham", array()));
+                foreach ($context['_seq'] as $context["_key"] => $context["sp"]) {
+                    // line 34
+                    echo "                                  ";
+                    $context["tongthanhtien"] = (($context["tongthanhtien"] ?? null) + twig_get_attribute($this->env, $this->getSourceContext(), $context["sp"], "thanhtien", array()));
+                    // line 35
+                    echo "                                ";
+                }
+                $_parent = $context['_parent'];
+                unset($context['_seq'], $context['_iterated'], $context['_key'], $context['sp'], $context['_parent'], $context['loop']);
+                $context = array_intersect_key($context, $_parent) + $_parent;
+                // line 36
+                echo "                                  <tr>
+                                      <td><a href=\"/don-hang/detail?id=";
+                // line 37
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["order"], "_id", array()), "html", null, true);
+                echo "\">";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["order"], "madonhang", array()), "html", null, true);
+                echo "</a></td>
+                                      <td>";
+                // line 38
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["order"], "hoten", array()), "html", null, true);
+                echo "</td>
+                                      <td><span class=\"text-muted\">";
+                // line 39
+                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), ($context["oder"] ?? null), "createAt", array()), "sec", array()), "d/m/Y H:i"), "html", null, true);
+                echo "</span> </td>
+                                      <td class=\"text-right\">";
+                // line 40
+                echo twig_escape_filter($this->env, ($context["tongthanhtien"] ?? null), "html", null, true);
+                echo "</td>
+                                      <td><a href=\"/don-hang/print\"><i class=\"mdi mdi-printer\"></i></a></td>
+                                  </tr>
+                                ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['order'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 44
+            echo "                                ";
+        }
+        // line 45
+        echo "                              </tbody>
+                          </table>
+                      </div>
                     </div>
                 </div>
             </div>
@@ -114,10 +128,10 @@ class __TwigTemplate_63f02e01679e7c7a491e94adfda79ed0f2ff76d31e338ef5b4a96afbad2
 ";
     }
 
-    // line 82
+    // line 55
     public function block_js($context, array $blocks = array())
     {
-        // line 83
+        // line 56
         echo "    <script type=\"text/javascript\">
          \$(document).ready(function() {
             \$('.top').click(function(){
@@ -143,7 +157,7 @@ class __TwigTemplate_63f02e01679e7c7a491e94adfda79ed0f2ff76d31e338ef5b4a96afbad2
 
     public function getDebugInfo()
     {
-        return array (  121 => 83,  118 => 82,  39 => 5,  36 => 4,  30 => 3,  11 => 1,);
+        return array (  135 => 56,  132 => 55,  120 => 45,  117 => 44,  107 => 40,  103 => 39,  99 => 38,  93 => 37,  90 => 36,  84 => 35,  81 => 34,  76 => 33,  73 => 32,  68 => 31,  66 => 30,  39 => 5,  36 => 4,  30 => 3,  11 => 1,);
     }
 
     public function getSourceContext()
@@ -154,7 +168,7 @@ class __TwigTemplate_63f02e01679e7c7a491e94adfda79ed0f2ff76d31e338ef5b4a96afbad2
 {% block body %}
     <div class=\"row page-titles\">
         <div class=\"col-md-12 align-self-center\">
-            <h3 class=\"text-themecolor\"><a href=\"/don-vi-tien-te/add\" class=\"btn btn-info\"><i class=\"mdi mdi-folder-plus\"></i></a> Danh sách đơn hàng</h3>
+            <h3 class=\"text-themecolor\"><a href=\"/don-hang/add\" class=\"btn btn-info\"><i class=\"mdi mdi-folder-plus\"></i></a> Danh sách đơn hàng</h3>
         </div>
         <div>
             <a href=\"#top\" class=\"right-side-toggle waves-effect top waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10\"><i class=\"ti-arrow-circle-up text-white\"></i></a>
@@ -166,62 +180,35 @@ class __TwigTemplate_63f02e01679e7c7a491e94adfda79ed0f2ff76d31e338ef5b4a96afbad2
                 <div class=\"card\">
                     <div class=\"card-body\">
                        <div class=\"table-responsive\">
-                                    <table class=\"table\">
-                                        <thead>
-                                            <tr>
-                                                <th>Invoice</th>
-                                                <th>User</th>
-                                                <th>Date</th>
-                                                <th>Amount</th>
-                                                <th>Status</th>
-                                                <th>Country</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><a href=\"javascript:void(0)\">Order #26589</a></td>
-                                                <td>Herman Beck</td>
-                                                <td><span class=\"text-muted\"><i class=\"fa fa-clock-o\"></i> Oct 16, 2017</span> </td>
-                                                <td>\$45.00</td>
-                                                <td>
-                                                    <div class=\"label label-table label-success\">Paid</div>
-                                                </td>
-                                                <td>EN</td>
-                                            </tr>
-                                            <tr>
-                                                <td><a href=\"javascript:void(0)\">Order #58746</a></td>
-                                                <td>Mary Adams</td>
-                                                <td><span class=\"text-muted\"><i class=\"fa fa-clock-o\"></i> Oct 12, 2017</span> </td>
-                                                <td>\$245.30</td>
-                                                <td>
-                                                    <div class=\"label label-table label-danger\">Shipped</div>
-                                                </td>
-                                                <td>CN</td>
-                                            </tr>
-                                            <tr>
-                                                <td><a href=\"javascript:void(0)\">Order #98458</a></td>
-                                                <td>Caleb Richards</td>
-                                                <td><span class=\"text-muted\"><i class=\"fa fa-clock-o\"></i> May 18, 2017</span> </td>
-                                                <td>\$38.00</td>
-                                                <td>
-                                                    <div class=\"label label-table label-info\">Shipped</div>
-                                                </td>
-                                                <td>AU</td>
-                                            </tr>
-                                            <tr>
-                                                <td><a href=\"javascript:void(0)\">Order #32658</a></td>
-                                                <td>June Lane</td>
-                                                <td><span class=\"text-muted\"><i class=\"fa fa-clock-o\"></i> Apr 28, 2017</span> </td>
-                                                <td>\$77.99</td>
-                                                <td>
-                                                    <div class=\"label label-table label-success\">Paid</div>
-                                                </td>
-                                                <td>FR</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
+                          <table class=\"table\">
+                              <thead>
+                                  <tr>
+                                      <th>Mã đơn hàng</th>
+                                      <th>Khách hàng</th>
+                                      <th>Ngày mua</th>
+                                      <th>Tổng đơn hàng</th>
+                                      <th><i class=\"mdi mdi-printer\"></i></th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                              {% if orders %}
+                              {% for order in orders %}
+                                {% set tongthanhtien = 0 %}
+                                {% for sp in order.sanpham %}
+                                  {% set tongthanhtien = tongthanhtien + sp.thanhtien %}
+                                {% endfor %}
+                                  <tr>
+                                      <td><a href=\"/don-hang/detail?id={{order._id}}\">{{order.madonhang}}</a></td>
+                                      <td>{{order.hoten}}</td>
+                                      <td><span class=\"text-muted\">{{oder.createAt.sec|date(\"d/m/Y H:i\")}}</span> </td>
+                                      <td class=\"text-right\">{{tongthanhtien}}</td>
+                                      <td><a href=\"/don-hang/print\"><i class=\"mdi mdi-printer\"></i></a></td>
+                                  </tr>
+                                {% endfor %}
+                                {% endif %}
+                              </tbody>
+                          </table>
+                      </div>
                     </div>
                 </div>
             </div>
@@ -241,7 +228,6 @@ class __TwigTemplate_63f02e01679e7c7a491e94adfda79ed0f2ff76d31e338ef5b4a96afbad2
         });
     </script>
 {% endblock %}
-
 ", "Backend/Order/list.html.twig", "C:\\wamp64\\www\\mvcframework\\App\\Views\\Backend\\Order\\list.html.twig");
     }
 }
