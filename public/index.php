@@ -79,10 +79,10 @@ $router->add('don-hang/update', ['controller' => 'OrderController', 'action' => 
 $router->add('don-hang/delete', ['controller' => 'OrderController', 'action' => 'delete']);
 $router->add('don-hang/tinh-trang/delete', ['controller' => 'OrderController', 'action' => 'deleteStatus']);
 
-$router->add('tong-quan-van-chuyen', ['controller' => 'DeliveryController', 'action' => 'index']);
-$router->add('van-chuyen', ['controller' => 'DeliveryController', 'action' => 'index']);
-$router->add('quan-ly-thu-ho', ['controller' => 'DeliveryController', 'action' => 'index']);
-$router->add('cau-hinh-van-chuyen', ['controller' => 'DeliveryController', 'action' => 'index']);
+$router->add('tong-quan-van-chuyen', ['controller' => 'OrderController', 'action' => 'index']);
+$router->add('van-chuyen', ['controller' => 'OrderController', 'action' => 'index']);
+$router->add('quan-ly-thu-ho', ['controller' => 'OrderController', 'action' => 'index']);
+$router->add('cau-hinh-van-chuyen', ['controller' => 'OrderController', 'action' => 'index']);
 
 $router->add('san-pham', ['controller' => 'ProductController', 'action' => 'index']);
 $router->add('san-pham/add', ['controller' => 'ProductController', 'action' => 'add']);
@@ -93,8 +93,13 @@ $router->add('san-pham/delete', ['controller' => 'ProductController', 'action' =
 $router->add('san-pham-ton-kho', ['controller' => 'ProductController', 'action' => 'index']);
 
 $router->add('khach-hang', ['controller' => 'CustomerController', 'action' => 'index']);
-$router->add('bao-cao', ['controller' => 'ReportController', 'action' => 'index']);
+$router->add('khach-hang/add', ['controller' => 'CustomerController', 'action' => 'add']);
+$router->add('khach-hang/create', ['controller' => 'CustomerController', 'action' => 'create']);
+$router->add('khach-hang/edit', ['controller' => 'CustomerController', 'action' => 'edit']);
+$router->add('khach-hang/update', ['controller' => 'CustomerController', 'action' => 'update']);
+$router->add('khach-hang/delete', ['controller' => 'CustomerController', 'action' => 'delete']);
 
+$router->add('bao-cao', ['controller' => 'ReportController', 'action' => 'index']);
 $router->add('khuyen-mai', ['controller' => 'PromotionController', 'action' => 'index']);
 #GET - POST
 $router->add('image/uploads', ['controller' => 'ImagesController', 'action' => 'uploads']);

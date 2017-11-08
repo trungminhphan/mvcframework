@@ -58,8 +58,8 @@
                                         <td class="text-center">{{key+1}}</td>
                                         <td>{{sp.tensanpham}} {{sp.tenthuoctinh}}</td>
                                         <td class="text-right">{{sp.soluong}}</td>
-                                        <td class="text-right">{{sp.giaban}}</td>
-                                        <td class="text-right">{{sp.thanhtien}}</td>
+                                        <td class="text-right">{{sp.giaban|number_format(2, ',', '.')}}</td>
+                                        <td class="text-right">{{sp.thanhtien|number_format(2, ',', '.')}}</td>
                                     </tr>
                                   {% endfor %}
                                 {% endif %}
@@ -70,7 +70,7 @@
                     <div class="col-md-12">
                         <div class="pull-right m-t-30 text-right">
                             <hr>
-                            <h3><b>Tổng cộng :</b> {{tongthanhtien}}</h3>
+                            <h3><b>Tổng cộng :</b> {{tongthanhtien|number_format(2, ',', '.')}}</h3>
                         </div>
                         <div class="clearfix"></div>
                     </div>

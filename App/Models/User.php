@@ -66,6 +66,10 @@ class User extends \Core\Model {
         return $this->_collection->find();
     }
 
+    public function getAllCondition($condition){
+      return $this->_collection->find($condition);
+    }
+
     public function getOne(){
         $query = array('_id' => ObjectController::ObjectId($this->id));
         return $this->_collection->findOne($query);
@@ -98,7 +102,7 @@ class User extends \Core\Model {
     public static function isDelivery(){
       return in_array('Delivery', $_SESSION['roles']);
     }
-    
+
     public static function Username(){
       return $_SESSION['username'];
     }

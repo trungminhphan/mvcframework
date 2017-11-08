@@ -22,7 +22,7 @@
                                       <th>Mã đơn hàng</th>
                                       <th>Khách hàng</th>
                                       <th>Ngày mua</th>
-                                      <th>Tổng đơn hàng</th>
+                                      <th class="text-right">Tổng đơn hàng</th>
                                       <th><i class="mdi mdi-printer"></i></th>
                                   </tr>
                               </thead>
@@ -37,7 +37,7 @@
                                       <td><a href="/don-hang/detail?id={{order._id}}">{{order.madonhang}}</a></td>
                                       <td>{{order.hoten}}</td>
                                       <td><span class="text-muted">{{oder.createAt.sec|date("d/m/Y H:i")}}</span> </td>
-                                      <td class="text-right">{{tongthanhtien}}</td>
+                                      <td class="text-right">{{tongthanhtien|number_format(2, ',', '.')}}</td>
                                       <td><a href="/don-hang/print?id={{order._id}}"><i class="mdi mdi-printer"></i></a></td>
                                   </tr>
                                 {% endfor %}

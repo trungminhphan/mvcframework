@@ -63,7 +63,7 @@ class UserController extends \Core\Controller {
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         $condition = array('_id' => ObjectController::ObjectId($id));
         $_POST['password'] = md5($_POST['password']);
-        if($_POST['status']) {
+        if(isset($_POST['status'])) {
             $_POST['status'] = intval($_POST['status']);
         } else {
             $_POST['status'] = 0;

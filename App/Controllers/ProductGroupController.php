@@ -18,7 +18,7 @@ class ProductGroupController extends \Core\Controller {
     private $csrf;
     public function __construct(){
         ObjectController::checkPermis(array('Admin'));
-        $this->csrf new Csrf();
+        $this->csrf = new Csrf();
     }
     /**
      * Show the index page

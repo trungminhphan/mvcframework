@@ -53,11 +53,11 @@
                                 <div class="sl-left"><img src="/uploads/images/thumb_100x100/{{sp.thumb}}" alt="" class="img-circle" /> </div>
                                 <div class="sl-right">
                                     <div>
-                                        <h3>Tên sản phẩm</h3>
+                                        <h3>{{sp.tensanpham}} {{sp.tenthuoctinh}}</h3>
                                         <div class="row p-b-10">
                                           <div class="col-md-4">Số lượng: {{sp.soluong}}</div>
-                                          <div class="col-md-4">Đơn giá: {{sp.giaban}}</div>
-                                          <div class="col-md-4">Thành tiền: {{sp.thanhtien}}</div>
+                                          <div class="col-md-4">Đơn giá: {{sp.giaban|number_format(2, ',', '.')}}</div>
+                                          <div class="col-md-4">Thành tiền: {{sp.thanhtien|number_format(2, ',', '.')}}</div>
                                           {% set tongthanhtien = tongthanhtien + sp.thanhtien %}
                                         </div>
                                         {% if sp.hinhanh %}
@@ -120,7 +120,7 @@
                     <div class="col-md-12">
                         <div class="pull-right m-t-30 text-right">
                             <hr>
-                            <h3><b>Tổng cộng :</b> {{tongthanhtien}}</h3>
+                            <h3><b>Tổng cộng :</b> {{tongthanhtien|number_format(2, ',', '.')}}</h3>
                         </div>
                         <div class="clearfix"></div>
                     </div>
