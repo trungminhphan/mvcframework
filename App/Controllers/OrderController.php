@@ -90,16 +90,26 @@ class OrderController extends \Core\Controller {
           }
           View::renderTemplate('Backend/Order/add.html.twig', ['products' => $products, 'hoten' => $hoten, 'dienthoai' => $dienthoai, 'email' => $email, 'diachi' => $diachi, 'msg' => 'Vui lòng chọn sản phẩm']);
         }
-        //$_POST['createAt'] = ObjectController::setDate();
-        //$_POST['updateAt'] = ObjectController::setDate();
-
-        //if($db->insert($_POST)){
-      //      $router->redirect('/don-hang');
-      //  }
     }
 
     public function printAction(){
-      View::renderTemplate('Backend/Order/print.html.twig');
+      $db = new Order();$product = new Product();
+      $id = isset($_GET['id']) ? $_GET['id'] : '';
+      $db->id = $id; $order = $db->getOne();
+      if($order['sanpham']){
+        foreach($order['sanpham'] as $key => $value){
+          $product->id = $value['id_sanpham'];$p = $product->getOne();
+          $order['sanpham'][$key]['hinhanh'] = $p['hinhanh'];
+          if($p['thuoctinh']){
+            foreach($p['thuoctinh'] as $tt){
+              if($tt['_id'] == $value['id_thuoctinh']){
+                $order['sanpham'][$key]['thumb'] = $tt['hinhanh'];
+              }
+            }
+          }
+        }
+      }
+      View::renderTemplate('Backend/Order/print.html.twig', ['order' => $order, 'tinhtrang' => Config::ARR_STATUS]);
     }
 
     public function detailAction(){
@@ -119,7 +129,18 @@ class OrderController extends \Core\Controller {
           }
         }
       }
-      View::renderTemplate('Backend/Order/detail.html.twig', ['order' => $order, 'tinhtrang' => Config::ARR_STATUS ]);
+      View::renderTemplate('Backend/Order/detail.html.twig', ['order' => $order, 'tinhtrang' => Config::ARR_STATUS]);
+    }
+
+    public function deleteStatusAction(){
+      $db = new order();
+      $id = isset($_GET['id']) ? $_GET['id'] : '';
+      $key = isset($_GET['key']) ? $_GET['key'] : '';
+      $id_tinhtrang = isset($_GET['id_tinhtrang']) ? $_GET['id_tinhtrang'] : '';
+      $db->id = $id;
+      if($db->pull_tinhtrang($key, $id_tinhtrang)){
+        echo 'OK';
+      } else { echo 'NO'; }
     }
 
     /*

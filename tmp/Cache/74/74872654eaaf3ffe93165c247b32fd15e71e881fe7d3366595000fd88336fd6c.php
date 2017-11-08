@@ -125,7 +125,7 @@ class __TwigTemplate_83eee93c36999b695aea8eb5b7df91a3dca98434edd16a6b9fac3921a30
             // line 50
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->getSourceContext(), ($context["order"] ?? null), "sanpham", array()));
-            foreach ($context['_seq'] as $context["_key"] => $context["sp"]) {
+            foreach ($context['_seq'] as $context["sp_key"] => $context["sp"]) {
                 // line 51
                 echo "                          <input type=\"hidden\" name=\"id_";
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["sp"], "_id", array()), "html", null, true);
@@ -198,30 +198,98 @@ class __TwigTemplate_83eee93c36999b695aea8eb5b7df91a3dca98434edd16a6b9fac3921a30
                 // line 77
                 echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), $context["sp"], "createAt", array()), "sec", array()), "d/m/Y H:i"), "html", null, true);
                 echo " <span class=\"label label-info font-weight-100\">Đặt hàng, chờ xử lý</span></li>
-                                </ul>
+                                    ";
+                // line 78
+                if (twig_get_attribute($this->env, $this->getSourceContext(), $context["sp"], "tinhtrang", array())) {
+                    // line 79
+                    echo "                                      ";
+                    $context['_parent'] = $context;
+                    $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->getSourceContext(), $context["sp"], "tinhtrang", array()));
+                    foreach ($context['_seq'] as $context["_key"] => $context["t"]) {
+                        // line 80
+                        echo "                                        ";
+                        if ((twig_get_attribute($this->env, $this->getSourceContext(), $context["t"], "id_tinhtrang", array()) == 0)) {
+                            // line 81
+                            echo "                                           ";
+                            $context["label"] = "label-warning";
+                            // line 82
+                            echo "                                          ";
+                        } elseif ((twig_get_attribute($this->env, $this->getSourceContext(), $context["t"], "id_tinhtrang", array()) == 1)) {
+                            // line 83
+                            echo "                                            ";
+                            $context["label"] = "label-info";
+                            // line 84
+                            echo "                                          ";
+                        } elseif ((twig_get_attribute($this->env, $this->getSourceContext(), $context["t"], "id_tinhtrang", array()) == 2)) {
+                            // line 85
+                            echo "                                            ";
+                            $context["label"] = "label-success";
+                            // line 86
+                            echo "                                          ";
+                        } else {
+                            // line 87
+                            echo "                                            ";
+                            $context["label"] = "label-danger";
+                            // line 88
+                            echo "                                        ";
+                        }
+                        // line 89
+                        echo "                                        <li><i class=\"ti-alarm-clock\"></i> ";
+                        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), $context["t"], "createAt", array()), "sec", array()), "d/m/Y H:i"), "html", null, true);
+                        echo " <span class=\"label ";
+                        echo twig_escape_filter($this->env, ($context["label"] ?? null), "html", null, true);
+                        echo " font-weight-100\">";
+                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["tinhtrang"] ?? null), twig_get_attribute($this->env, $this->getSourceContext(), $context["t"], "id_tinhtrang", array()), array(), "array"), "html", null, true);
+                        echo "</span> ";
+                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["t"], "noidung", array()), "html", null, true);
+                        echo " <a href=\"/don-hang/tinh-trang/delete?id=";
+                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["order"] ?? null), "_id", array()), "html", null, true);
+                        echo "&key=";
+                        echo twig_escape_filter($this->env, $context["sp_key"], "html", null, true);
+                        echo "&id_tinhtrang=";
+                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["t"], "_id", array()), "html", null, true);
+                        echo "\" onclick=\"return false;\" class=\"delete_tinhtrang\"><i class=\"mdi mdi-delete\"></i></a></li>
+                                      ";
+                    }
+                    $_parent = $context['_parent'];
+                    unset($context['_seq'], $context['_iterated'], $context['_key'], $context['t'], $context['_parent'], $context['loop']);
+                    $context = array_intersect_key($context, $_parent) + $_parent;
+                    // line 91
+                    echo "                                    ";
+                }
+                // line 92
+                echo "                                </ul>
                               </div>
                             </div>
                             <h4>Cập nhật tình trạng giao hàng</h4>
                             <div class=\"row\">
                               <div class=\"col-md-6\">
                               <div class=\"form-group\">
+                                  <input type=\"hidden\" name=\"key_";
+                // line 99
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["sp"], "_id", array()), "html", null, true);
+                echo "\" id=\"key_";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["sp"], "_id", array()), "html", null, true);
+                echo "\" value=\"";
+                echo twig_escape_filter($this->env, $context["sp_key"], "html", null, true);
+                echo "\" />
                                   <input type=\"text\" name=\"noidung\" id=\"noidung_";
-                // line 85
+                // line 100
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["sp"], "_id", array()), "html", null, true);
                 echo "\" value=\"\" class=\"form-control\" placeholder=\"Nội dung\">
                                 </div>
                               </div>
                               <div class=\"col-md-4\">
                                 <select name=\"id_tinhtrang\" id=\"id_tinhtrang_";
-                // line 89
+                // line 104
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["sp"], "_id", array()), "html", null, true);
                 echo "\" class=\"select2\" style=\"width:100%;\">
                                   ";
-                // line 90
+                // line 105
                 $context['_parent'] = $context;
                 $context['_seq'] = twig_ensure_traversable(($context["tinhtrang"] ?? null));
                 foreach ($context['_seq'] as $context["key"] => $context["tt"]) {
-                    // line 91
+                    // line 106
                     echo "                                    <option value=\"";
                     echo twig_escape_filter($this->env, $context["key"], "html", null, true);
                     echo "\">";
@@ -232,12 +300,12 @@ class __TwigTemplate_83eee93c36999b695aea8eb5b7df91a3dca98434edd16a6b9fac3921a30
                 $_parent = $context['_parent'];
                 unset($context['_seq'], $context['_iterated'], $context['key'], $context['tt'], $context['_parent'], $context['loop']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 93
+                // line 108
                 echo "                                </select>
                               </div>
                               <div class=\"col-md-2\">
                                 <a href=\"#\" class=\"btn btn-info add_tinhtrang\" name=\"";
-                // line 96
+                // line 111
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["sp"], "_id", array()), "html", null, true);
                 echo "\" onclick=\"return false;\"><i class=\"mdi mdi-pencil\"></i></a>
                               </div>
@@ -246,20 +314,20 @@ class __TwigTemplate_83eee93c36999b695aea8eb5b7df91a3dca98434edd16a6b9fac3921a30
                         ";
             }
             $_parent = $context['_parent'];
-            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['sp'], $context['_parent'], $context['loop']);
+            unset($context['_seq'], $context['_iterated'], $context['sp_key'], $context['sp'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 101
+            // line 116
             echo "                        </div>
                     </div>
                   </div>
                   ";
         }
-        // line 105
+        // line 120
         echo "                    <div class=\"col-md-12\">
                         <div class=\"pull-right m-t-30 text-right\">
                             <hr>
                             <h3><b>Tổng cộng :</b> ";
-        // line 108
+        // line 123
         echo twig_escape_filter($this->env, ($context["tongthanhtien"] ?? null), "html", null, true);
         echo "</h3>
                         </div>
@@ -272,10 +340,10 @@ class __TwigTemplate_83eee93c36999b695aea8eb5b7df91a3dca98434edd16a6b9fac3921a30
 ";
     }
 
-    // line 117
+    // line 132
     public function block_js($context, array $blocks = array())
     {
-        // line 118
+        // line 133
         echo "<script src=\"/assets/Backend/plugins/select2/dist/js/select2.full.min.js\" type=\"text/javascript\"></script>
 <script src=\"/assets/Backend/plugins/Magnific-Popup-master/dist/jquery.magnific-popup.min.js\"></script>
 <script src=\"/assets/Backend/js/order.js\" type=\"text/javascript\">
@@ -301,7 +369,7 @@ class __TwigTemplate_83eee93c36999b695aea8eb5b7df91a3dca98434edd16a6b9fac3921a30
 
     public function getDebugInfo()
     {
-        return array (  279 => 118,  276 => 117,  263 => 108,  258 => 105,  252 => 101,  241 => 96,  236 => 93,  225 => 91,  221 => 90,  217 => 89,  210 => 85,  199 => 77,  195 => 76,  187 => 70,  183 => 68,  174 => 66,  170 => 65,  167 => 64,  165 => 63,  162 => 62,  160 => 61,  156 => 60,  152 => 59,  148 => 58,  140 => 53,  130 => 51,  126 => 50,  121 => 47,  119 => 46,  112 => 42,  108 => 41,  104 => 40,  100 => 39,  96 => 38,  87 => 32,  83 => 31,  76 => 26,  74 => 25,  70 => 24,  66 => 23,  49 => 8,  46 => 7,  40 => 4,  37 => 3,  31 => 2,  11 => 1,);
+        return array (  347 => 133,  344 => 132,  331 => 123,  326 => 120,  320 => 116,  309 => 111,  304 => 108,  293 => 106,  289 => 105,  285 => 104,  278 => 100,  270 => 99,  261 => 92,  258 => 91,  237 => 89,  234 => 88,  231 => 87,  228 => 86,  225 => 85,  222 => 84,  219 => 83,  216 => 82,  213 => 81,  210 => 80,  205 => 79,  203 => 78,  199 => 77,  195 => 76,  187 => 70,  183 => 68,  174 => 66,  170 => 65,  167 => 64,  165 => 63,  162 => 62,  160 => 61,  156 => 60,  152 => 59,  148 => 58,  140 => 53,  130 => 51,  126 => 50,  121 => 47,  119 => 46,  112 => 42,  108 => 41,  104 => 40,  100 => 39,  96 => 38,  87 => 32,  83 => 31,  76 => 26,  74 => 25,  70 => 24,  66 => 23,  49 => 8,  46 => 7,  40 => 4,  37 => 3,  31 => 2,  11 => 1,);
     }
 
     public function getSourceContext()
@@ -355,7 +423,7 @@ class __TwigTemplate_83eee93c36999b695aea8eb5b7df91a3dca98434edd16a6b9fac3921a30
                     <div class=\"col-md-12\">
                       <div class=\"card-body\">
                         <div class=\"profiletimeline\">
-                          {% for sp in order.sanpham %}
+                          {% for sp_key, sp in order.sanpham %}
                           <input type=\"hidden\" name=\"id_{{sp._id}}\" id=\"id_{{sp._id}}\" value=\"{{sp._id}}\">
                             <div class=\"sl-item\">
                                 <div class=\"sl-left\"><img src=\"/uploads/images/thumb_100x100/{{sp.thumb}}\" alt=\"\" class=\"img-circle\" /> </div>
@@ -383,6 +451,20 @@ class __TwigTemplate_83eee93c36999b695aea8eb5b7df91a3dca98434edd16a6b9fac3921a30
                                 <h4 class=\"card-title\">Tình trạng giao hàng </h4>
                                 <ul class=\"list-icons\" id=\"{{sp._id}}\" style=\"padding-left:20px;font-size:14px;\">
                                     <li><i class=\"ti-alarm-clock\"></i> {{sp.createAt.sec|date(\"d/m/Y H:i\")}} <span class=\"label label-info font-weight-100\">Đặt hàng, chờ xử lý</span></li>
+                                    {% if sp.tinhtrang %}
+                                      {% for t in sp.tinhtrang %}
+                                        {% if t.id_tinhtrang == 0 %}
+                                           {% set label = 'label-warning' %}
+                                          {% elseif t.id_tinhtrang == 1 %}
+                                            {% set label = 'label-info' %}
+                                          {% elseif t.id_tinhtrang == 2 %}
+                                            {% set label = 'label-success' %}
+                                          {% else %}
+                                            {% set label = 'label-danger' %}
+                                        {% endif %}
+                                        <li><i class=\"ti-alarm-clock\"></i> {{t.createAt.sec|date(\"d/m/Y H:i\")}} <span class=\"label {{label}} font-weight-100\">{{tinhtrang[t.id_tinhtrang]}}</span> {{t.noidung}} <a href=\"/don-hang/tinh-trang/delete?id={{order._id}}&key={{sp_key}}&id_tinhtrang={{t._id}}\" onclick=\"return false;\" class=\"delete_tinhtrang\"><i class=\"mdi mdi-delete\"></i></a></li>
+                                      {% endfor %}
+                                    {% endif %}
                                 </ul>
                               </div>
                             </div>
@@ -390,6 +472,7 @@ class __TwigTemplate_83eee93c36999b695aea8eb5b7df91a3dca98434edd16a6b9fac3921a30
                             <div class=\"row\">
                               <div class=\"col-md-6\">
                               <div class=\"form-group\">
+                                  <input type=\"hidden\" name=\"key_{{sp._id}}\" id=\"key_{{sp._id}}\" value=\"{{sp_key}}\" />
                                   <input type=\"text\" name=\"noidung\" id=\"noidung_{{sp._id}}\" value=\"\" class=\"form-control\" placeholder=\"Nội dung\">
                                 </div>
                               </div>

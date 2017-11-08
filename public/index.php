@@ -77,6 +77,7 @@ $router->add('don-hang/create', ['controller' => 'OrderController', 'action' => 
 $router->add('don-hang/edit', ['controller' => 'OrderController', 'action' => 'edit']);
 $router->add('don-hang/update', ['controller' => 'OrderController', 'action' => 'update']);
 $router->add('don-hang/delete', ['controller' => 'OrderController', 'action' => 'delete']);
+$router->add('don-hang/tinh-trang/delete', ['controller' => 'OrderController', 'action' => 'deleteStatus']);
 
 $router->add('tong-quan-van-chuyen', ['controller' => 'DeliveryController', 'action' => 'index']);
 $router->add('van-chuyen', ['controller' => 'DeliveryController', 'action' => 'index']);

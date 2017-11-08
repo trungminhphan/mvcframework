@@ -47,7 +47,7 @@
                     <div class="col-md-12">
                       <div class="card-body">
                         <div class="profiletimeline">
-                          {% for sp in order.sanpham %}
+                          {% for sp_key, sp in order.sanpham %}
                           <input type="hidden" name="id_{{sp._id}}" id="id_{{sp._id}}" value="{{sp._id}}">
                             <div class="sl-item">
                                 <div class="sl-left"><img src="/uploads/images/thumb_100x100/{{sp.thumb}}" alt="" class="img-circle" /> </div>
@@ -75,6 +75,20 @@
                                 <h4 class="card-title">Tình trạng giao hàng </h4>
                                 <ul class="list-icons" id="{{sp._id}}" style="padding-left:20px;font-size:14px;">
                                     <li><i class="ti-alarm-clock"></i> {{sp.createAt.sec|date("d/m/Y H:i")}} <span class="label label-info font-weight-100">Đặt hàng, chờ xử lý</span></li>
+                                    {% if sp.tinhtrang %}
+                                      {% for t in sp.tinhtrang %}
+                                        {% if t.id_tinhtrang == 0 %}
+                                           {% set label = 'label-warning' %}
+                                          {% elseif t.id_tinhtrang == 1 %}
+                                            {% set label = 'label-info' %}
+                                          {% elseif t.id_tinhtrang == 2 %}
+                                            {% set label = 'label-success' %}
+                                          {% else %}
+                                            {% set label = 'label-danger' %}
+                                        {% endif %}
+                                        <li><i class="ti-alarm-clock"></i> {{t.createAt.sec|date("d/m/Y H:i")}} <span class="label {{label}} font-weight-100">{{tinhtrang[t.id_tinhtrang]}}</span> {{t.noidung}} <a href="/don-hang/tinh-trang/delete?id={{order._id}}&key={{sp_key}}&id_tinhtrang={{t._id}}" onclick="return false;" class="delete_tinhtrang"><i class="mdi mdi-delete"></i></a></li>
+                                      {% endfor %}
+                                    {% endif %}
                                 </ul>
                               </div>
                             </div>
@@ -82,6 +96,7 @@
                             <div class="row">
                               <div class="col-md-6">
                               <div class="form-group">
+                                  <input type="hidden" name="key_{{sp._id}}" id="key_{{sp._id}}" value="{{sp_key}}" />
                                   <input type="text" name="noidung" id="noidung_{{sp._id}}" value="" class="form-control" placeholder="Nội dung">
                                 </div>
                               </div>

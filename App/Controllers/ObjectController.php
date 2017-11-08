@@ -104,12 +104,13 @@ class ObjectController extends \Core\Controller {
       View::renderTemplate('Backend/Get/product_add.html.twig', ['product' => $p, 'soluong' => $soluong, 'k' => $k]);
     }
 
-    public function getStatusAdd(){
+    public function getStatusAddAction(){
       $id = isset($_GET['id']) ? $_GET['id'] : '';
       $id_sanpham = isset($_GET['id_sanpham']) ? $_GET['id_sanpham'] : '';
       $_id = ObjectController::Id();
       $noidung = isset($_GET['noidung']) ? $_GET['noidung'] : '';
       $id_tinhtrang = isset($_GET['id_tinhtrang']) ? $_GET['id_tinhtrang'] : 0;
+      $key = isset($_GET['key']) ? $_GET['key'] : 0;
       $createAt = ObjectController::setDate();
       $arr_tinhtrang = array(
         '_id' => $_id, 'id_tinhtrang' => intval($id_tinhtrang),
@@ -130,9 +131,8 @@ class ObjectController extends \Core\Controller {
         } else {
           $label = 'label-danger';
         }
-
       //  View::renderTemplate('Backend/Get/status_add.html.twig', ['_id' => $_id, 'noidung' => $]);
-        echo '<li><i class="ti-alarm-clock"></i> '.date("d/m/Y H:i").' <span class="label '.$label.' font-weight-100">'.Config::ARR_STATUS[$id_tinhtrang].'</span> '.$noidung.' <a href="#" onclick="return false;" class="delete_tinhtrang"><i class="mdi mdi-delete"></i></a></li>';
+        echo '<li><i class="ti-alarm-clock"></i> '.date("d/m/Y H:i").' <span class="label '.$label.' font-weight-100">'.Config::ARR_STATUS[$id_tinhtrang].'</span> '.$noidung.' <a href="/don-hang/tinh-trang/delete?id='.$id.'&id_sanpham='.$id_sanpham.'&key='.$key.'&id_tinhtrang='.$_id.'" onclick="return false;" class="delete_tinhtrang"><i class="mdi mdi-delete"></i></a></li>';
       }
     }
 }

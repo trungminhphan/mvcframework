@@ -51,18 +51,25 @@ class __TwigTemplate_754fa71cfd775023526717d03b3113e8c8ca24da7ee4faeebb25c72ce27
     <div class=\"row\">
         <div class=\"col-md-12\">
             <div class=\"card card-body printableArea\">
-                <h3><b>ĐƠN HÀNG</b> <span class=\"pull-right\">#5669626</span></h3>
+                <h3><b>ĐƠN HÀNG</b> <span class=\"pull-right\">";
+        // line 19
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["order"] ?? null), "madonhang", array()), "html", null, true);
+        echo "</span></h3>
                 <hr>
-                <div class=\"row\">
+                ";
+        // line 21
+        $context["tongthanhtien"] = 0;
+        // line 22
+        echo "                <div class=\"row\">
                     <div class=\"col-md-12\">
                         <div class=\"pull-left\">
                             <address>
                                 <h3> &nbsp;<b class=\"text-danger\">";
-        // line 25
+        // line 26
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["session"] ?? null), "fullname", array()), "html", null, true);
         echo "</b></h3>
                                 <p class=\"text-muted m-l-5\">";
-        // line 26
+        // line 27
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["session"] ?? null), "username", array()), "html", null, true);
         echo "</p>
                             </address>
@@ -70,11 +77,26 @@ class __TwigTemplate_754fa71cfd775023526717d03b3113e8c8ca24da7ee4faeebb25c72ce27
                         <div class=\"pull-right text-right\">
                             <address>
                                 <h3>Thông tin khách hàng,</h3>
-                                <h4 class=\"font-bold\">Phan Minh Trung,</h4>
-                                <p class=\"text-muted m-l-30\">Điện thoại: 0985.954347,
-                                    <br/> Email: trungminhphan@gmail.com,
-                                    <br/> Địa chỉ: 60 Lưu Hữu Phước, Tp. Long Xuyên, An Giang</p>
-                                <p class=\"m-t-30\"><b>Ngày mua :</b> <i class=\"fa fa-calendar\"></i> 06/11/2017 10:30</p>
+                                <h4 class=\"font-bold\">";
+        // line 33
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["order"] ?? null), "hoten", array()), "html", null, true);
+        echo ",</h4>
+                                <p class=\"text-muted m-l-30\">Điện thoại: ";
+        // line 34
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["order"] ?? null), "dienthoai", array()), "html", null, true);
+        echo ",
+                                    <br/> Email: ";
+        // line 35
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["order"] ?? null), "email", array()), "html", null, true);
+        echo ",
+                                    <br/> Địa chỉ: ";
+        // line 36
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["order"] ?? null), "diachi", array()), "html", null, true);
+        echo "</p>
+                                <p class=\"m-t-30\"><b>Ngày mua :</b> <i class=\"fa fa-calendar\"></i> ";
+        // line 37
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), ($context["order"] ?? null), "createAt", array()), "sec", array()), "d/m/Y H:i"), "html", null, true);
+        echo "</p>
                             </address>
                         </div>
                     </div>
@@ -91,42 +113,62 @@ class __TwigTemplate_754fa71cfd775023526717d03b3113e8c8ca24da7ee4faeebb25c72ce27
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class=\"text-center\">1</td>
-                                        <td>Milk Powder</td>
-                                        <td class=\"text-right\">2 </td>
-                                        <td class=\"text-right\"> \$24 </td>
-                                        <td class=\"text-right\"> \$48 </td>
+                                ";
+        // line 54
+        if (twig_get_attribute($this->env, $this->getSourceContext(), ($context["order"] ?? null), "sanpham", array())) {
+            // line 55
+            echo "                                ";
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->getSourceContext(), ($context["order"] ?? null), "sanpham", array()));
+            foreach ($context['_seq'] as $context["key"] => $context["sp"]) {
+                // line 56
+                echo "                                ";
+                $context["tongthanhtien"] = (($context["tongthanhtien"] ?? null) + twig_get_attribute($this->env, $this->getSourceContext(), $context["sp"], "thanhtien", array()));
+                // line 57
+                echo "                                    <tr>
+                                        <td class=\"text-center\">";
+                // line 58
+                echo twig_escape_filter($this->env, ($context["key"] + 1), "html", null, true);
+                echo "</td>
+                                        <td>";
+                // line 59
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["sp"], "tensanpham", array()), "html", null, true);
+                echo " ";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["sp"], "tenthuoctinh", array()), "html", null, true);
+                echo "</td>
+                                        <td class=\"text-right\">";
+                // line 60
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["sp"], "soluong", array()), "html", null, true);
+                echo "</td>
+                                        <td class=\"text-right\">";
+                // line 61
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["sp"], "giaban", array()), "html", null, true);
+                echo "</td>
+                                        <td class=\"text-right\">";
+                // line 62
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["sp"], "thanhtien", array()), "html", null, true);
+                echo "</td>
                                     </tr>
-                                    <tr>
-                                        <td class=\"text-center\">2</td>
-                                        <td>Air Conditioner</td>
-                                        <td class=\"text-right\"> 3 </td>
-                                        <td class=\"text-right\"> \$500 </td>
-                                        <td class=\"text-right\"> \$1500 </td>
-                                    </tr>
-                                    <tr>
-                                        <td class=\"text-center\">3</td>
-                                        <td>RC Cars</td>
-                                        <td class=\"text-right\"> 20 </td>
-                                        <td class=\"text-right\"> %600 </td>
-                                        <td class=\"text-right\"> \$12000 </td>
-                                    </tr>
-                                    <tr>
-                                        <td class=\"text-center\">4</td>
-                                        <td>Down Coat</td>
-                                        <td class=\"text-right\"> 60 </td>
-                                        <td class=\"text-right\">\$5 </td>
-                                        <td class=\"text-right\"> \$300 </td>
-                                    </tr>
-                                </tbody>
+                                  ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['key'], $context['sp'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 65
+            echo "                                ";
+        }
+        // line 66
+        echo "                                </tbody>
                             </table>
                         </div>
                     </div>
                     <div class=\"col-md-12\">
                         <div class=\"pull-right m-t-30 text-right\">
                             <hr>
-                            <h3><b>Tổng cộng :</b> \$13,986</h3>
+                            <h3><b>Tổng cộng :</b> ";
+        // line 73
+        echo twig_escape_filter($this->env, ($context["tongthanhtien"] ?? null), "html", null, true);
+        echo "</h3>
                         </div>
                         <div class=\"clearfix\"></div>
                     </div>
@@ -140,10 +182,10 @@ class __TwigTemplate_754fa71cfd775023526717d03b3113e8c8ca24da7ee4faeebb25c72ce27
 ";
     }
 
-    // line 100
+    // line 85
     public function block_js($context, array $blocks = array())
     {
-        // line 101
+        // line 86
         echo "<script src=\"/assets/Backend/js/jquery.PrintArea.js\" type=\"text/JavaScript\"></script>
     <script>
     \$(document).ready(function() {
@@ -174,7 +216,7 @@ class __TwigTemplate_754fa71cfd775023526717d03b3113e8c8ca24da7ee4faeebb25c72ce27
 
     public function getDebugInfo()
     {
-        return array (  147 => 101,  144 => 100,  66 => 26,  62 => 25,  39 => 4,  36 => 3,  30 => 2,  11 => 1,);
+        return array (  189 => 86,  186 => 85,  170 => 73,  161 => 66,  158 => 65,  149 => 62,  145 => 61,  141 => 60,  135 => 59,  131 => 58,  128 => 57,  125 => 56,  120 => 55,  118 => 54,  98 => 37,  94 => 36,  90 => 35,  86 => 34,  82 => 33,  73 => 27,  69 => 26,  63 => 22,  61 => 21,  56 => 19,  39 => 4,  36 => 3,  30 => 2,  11 => 1,);
     }
 
     public function getSourceContext()
@@ -197,8 +239,9 @@ class __TwigTemplate_754fa71cfd775023526717d03b3113e8c8ca24da7ee4faeebb25c72ce27
     <div class=\"row\">
         <div class=\"col-md-12\">
             <div class=\"card card-body printableArea\">
-                <h3><b>ĐƠN HÀNG</b> <span class=\"pull-right\">#5669626</span></h3>
+                <h3><b>ĐƠN HÀNG</b> <span class=\"pull-right\">{{order.madonhang}}</span></h3>
                 <hr>
+                {% set tongthanhtien = 0 %}
                 <div class=\"row\">
                     <div class=\"col-md-12\">
                         <div class=\"pull-left\">
@@ -210,11 +253,11 @@ class __TwigTemplate_754fa71cfd775023526717d03b3113e8c8ca24da7ee4faeebb25c72ce27
                         <div class=\"pull-right text-right\">
                             <address>
                                 <h3>Thông tin khách hàng,</h3>
-                                <h4 class=\"font-bold\">Phan Minh Trung,</h4>
-                                <p class=\"text-muted m-l-30\">Điện thoại: 0985.954347,
-                                    <br/> Email: trungminhphan@gmail.com,
-                                    <br/> Địa chỉ: 60 Lưu Hữu Phước, Tp. Long Xuyên, An Giang</p>
-                                <p class=\"m-t-30\"><b>Ngày mua :</b> <i class=\"fa fa-calendar\"></i> 06/11/2017 10:30</p>
+                                <h4 class=\"font-bold\">{{order.hoten}},</h4>
+                                <p class=\"text-muted m-l-30\">Điện thoại: {{order.dienthoai}},
+                                    <br/> Email: {{order.email}},
+                                    <br/> Địa chỉ: {{order.diachi}}</p>
+                                <p class=\"m-t-30\"><b>Ngày mua :</b> <i class=\"fa fa-calendar\"></i> {{order.createAt.sec|date(\"d/m/Y H:i\")}}</p>
                             </address>
                         </div>
                     </div>
@@ -231,34 +274,18 @@ class __TwigTemplate_754fa71cfd775023526717d03b3113e8c8ca24da7ee4faeebb25c72ce27
                                     </tr>
                                 </thead>
                                 <tbody>
+                                {% if order.sanpham %}
+                                {% for key, sp in order.sanpham %}
+                                {% set tongthanhtien = tongthanhtien + sp.thanhtien %}
                                     <tr>
-                                        <td class=\"text-center\">1</td>
-                                        <td>Milk Powder</td>
-                                        <td class=\"text-right\">2 </td>
-                                        <td class=\"text-right\"> \$24 </td>
-                                        <td class=\"text-right\"> \$48 </td>
+                                        <td class=\"text-center\">{{key+1}}</td>
+                                        <td>{{sp.tensanpham}} {{sp.tenthuoctinh}}</td>
+                                        <td class=\"text-right\">{{sp.soluong}}</td>
+                                        <td class=\"text-right\">{{sp.giaban}}</td>
+                                        <td class=\"text-right\">{{sp.thanhtien}}</td>
                                     </tr>
-                                    <tr>
-                                        <td class=\"text-center\">2</td>
-                                        <td>Air Conditioner</td>
-                                        <td class=\"text-right\"> 3 </td>
-                                        <td class=\"text-right\"> \$500 </td>
-                                        <td class=\"text-right\"> \$1500 </td>
-                                    </tr>
-                                    <tr>
-                                        <td class=\"text-center\">3</td>
-                                        <td>RC Cars</td>
-                                        <td class=\"text-right\"> 20 </td>
-                                        <td class=\"text-right\"> %600 </td>
-                                        <td class=\"text-right\"> \$12000 </td>
-                                    </tr>
-                                    <tr>
-                                        <td class=\"text-center\">4</td>
-                                        <td>Down Coat</td>
-                                        <td class=\"text-right\"> 60 </td>
-                                        <td class=\"text-right\">\$5 </td>
-                                        <td class=\"text-right\"> \$300 </td>
-                                    </tr>
+                                  {% endfor %}
+                                {% endif %}
                                 </tbody>
                             </table>
                         </div>
@@ -266,7 +293,7 @@ class __TwigTemplate_754fa71cfd775023526717d03b3113e8c8ca24da7ee4faeebb25c72ce27
                     <div class=\"col-md-12\">
                         <div class=\"pull-right m-t-30 text-right\">
                             <hr>
-                            <h3><b>Tổng cộng :</b> \$13,986</h3>
+                            <h3><b>Tổng cộng :</b> {{tongthanhtien}}</h3>
                         </div>
                         <div class=\"clearfix\"></div>
                     </div>

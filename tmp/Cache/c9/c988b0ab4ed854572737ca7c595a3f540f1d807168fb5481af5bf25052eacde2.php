@@ -106,7 +106,10 @@ class __TwigTemplate_63f02e01679e7c7a491e94adfda79ed0f2ff76d31e338ef5b4a96afbad2
                 // line 40
                 echo twig_escape_filter($this->env, ($context["tongthanhtien"] ?? null), "html", null, true);
                 echo "</td>
-                                      <td><a href=\"/don-hang/print\"><i class=\"mdi mdi-printer\"></i></a></td>
+                                      <td><a href=\"/don-hang/print?id=";
+                // line 41
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["order"], "_id", array()), "html", null, true);
+                echo "\"><i class=\"mdi mdi-printer\"></i></a></td>
                                   </tr>
                                 ";
             }
@@ -157,7 +160,7 @@ class __TwigTemplate_63f02e01679e7c7a491e94adfda79ed0f2ff76d31e338ef5b4a96afbad2
 
     public function getDebugInfo()
     {
-        return array (  135 => 56,  132 => 55,  120 => 45,  117 => 44,  107 => 40,  103 => 39,  99 => 38,  93 => 37,  90 => 36,  84 => 35,  81 => 34,  76 => 33,  73 => 32,  68 => 31,  66 => 30,  39 => 5,  36 => 4,  30 => 3,  11 => 1,);
+        return array (  138 => 56,  135 => 55,  123 => 45,  120 => 44,  111 => 41,  107 => 40,  103 => 39,  99 => 38,  93 => 37,  90 => 36,  84 => 35,  81 => 34,  76 => 33,  73 => 32,  68 => 31,  66 => 30,  39 => 5,  36 => 4,  30 => 3,  11 => 1,);
     }
 
     public function getSourceContext()
@@ -202,7 +205,7 @@ class __TwigTemplate_63f02e01679e7c7a491e94adfda79ed0f2ff76d31e338ef5b4a96afbad2
                                       <td>{{order.hoten}}</td>
                                       <td><span class=\"text-muted\">{{oder.createAt.sec|date(\"d/m/Y H:i\")}}</span> </td>
                                       <td class=\"text-right\">{{tongthanhtien}}</td>
-                                      <td><a href=\"/don-hang/print\"><i class=\"mdi mdi-printer\"></i></a></td>
+                                      <td><a href=\"/don-hang/print?id={{order._id}}\"><i class=\"mdi mdi-printer\"></i></a></td>
                                   </tr>
                                 {% endfor %}
                                 {% endif %}

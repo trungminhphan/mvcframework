@@ -88,14 +88,14 @@ class Order extends \Core\Model {
     }
 
     public function push_tinhtrang($id_sanpham){
-      $query = array('$push' => array('sanpham.$.trinhtrang' => array($this->tinhtrang)));
+      $query = array('$push' => array('sanpham.$.tinhtrang' => $this->tinhtrang));
       $condition = array('_id' => ObjectController::ObjectId($this->id), 'sanpham._id' => ObjectController::ObjectId($id_sanpham));
       return $this->_collection->updateOne($condition, $query);
     }
 
-    public function pull_tinhtrang($id_sanpham, $id_tinhtrang){
-      $query = array('$pull' => array('sanpham.tinhtrang._id' => ObjectController::ObjectId($id_tinhtrang)));
-      $condition = array('_id' => ObjectController::ObjectId($this->id), 'sanpham._id' => ObjectController::ObjectId($id_sanpham), 'sanpham.tinhtrang._id' => ObjectController::ObjectId($id_tinhtrang));
+    public function pull_tinhtrang($key, $id_tinhtrang){
+      $query = array('$pull' => array('sanpham.'.$key.'.tinhtrang' => array('_id' => ObjectController::ObjectId($id_tinhtrang))));
+      $condition = array('_id' => ObjectController::ObjectId($this->id));
       return $this->_collection->updateOne($condition, $query);
     }
 }

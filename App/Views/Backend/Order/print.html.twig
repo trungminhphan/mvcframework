@@ -16,8 +16,9 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card card-body printableArea">
-                <h3><b>ĐƠN HÀNG</b> <span class="pull-right">#5669626</span></h3>
+                <h3><b>ĐƠN HÀNG</b> <span class="pull-right">{{order.madonhang}}</span></h3>
                 <hr>
+                {% set tongthanhtien = 0 %}
                 <div class="row">
                     <div class="col-md-12">
                         <div class="pull-left">
@@ -29,11 +30,11 @@
                         <div class="pull-right text-right">
                             <address>
                                 <h3>Thông tin khách hàng,</h3>
-                                <h4 class="font-bold">Phan Minh Trung,</h4>
-                                <p class="text-muted m-l-30">Điện thoại: 0985.954347,
-                                    <br/> Email: trungminhphan@gmail.com,
-                                    <br/> Địa chỉ: 60 Lưu Hữu Phước, Tp. Long Xuyên, An Giang</p>
-                                <p class="m-t-30"><b>Ngày mua :</b> <i class="fa fa-calendar"></i> 06/11/2017 10:30</p>
+                                <h4 class="font-bold">{{order.hoten}},</h4>
+                                <p class="text-muted m-l-30">Điện thoại: {{order.dienthoai}},
+                                    <br/> Email: {{order.email}},
+                                    <br/> Địa chỉ: {{order.diachi}}</p>
+                                <p class="m-t-30"><b>Ngày mua :</b> <i class="fa fa-calendar"></i> {{order.createAt.sec|date("d/m/Y H:i")}}</p>
                             </address>
                         </div>
                     </div>
@@ -50,34 +51,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                {% if order.sanpham %}
+                                {% for key, sp in order.sanpham %}
+                                {% set tongthanhtien = tongthanhtien + sp.thanhtien %}
                                     <tr>
-                                        <td class="text-center">1</td>
-                                        <td>Milk Powder</td>
-                                        <td class="text-right">2 </td>
-                                        <td class="text-right"> $24 </td>
-                                        <td class="text-right"> $48 </td>
+                                        <td class="text-center">{{key+1}}</td>
+                                        <td>{{sp.tensanpham}} {{sp.tenthuoctinh}}</td>
+                                        <td class="text-right">{{sp.soluong}}</td>
+                                        <td class="text-right">{{sp.giaban}}</td>
+                                        <td class="text-right">{{sp.thanhtien}}</td>
                                     </tr>
-                                    <tr>
-                                        <td class="text-center">2</td>
-                                        <td>Air Conditioner</td>
-                                        <td class="text-right"> 3 </td>
-                                        <td class="text-right"> $500 </td>
-                                        <td class="text-right"> $1500 </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">3</td>
-                                        <td>RC Cars</td>
-                                        <td class="text-right"> 20 </td>
-                                        <td class="text-right"> %600 </td>
-                                        <td class="text-right"> $12000 </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">4</td>
-                                        <td>Down Coat</td>
-                                        <td class="text-right"> 60 </td>
-                                        <td class="text-right">$5 </td>
-                                        <td class="text-right"> $300 </td>
-                                    </tr>
+                                  {% endfor %}
+                                {% endif %}
                                 </tbody>
                             </table>
                         </div>
@@ -85,7 +70,7 @@
                     <div class="col-md-12">
                         <div class="pull-right m-t-30 text-right">
                             <hr>
-                            <h3><b>Tổng cộng :</b> $13,986</h3>
+                            <h3><b>Tổng cộng :</b> {{tongthanhtien}}</h3>
                         </div>
                         <div class="clearfix"></div>
                     </div>

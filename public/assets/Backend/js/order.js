@@ -29,7 +29,8 @@ function add_tinhtrang(){
     var id_tinhtrang = $("#id_tinhtrang_"+_id).val();
     var id_sanpham = $("#id_"+_id).val();
     var id = $("#id").val();
-    $.get('/get/tinhtrang/add?id='+id+'&id_sanpham='+id_sanpham+'&noidung='+noidung+"&id_tinhtrang="+id_tinhtrang, function(data){
+    var key =  $("#key_"+_id).val();
+    $.get('/get/tinhtrang/add?id='+id+'&id_sanpham='+id_sanpham+'&key='+key+'&noidung='+noidung+"&id_tinhtrang="+id_tinhtrang, function(data){
         //$("#"+_id).append('<li><i class="ti-alarm-clock"></i> 1111111</li>');
         if(data == 'NO'){
           alert('Vui lòng thêm nội dung');
@@ -42,7 +43,13 @@ function add_tinhtrang(){
 
 function delete_tinhtrang(){
   $(".delete_tinhtrang").click(function(){
-    var _this = $(this);
-    _this.parents("li").remove();
+    var _this = $(this); var _link = _this.attr("href");
+    $.get(_link, function(data){
+      if(data == 'OK'){
+        _this.parents("li").remove();
+      } else {
+        alert('Không thể xóa.');
+      }
+    });
   })
 }
